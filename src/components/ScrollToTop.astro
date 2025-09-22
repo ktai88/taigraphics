@@ -1,0 +1,29 @@
+---
+// ScrollToTop.astro
+---
+<button
+  id="scroll-top-btn"
+  class="fixed bottom-6 right-6 bg-[#0000FF] text-white p-3 rounded-full shadow-lg hover:bg-blue-500 transition-opacity duration-300 opacity-0 pointer-events-none"
+>
+  ↑
+</button>
+
+<script client:load>
+  const btn = document.getElementById('scroll-top-btn');
+
+  // Show/hide button after scrolling 100px
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      btn.classList.remove('opacity-0', 'pointer-events-none');
+      btn.classList.add('opacity-100');
+    } else {
+      btn.classList.add('opacity-0', 'pointer-events-none');
+      btn.classList.remove('opacity-100');
+    }
+  });
+
+  // Scroll to top on click
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
