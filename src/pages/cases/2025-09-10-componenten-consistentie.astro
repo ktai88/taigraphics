@@ -1,0 +1,77 @@
+---
+import "../../styles/global.css";
+import ScrollToTop from '../../components/ScrollToTop.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
+  </head>
+  <body class="font-['Inter'] bg-[#F5F5F5] border-t-8 border-[#0000FF]">
+
+<Nav />
+
+    <header class="mb-2"> 
+      <div class="max-w-[860px] mx-auto p-4">
+        <h1 class="text-4xl mb-4">Van compontenten naar coherentie en consistentie</h3></h1>
+        <p class="my-2">UX/UI, Visual Design & Branding</p>
+      </div>
+    </header>
+
+    <section class="bg-[#CEDBEF]">
+      <div class="max-w-[860px] mx-auto p-4">
+
+      <!-- Usecase Card is repeatable -->
+      <div class="grid grid-cols-[100%] md:grid-cols-[45%_55%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="overflow-hidden md:rounded-l-lg">
+          <img src="/thumb000.png" class="w-full h-full object-cover object-top object-left"/>
+        </div>
+        <div class="p-4 pr-10">
+          <p class="text-[#444] font-light text-sm my-3">UX / High Level Journey Mapping / User Research</p>
+          <p class="text-md leading-8 py-4">Een UX-visie waarin complexe astronomische processen op een begrijpelijke en intuïtieve manier worden vertaald naar mensgerichte ervaringen.</p>
+          <ul class="list-disc list-inside mt-2 text-md leading-8">
+            <li><strong>Opdrachtgever:</strong> Astron</li>
+            <li><strong>Rol:</strong> Facilitator / UX Designer</li>
+            <li><strong>Tools:</strong> Figma, Miro, Pen/Papier/Post-its</li>
+            <li><strong>Artifacts:</strong> Persona's / Story Maps / Journeys </li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Repeatable Usecase Card -->
+    </section>
+
+    <section>
+      <div class="max-w-[860px] mx-auto p-4 mt-10 pb-10">
+        <p class="text-[#444] font-light text-sm my-3">Journey Mapping / User Research / WCAG</p>
+        <h2 class="text-2xl">Helderheid als uitgangspunt</h2>
+        <p class="leading-10 mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nulla sit amet tortor pulvinar interdum ac ut dolor. Vestibulum lacinia ornare est, euismod dictum magna consectetur ac. Proin tincidunt neque tortor, nec condimentum felis ullamcorper et. Donec ut tortor libero. Maecenas nisl ligula, condimentum a tortor sed, auctor interdum neque. </p>
+      </div>
+    </section>
+
+    <section class="bg-[#CEDBEF] pt-2 pb-15">
+      <div class="max-w-[860px] mx-auto p-4 mt-10">
+        <p class="text-[#444] font-light text-sm my-3">Visie / Mapping / Research</p>
+        <h2 class="text-2xl">UX Visie Vormgeven</h2>
+        <p class="leading-10 mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nulla sit amet tortor pulvinar interdum ac ut dolor. Vestibulum lacinia ornare est, euismod dictum magna consectetur ac. Proin tincidunt neque tortor, nec condimentum felis ullamcorper et. Donec ut tortor libero. Maecenas nisl ligula, condimentum a tortor sed, auctor interdum neque. </p>
+          <ul class="list-disc list-inside mt-2 text-md leading-8">
+            <li>Competittive Analysis (SWOT)</li>
+            <li>Stakeholder Interviews</li>
+            <li>Personas + Persona Library</li>
+            <li>Story Mapping</li>
+            <li>User Journey Mapping and Blueprints (A day in the life of)</li>
+            <li>High Level Journey Mapping and Clickable prototypes</li>
+            </ul>
+          </ul>
+      </div>
+    </section>
+  
+
+    <Footer />
+
+    <ScrollToTop />
+  </body>
+</html>
