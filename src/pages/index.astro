@@ -3,22 +3,16 @@ import "../styles/global.css";
 import ScrollToTop from '../components/ScrollToTop.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import Meta from '../components/Meta.astro';
 ---
 
 <html lang="nl">
   <head>
-    <meta name="description" content="Grafisch vormgever met meer dan 10 jaar ervaring in creatieve oplossingen. Branding, Concepting & Graphic Design. Maar ook kennis over User Experience, User Interface en Front-end webdevelopment">
-    <meta name="author" content="Kevin Tai">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="TaiGraphics - Branding, Concepting & Graphic Design." />
-    <meta property="og:description" content="Grafisch vormgever met meer dan 10 jaar ervaring in creatieve oplossingen. Branding, Concepting & Graphic Design" />
-    <meta property="og:image" content="https://www.TaiGraphics.nl/og-share.png" />
+    <Meta />
     <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
   </head>
   <body class="font-['Inter'] bg-[#F5F5F5] border-t-8 border-[#0000FF]">
-
-<Nav />
-
+    <Nav />
     <header class="mb-10"> 
       <div class="max-w-[860px] mx-auto p-4">
         <h1 class="text-4xl mb-4"><span class="font-bold text-[#0000FF]">Tai</span><span class="font-light">Graphics</span></h1>
