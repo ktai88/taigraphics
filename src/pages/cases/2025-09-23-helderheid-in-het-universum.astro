@@ -15,14 +15,14 @@ import Meta from '../../components/Meta.astro';
 
 <Nav />
 
-    <header class="mb-2"> 
+    <header class="mb-2" role="banner"> 
       <div class="max-w-[960px] mx-auto p-4">
         <h1 class="text-4xl mb-4">Helderheid in het universum</h1>
         <p class="my-2">UX/UI, Journey Mapping en UX Visie</p>
       </div>
     </header>
 
-    <section class="bg-[#CEDBEF]">
+    <section class="bg-[#CEDBEF]" role="main">
       <div class="max-w-[960px] mx-auto p-4">
 
       <!-- Usecase Card is repeatable -->
@@ -44,7 +44,7 @@ import Meta from '../../components/Meta.astro';
       <!-- End Repeatable Usecase Card -->
     </section>
 
-    <section>
+    <section role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-10 pb-10">
         <p class="text-[#444] font-light text-sm my-3">Journey Mapping / User Research / WCAG</p>
         <h2 class="text-2xl">Helderheid als uitgangspunt</h2>
@@ -52,7 +52,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section class="bg-[#CEDBEF] pt-2 pb-15">
+    <section class="bg-[#CEDBEF] pt-2 pb-15" role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-10">
         <p class="text-[#444] font-light text-sm my-3">Visie / Mapping / Research</p>
         <h2 class="text-2xl">UX Visie vormgeven</h2>
@@ -81,7 +81,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section>
+    <section role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-5 pb-10">
         <p class="text-[#444] font-light text-sm my-3">Prototyping / UX Artifacts</p>
         <h2 class="text-2xl">UX outputs</h2>
@@ -120,7 +120,7 @@ import Meta from '../../components/Meta.astro';
 
     </section>
 
-    <section class="bg-[#CEDBEF] pt-2 pb-15">
+    <section class="bg-[#CEDBEF] pt-2 pb-15" role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-10">
         <p class="text-[#444] font-light text-sm my-3">High-Level Visie / Mapping / Iteratief proces</p>
         <h2 class="text-2xl">Visie en waarde</h2>

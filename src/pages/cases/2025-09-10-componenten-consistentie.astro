@@ -15,14 +15,14 @@ import Meta from '../../components/Meta.astro';
 
 <Nav />
 
-    <header class="mb-2"> 
+    <header class="mb-2" role="banner"> 
       <div class="max-w-[960px] mx-auto p-4">
         <h1 class="text-4xl mb-4">Van componenten naar coherentie en consistentie</h1>
         <p class="my-2">UX/UI, Visual Design & Branding</p>
       </div>
     </header>
 
-    <section class="bg-[#CEDBEF]">
+    <section class="bg-[#CEDBEF]" role="main">
       <div class="max-w-[960px] mx-auto p-4">
 
       <!-- Usecase Card is repeatable -->
@@ -43,7 +43,7 @@ import Meta from '../../components/Meta.astro';
       <!-- End Repeatable Usecase Card -->
     </section>
 
-    <section>
+    <section role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-10 pb-10">
         <p class="text-[#444] font-light text-sm my-3">Component Based / Design Sytem / WCAG</p>
         <h2 class="text-2xl">Astron Design System</h2>
@@ -51,7 +51,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section class="bg-[#CEDBEF] pt-2 pb-15">
+    <section class="bg-[#CEDBEF] pt-2 pb-15" role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-10">
         <p class="text-[#444] font-light text-sm my-3">Front-End / Design System / UI Library</p>
         <h2 class="text-2xl">Storybook implementatie</h2>
@@ -76,7 +76,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
   
-    <section>
+    <section role="complementary">
       <div class="max-w-[80%] mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- 50/50 Column 1 -->
         <div class="overflow-hidden rounded-lg bg-gray-400">
@@ -90,7 +90,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-     <section class="bg-[#CEDBEF] pt-2 pb-15">
+     <section class="bg-[#CEDBEF] pt-2 pb-15" role="complementary">
       <div class="max-w-[960px] mx-auto p-4 mt-10">
         <p class="text-[#444] font-light text-sm my-3">Design System / Componenten / UX/UI</p>
         <h2 class="text-2xl">Waarde</h2>
