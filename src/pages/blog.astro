@@ -12,10 +12,11 @@ import Meta from '../components/Meta.astro';
   </head>
   <body class="font-['Inter'] bg-[#F5F5F5] border-t-6 border-[#0000FF]">
     <Nav />
+
     <header class="mb-10" role="banner"> 
-      <div class="max-w-[960px] mx-auto px-4 py-10">
-        <h1 class="text-2xl/10">On my <strong>mind</strong>.</h1>
-        <h2 class="text-1xl/10">Mini-blog over mijn UX/UI ervaringen</h2>
+      <div class="max-w-[960px] mx-auto p-4">
+        <h1 class="text-4xl/10 mb-2">On my <strong>mind</strong></h1>
+        <h2 class="text-2xl/10">Ervaringen als designer in een mini-blog</h2>
       </div>
     </header>
 
@@ -23,29 +24,55 @@ import Meta from '../components/Meta.astro';
       <div class="max-w-[960px] mx-auto p-4">
 
       <!-- Card is repeatable -->
-      <div class="grid grid-cols-[100%] md:grid-cols-[25%_75%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
-        <div class="overflow-hidden md:rounded-l-lg">
-          <img src="/thumb000.png" alt="IREB Foundation" class="w-full h-full object-cover object-top object-left"/>
-        </div>
-        <div class="p-4 pr-10">
-          <p class="text-[#444] font-light text-sm my-3">20 februari 2026</p>
-          <h3 class="text-3xl pt-1 pb-2">Verbreding: IREB &amp; Requirements analyse</h3>
-          <p class="text-md leading-8 py-4">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang.</p>
+      <div class="grid grid-cols-[100%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="p-10">
+          <p class="text-[#444] font-light text-sm my-3"><span class="text-[#FF9933]">Training &amp; Certification</span> - 16 februari 2026</span></p>
+          <h3 class="text-3xl pt-1 pb-2">Mijn verdieping in IREB &amp; Requirements analyse</h3>
+          <p class="text-md leading-8 py-4">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
           <a href="/blog/2026-02-20-ireb/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a>
         </div>
       </div>
       <!-- End Repeatable Card -->
 
-            <!-- Card is repeatable -->
-      <div class="grid grid-cols-[100%] md:grid-cols-[25%_75%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
-        <div class="overflow-hidden md:rounded-l-lg">
-          <img src="/thumb000.png" alt="IREB Foundation" class="w-full h-full object-cover object-top object-left"/>
+      <!-- Card is repeatable -->
+      <div class="grid grid-cols-[100%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="p-10">
+          <p class="text-[#444] font-light text-sm my-3"><span class="text-[#AA33BB]">Artificial Intelligence</span> - Coming soon - Work in progress</p>
+          <h3 class="text-3xl pt-1 pb-2">Een Persona Library opbouwen met generatieve A.I.</h3>
+          <p class="text-md leading-8 py-4">Raak geinspireerd en combineer je data en creativiteit voor impactvolle personas. In dit artikel deel ik mijn aanpak, versterkt met generatieve A.I., voor scherpe en gebruikersgerichte inzichten. Ontdek de stappen en pas ze direct toe in je eigen projecten.</p>
+          <!-- <a href="/blog/2026-02-20-ireb/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a> -->
         </div>
-        <div class="p-4 pr-10">
-          <p class="text-[#444] font-light text-sm my-3">20 februari 2026</p>
+      </div>
+      <!-- End Repeatable Card -->
+
+      <!-- Card is repeatable -->
+      <div class="grid grid-cols-[100%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="p-10">
+          <p class="text-[#444] font-light text-sm my-3"><span class="text-[#00ADEE]">Tooling</span> - Coming soon - Work in progress</p>
+          <h3 class="text-3xl pt-1 pb-2">Waarom ik zo te spreken ben over Astro.build!</h3>
+          <p class="text-md leading-8 py-4">Lichtgewicht, bliksem-snelle page-loads, duurzaam en binnen enkele uren live! Stop met Wordpress en ga vandaag nog aan de slag! De stack waar we het over hebben bestaat uit Astro + TailwindCSS, een VPS, Visual Studio Code en een vleugje Mistral Le Chat. Meer heb je echt niet nodig!</p>
+          <!-- <a href="/blog/2026-02-20-ireb/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a> -->
+        </div>
+      </div>
+      <!-- End Repeatable Card -->
+
+      <!-- Card is repeatable -->
+      <div class="grid grid-cols-[100%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="p-10">
+          <p class="text-[#444] font-light text-sm my-3"><span class="text-[#00ADEE]">Tooling</span> - Coming soon - Work in progress</p>
+          <h3 class="text-3xl pt-1 pb-2">Tool alternatives - Mistral Le Chat, DaVinci, Affinity & PenPots</h3>
+          <p class="text-md leading-8 py-4">Figma is momenteel de <em>defacto</em> standaard voor UX/UI designers. Hoewel Figma dominant is, zijn er nog steeds waardevolle (open-source) alternatieven die het overwegen waard zijn afhankelijk van je specifieke behoeften, workflow, of organisatorische context. Daarom in dit artikel mijn Toolbox die ik graag met je deel!</p>
+          <!-- <a href="/blog/2026-02-20-ireb/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a> -->
+        </div>
+      </div>
+      <!-- End Repeatable Card -->
+
+      <!-- Card is repeatable -->
+      <div class="grid grid-cols-[100%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="p-10">
+          <p class="text-[#444] font-light text-sm my-3">Algemeen - 16 februari 2026</p>
           <h3 class="text-3xl pt-1 pb-2">Hello world!</h3>
-          <p class="text-md leading-8 py-4">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang.</p>
-          <a href="/blog/2026-02-19-eerste-post/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a>
+          <p class="text-md leading-8 py-4">Ik ga beginnen met bloggen, want <em>sharing is caring</em>! Mijn nieuwsgierigheid naar hoe  technologie, design en strategie gecombineerd kan worden tot waardevolle impact deel ik hier. Of je nu geinteresseerd bent in user-centered design, design-tooling, artifacts/mappings, of de toekomst van AI in UX.</p>
         </div>
       </div>
       <!-- End Repeatable Card -->
