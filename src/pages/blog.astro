@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+import ScrollToTop from '../components/ScrollToTop.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import Meta from '../components/Meta.astro';
+---
+<html lang="nl">
+  <head>
+    <Meta />
+    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
+  </head>
+  <body class="font-['Inter'] bg-[#F5F5F5] border-t-6 border-[#0000FF]">
+    <Nav />
+    <header class="mb-10" role="banner"> 
+      <div class="max-w-[960px] mx-auto px-4 py-10">
+        <h1 class="text-2xl/10">On my <strong>mind</strong>.</h1>
+        <h2 class="text-1xl/10">Mini-blog over mijn UX/UI ervaringen</h2>
+      </div>
+    </header>
+
+    <section id="ux" class="bg-[#CEDBEF] py-5" role="main">
+      <div class="max-w-[960px] mx-auto p-4">
+
+      <!-- Card is repeatable -->
+      <div class="grid grid-cols-[100%] md:grid-cols-[25%_75%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="overflow-hidden md:rounded-l-lg">
+          <img src="/thumb000.png" alt="IREB Foundation" class="w-full h-full object-cover object-top object-left"/>
+        </div>
+        <div class="p-4 pr-10">
+          <p class="text-[#444] font-light text-sm my-3">20 februari 2026</p>
+          <h3 class="text-3xl pt-1 pb-2">Verbreding: IREB &amp; Requirements analyse</h3>
+          <p class="text-md leading-8 py-4">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang.</p>
+          <a href="/blog/2026-02-20-ireb/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a>
+        </div>
+      </div>
+      <!-- End Repeatable Card -->
+
+            <!-- Card is repeatable -->
+      <div class="grid grid-cols-[100%] md:grid-cols-[25%_75%] gap-2 bg-white rounded-lg shadow my-8 overflow-hidden">
+        <div class="overflow-hidden md:rounded-l-lg">
+          <img src="/thumb000.png" alt="IREB Foundation" class="w-full h-full object-cover object-top object-left"/>
+        </div>
+        <div class="p-4 pr-10">
+          <p class="text-[#444] font-light text-sm my-3">20 februari 2026</p>
+          <h3 class="text-3xl pt-1 pb-2">Hello world!</h3>
+          <p class="text-md leading-8 py-4">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang.</p>
+          <a href="/blog/2026-02-19-eerste-post/" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Lees artikel</a>
+        </div>
+      </div>
+      <!-- End Repeatable Card -->
+
+    </section>
+
+
+    <Footer />
+
+    <ScrollToTop />
+  </body>
+</html>
