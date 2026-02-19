@@ -9,7 +9,7 @@ html {
 :focus {
 outline: 2px solid #FF9933;
 }
-.active {
+#active {
   color: #0000FF;
   font-weight: bold;
 }
