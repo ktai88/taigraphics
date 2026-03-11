@@ -1,6 +1,10 @@
 ---
 // Nav.astro
-const pathname = Astro.url.pathname;
+interface Props {
+  active?: 'showcase' | 'blog' | 'contact';
+}
+
+const { active } = Astro.props as Props;
 ---
 
 <nav class="sticky top-3 z-50 bg-white opacity-95 shadow-md mx-auto pl-4 pr-9 min-h-[60px] max-w-[95%] sm:max-w-[800] lg:max-w-[1000px] rounded-full  flex items-center md:justify-between" aria-label="Hoofd navigatie">
@@ -17,8 +21,8 @@ const pathname = Astro.url.pathname;
     <li class="mt-3">
       <a
         href="/showcase"
-        aria-current={pathname === "/showcase" ? "page" : undefined}
-        class={`text-nowrap hover:text-[#0000FF] hover:underline ${pathname === "/showcase" ? "text-[#0000FF] underline" : ""}`}
+        aria-current={active === "showcase" ? "page" : undefined}
+        class={`text-nowrap hover:text-[#0000FF] hover:underline ${active === "showcase" ? "text-[#0000FF] font-semibold" : ""}`}
       >
         Showcase
       </a>
@@ -26,16 +30,22 @@ const pathname = Astro.url.pathname;
     <li class="mt-3">
       <a
         href="/blog"
-        aria-current={pathname === "/blog" ? "page" : undefined}
-        class={`text-nowrap hover:text-[#0000FF] hover:underline ${pathname === "/blog" ? "text-[#0000FF] underline" : ""}`}
+        aria-current={active === "blog" ? "page" : undefined}
+        class={`text-nowrap hover:text-[#0000FF] hover:underline ${active === "blog" ? "text-[#0000FF] font-semibold" : ""}`}
       >
         On my mind
       </a>
     </li>
     <li>
-        <a href="/contact" class="text-nowrap block mt-1 md:mt-1 py-2 px-3 bg-[#0000FF] transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-xs md:text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">
+      <a
+        href="/contact"
+        aria-current={active === "contact" ? "page" : undefined}
+        class={`text-nowrap block mt-1 md:mt-1 py-2 px-3 bg-[#0000FF] transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-xs md:text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF] ${
+          active === "contact" ? "ring-2 ring-offset-2 ring-[#0000FF] font-semibold" : ""
+        }`}
+      >
         Say hi!
-        </a>
+      </a>
     </li>
     </ul>
 </nav>
