@@ -7,7 +7,7 @@ interface Props {
 const { active } = Astro.props as Props;
 ---
 
-<nav class="sticky top-3 z-50 bg-white opacity-95 shadow-md mx-auto pl-4 pr-9 min-h-[60px] max-w-[95%] sm:max-w-[800] lg:max-w-[1000px] rounded-full  flex items-center md:justify-between" aria-label="Hoofd navigatie">
+<nav id="main-nav" class="sticky top-3 z-50 bg-white opacity-95 shadow-md mx-auto pl-4 pr-9 min-h-[60px] max-w-[95%] sm:max-w-[800] lg:max-w-[1000px] rounded-full flex items-center md:justify-between transition-transform duration-300 ease-out" aria-label="Hoofd navigatie">
     <!-- Logo -->
     <a href="/" aria-label="TaiGraphics">
     <p class="md:block text-md">
@@ -49,3 +49,18 @@ const { active } = Astro.props as Props;
     </li>
     </ul>
 </nav>
+
+<script client:load>
+  const nav = document.getElementById('main-nav');
+  if (nav) {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        nav.classList.add('nav-shrink');
+      } else {
+        nav.classList.remove('nav-shrink');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+</script>

@@ -13,3 +13,12 @@ outline: 2px solid #FF9933;
   color: #0000FF;
   font-weight: bold;
 }
+
+#main-nav {
+  transform: scale(0.95);
+  transform-origin: center;
+}
+
+#main-nav.nav-shrink {
+  transform: scale(1);
+}
