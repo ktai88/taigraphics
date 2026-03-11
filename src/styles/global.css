@@ -15,10 +15,10 @@ outline: 2px solid #FF9933;
 }
 
 #main-nav {
-  transform: scale(0.95);
+  transform: scale(1);
   transform-origin: center;
 }
 
 #main-nav.nav-shrink {
-  transform: scale(1);
+  transform: scale(0.95);
 }
