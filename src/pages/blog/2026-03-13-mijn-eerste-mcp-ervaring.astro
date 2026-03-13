@@ -14,12 +14,12 @@ import Meta from '../../components/Meta.astro';
   </head>
 <body>
 
-<Nav />
+<Nav active="blog" />
 
     <section role="main">
       <div class="page-container-800">
         <h1 class="text-4xl mt-10 mb-6">Design Tool(s) x AI Chat tool</h1>
-        <p class="leading-8 my-4 text-[#555]"><span class="text-[#AA33BB]">Artificial Intelligence</span></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">6 minuten leestijd - 13 maart 2026</p>
+        <p class="leading-8 my-4 text-[color:var(--color-text-muted)]"><span class="text-[color:var(--color-tag-ai)]">Artificial Intelligence</span></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">6 minuten leestijd - 13 maart 2026</p>
         <p class="leading-8 mt-2">Het kan je bijna niet ontgaan zijn dat er de afgelopen maanden veel over AI en haar MCP-mogelijkheden voorbij is gekomen en dat er al veel over is geschreven. Afgelopen avond had ik eindelijk wat tijd en rust om er zelf eens mee te experimenteren. In deze blog deel ik graag mijn eerste ervaringen, wat het uiteindelijk heeft opgeleverd en waarom ik je wil stimuleren om hier ook zelf mee te experimenteren.</p>
       </div>
     </section>
@@ -37,7 +37,7 @@ import Meta from '../../components/Meta.astro';
       <div class="page-container-800">
         <h2 class="text-2xl">Wat kan ik ermee, en wat wilde ik voor elkaar krijgen?</h2>
         <p class="leading-8 mt-3">Om het simpel en beknopt te houden wilde ik uitproberen of ik via Claude (AI chat) en Cursor (AI editor) acties kon laten uitvoeren op mijn Figma-project. Daar komt MCP in beeld zodat je je context kunt aanbieden aan een AI-agent. Denk bijvoorbeeld aan:</p>
-        <ul class="list-disc pl-6 mt-3 text-[#555]">
+        <ul class="list-disc pl-6 mt-3 text-[color:var(--color-text-muted)]">
           <li class="pb-1">Bestanden</li>
           <li class="pb-1">Data</li>
           <li class="pb-1">API&rsquo;s</li>
@@ -50,7 +50,7 @@ import Meta from '../../components/Meta.astro';
     <section role="complementary">
       <div class="page-container-800">
         <h2 class="text-2xl">Read-only: eerste experimenten</h2>
-        <p class="leading-8 mt-3">Eerst wilde ik gewoon kijken of het &uuml;berhaupt werkte. Via <a href="https://www.figma.com/mcp-catalog/" class="underline hover:text-[#0000FF]" target="_blank">figma.com/mcp-catalog</a> kwam ik verschillende plugins tegen die het mogelijk maakten om Figma-projecten uit te lezen vanuit een chattool. Best impressive.</p>
+        <p class="leading-8 mt-3">Eerst wilde ik gewoon kijken of het &uuml;berhaupt werkte. Via <a href="https://www.figma.com/mcp-catalog/" class="link-inline" target="_blank">figma.com/mcp-catalog</a> kwam ik verschillende plugins tegen die het mogelijk maakten om Figma-projecten uit te lezen vanuit een chattool. Best impressive.</p>
         <p class="leading-8 mt-3">De eerste use-case was snel geboren. Ik wilde kijken of ik mijn designs kon laten omzetten naar bijvoorbeeld HTML/CSS, en dat deed hij eigenlijk best aardig. In de volgende prompt kon ik zelf een light mode toevoegen aan de output. Maar ik wilde meer. Ik wilde kijken of mijn chattool bijvoorbeeld ook een simpele button kon aanmaken in mijn Figma-project.</p>
         <img src="/ai-html-output.png" alt="MCP Bridge" class="w-full mt-6 rounded-lg shadow">
         <p class="mt-2"><em>Experiment 1: HTML output vanuit Figma naar Claude</em></p>
@@ -98,7 +98,7 @@ import Meta from '../../components/Meta.astro';
         </div>
         <!-- End Repeatable Card -->
         <p class="leading-8 mt-3">Wil jij ook werken met MCP en kom je er niet helemaal mee uit? Een chat-tool kan je hierin begeleiden met de installatie, maar ik sta ook klaar bij vragen! En eerlijk gezegd voelt het alsof dit nog maar het begin is en nog veel te leren valt. Ik kom hier zeker nog op terug naarmate ik betere workflows, prompts en use-cases heb uitgeprobeerd. Stay tuned!</p>
-        <p class="leading-8 my-6"><a href="/blog" class="mb-2 py-2 px-6 inline-block bg-[#0000FF] font-bold transition duration-250 ease-in-out border border-[#F5F5F5] text-white text-sm rounded-full hover:bg-white hover:text-[#0000FF] hover:border hover:border-[#0000FF]">Terug naar overzicht</a></p>  
+        <p class="leading-8 my-6"><a href="/blog" class="mb-2 py-2 px-6 inline-block btn-primary">Terug naar overzicht</a></p>  
       </div>
     </section>
     

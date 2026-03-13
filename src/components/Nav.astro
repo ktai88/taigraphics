@@ -22,7 +22,7 @@ const { active } = Astro.props as Props;
       <a
         href="/showcase"
         aria-current={active === "showcase" ? "page" : undefined}
-        class={`text-nowrap nav-link ${active === "showcase" ? "text-[#0000FF] font-semibold" : ""}`}
+        class={`text-nowrap nav-link ${active === "showcase" ? "text-[color:var(--color-primary)] font-semibold" : ""}`}
       >
         Showcase
       </a>
@@ -31,7 +31,7 @@ const { active } = Astro.props as Props;
       <a
         href="/blog"
         aria-current={active === "blog" ? "page" : undefined}
-        class={`text-nowrap nav-link ${active === "blog" ? "text-[#0000FF] font-semibold" : ""}`}
+        class={`text-nowrap nav-link ${active === "blog" ? "text-[color:var(--color-primary)] font-semibold" : ""}`}
       >
         On my mind
       </a>
@@ -41,7 +41,7 @@ const { active } = Astro.props as Props;
         href="/contact"
         aria-current={active === "contact" ? "page" : undefined}
         class={`text-nowrap block mt-1 md:mt-1 btn-primary text-xs md:text-sm ${
-          active === "contact" ? "ring-2 ring-offset-2 ring-[#0000FF] font-semibold" : ""
+          active === "contact" ? "ring-2 ring-offset-2 ring-[color:var(--color-primary)] font-semibold" : ""
         }`}
       >
         Say hi!
