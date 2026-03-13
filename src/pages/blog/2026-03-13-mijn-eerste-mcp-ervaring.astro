@@ -29,6 +29,7 @@ import Meta from '../../components/Meta.astro';
         <h2 class="text-2xl">Wat is MCP?</h2>
         <p class="leading-8 mt-3">MCP, Model Context Protocol, maakt het mogelijk om een brug te slaan tussen een AI-chattool en bijvoorbeeld, in mijn geval, een design tool zoals Figma. Hierdoor kunnen deze twee tools met elkaar communiceren en zelfs acties uitvoeren.</p>
         <img src="/claude-config.png" alt="Claude config" class="w-full mt-6 rounded-lg shadow">
+        <p class="mt-2"><em>MCP configuratie: Mogelijkheden in Claude MCP</em></p>
       </div>
     </section>
 
@@ -52,6 +53,7 @@ import Meta from '../../components/Meta.astro';
         <p class="leading-8 mt-3">Eerst wilde ik gewoon kijken of het &uuml;berhaupt werkte. Via <a href="https://www.figma.com/mcp-catalog/" class="underline hover:text-[#0000FF]" target="_blank">figma.com/mcp-catalog</a> kwam ik verschillende plugins tegen die het mogelijk maakten om Figma-projecten uit te lezen vanuit een chattool. Best impressive.</p>
         <p class="leading-8 mt-3">De eerste use-case was snel geboren. Ik wilde kijken of ik mijn designs kon laten omzetten naar bijvoorbeeld HTML/CSS, en dat deed hij eigenlijk best aardig. In de volgende prompt kon ik zelf een light mode toevoegen aan de output. Maar ik wilde meer. Ik wilde kijken of mijn chattool bijvoorbeeld ook een simpele button kon aanmaken in mijn Figma-project.</p>
         <img src="/ai-html-output.png" alt="MCP Bridge" class="w-full mt-6 rounded-lg shadow">
+        <p class="mt-2"><em>Experiment 1: HTML output vanuit Figma naar Claude</em></p>
       </div>
     </section>
 
@@ -62,9 +64,18 @@ import Meta from '../../components/Meta.astro';
         <p class="leading-8 mt-3">Na wat vragen en experimenteren via Cursor heb ik uiteindelijk een figma-mcp-bridge laten maken die duidelijk meer commando&rsquo;s aankon. Deze bridge kon ook de andere kant op werken, met zogenaamde write-tools (63 tools van @magic-spells/figma-mcp-bridge), waardoor de chattool via de brug daadwerkelijk acties kon uitvoeren in Figma.</p>
         <p class="leading-8 mt-3">Best verbluffend eigenlijk. Via de MCP-bridge kon ik prompts schrijven in mijn chattool die direct in Figma werden uitgevoerd. In no-time plotte hij simpele taken, zoals het toevoegen van buttons in mijn project of het tekenen van een dashboard. Daarna ben ik verder gaan experimenteren om te kijken of de bridge nog meer voor mij kon betekenen.</p>
         <img src="/figma-bridge.png" alt="MCP Bridge" class="w-full mt-6 rounded-lg shadow">
+        <p class="mt-2"><em>Experiment 2: De MCP bridge + output eerste design system</em></p>
       </div>
     </section>
 
+    <section role="complementary">
+      <div class="max-w-[800px] mx-auto p-4">
+        <h2 class="text-2xl">Wat is verder voorzie?</h2>
+        <p class="leading-8 mt-3">Wat het voor mij interessant maakt, is vooral waar dit naartoe kan groeien zodra LLMs sterker worden en beter begrijpen wat er in een designbestand gebeurt. Je kunt je bijvoorbeeld voorstellen dat een AI op basis van een paar richtlijnen of een korte briefing al een eerste huisstijl kan genereren in Figma: kleuren, typografie, componenten en zelfs een basis design system. Of dat een AI bestaande designs analyseert en automatisch componenten, varianten en tokens omzet naar een gestructureerd design system. Ik zie ook bijvoorbeeld mogelijkheden dat AI op basis van WCAG richtlijnen de designs en projecten kan corrigeren.</p>
+        <p class="leading-8 mt-3">Ook aan de development-kant kan dit interessant worden. Als een AI zowel het design als de code kan begrijpen, kan hij mogelijk steeds beter de vertaalslag maken tussen interface en implementatie. Denk aan het genereren van consistente UI-componenten, het controleren van design system regels of zelfs het automatisch aanpassen van layouts voor verschillende devices. We zijn daar nog niet helemaal, maar dit soort experimenten laten wel zien welke kant het op kan gaan.</p>
+      </div>
+    </section>
+  
     <section role="complementary">
       <div class="max-w-[800px] mx-auto p-4">
         <h2 class="text-2xl">Wat vind ik ervan?</h2>
