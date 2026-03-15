@@ -166,3 +166,20 @@
 #main-nav.nav-shrink {
   transform: scale(0.93);
 }
+
+/* Fade-in: blur + subtle scale + move up from below, triggered on scroll */
+.fade-in {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(50px) scale(0.98);
+  transition:
+    opacity 0.2s ease-out,
+    filter 0.2s ease-out,
+    transform 0.2s ease-out;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}

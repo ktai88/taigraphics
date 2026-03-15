@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import ScrollToTop from '../components/ScrollToTop.astro';
 import Footer from '../components/Footer.astro';
 import Meta from '../components/Meta.astro';
+import FadeIn from '../components/FadeIn.astro';
 ---
 
 <html lang="nl">
@@ -26,7 +27,7 @@ import Meta from '../components/Meta.astro';
     <section class="section-alt py-2" role="main">
       <div class="page-container-960">
       <!-- Usecase Card is repeatable -->
-      <div class="grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 my-8 card-base">
+      <div class="fade-in grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 my-8 card-base">
         <div class="overflow-hidden md:rounded-l-lg">
           <img src="/thumb009.png" class="w-full h-full object-cover object-top object-left"/>
         </div>
@@ -40,8 +41,8 @@ import Meta from '../components/Meta.astro';
 
     <section role="complementary">
       <div class="page-container-960 mt-10 pb-10">
-        <h2 class="text-2xl mb-4"><span class="font-bold text-[color:var(--color-primary)]">Logo Design</span> Showcase</h2>
-        <div class="mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 class="fade-in text-2xl mb-4"><span class="font-bold text-[color:var(--color-primary)]">Logo Design</span> Showcase</h2>
+        <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Column 1 -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <img src="/logo000.png" alt="Risk Explorer" class="w-full h-full object-cover" />
@@ -74,10 +75,10 @@ import Meta from '../components/Meta.astro';
       </div>
 
 
-      <h2 class="text-2xl mt-15"><span class="font-bold text-[color:var(--color-primary)]">Visual Design</span> Showcase</h2>
+      <h2 class="fade-in text-2xl mt-15"><span class="font-bold text-[color:var(--color-primary)]">Visual Design</span> Showcase</h2>
 
       <!-- Card is repeatable -->
-      <a href="https://www.behance.net/gallery/56247319/Iconography-Avisi" target="_blank" class="group grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 my-8 card-base card-interactive">
+      <a href="https://www.behance.net/gallery/56247319/Iconography-Avisi" target="_blank" class="fade-in group grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 my-8 card-base card-interactive">
         <div class="overflow-hidden md:rounded-l-lg">
           <img src="/thumb005.png" class="w-full h-full object-cover object-top object-left transition-transform duration-200 ease-out group-hover:scale-105"/>
         </div>
@@ -90,7 +91,7 @@ import Meta from '../components/Meta.astro';
       </a>
       <!-- End Repeatable Card -->
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-2 my-8 gap-6">
         <!-- Column 1 -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <img src="/artifact000.png" alt="Science Platform" class="w-full h-full object-cover" />
@@ -102,7 +103,7 @@ import Meta from '../components/Meta.astro';
         </div>
       </div>
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
         <!-- Full Column -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <img src="/artifact000.png" alt="Science Platform" class="w-full h-full object-cover" />
@@ -110,7 +111,7 @@ import Meta from '../components/Meta.astro';
       </div>
 
             <!-- Card is repeatable -->
-      <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" class="group grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 my-8 card-base card-interactive">
+      <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" class="fade-in group grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 my-8 card-base card-interactive">
         <div class="overflow-hidden md:rounded-l-lg">
           <img src="/1532594197356.jpg" class="w-full h-full object-cover object-top object-left transition-transform duration-200 ease-out group-hover:scale-105"/>
         </div>
@@ -123,7 +124,7 @@ import Meta from '../components/Meta.astro';
       </a>
       <!-- End Repeatable Card -->
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-2 my-8 gap-6">
         <!-- Column 1 -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <img src="/4f072c15364313.5629000ce7ce0.webp" alt="Verzekeruzelf" class="w-full h-full object-cover" />
@@ -135,7 +136,7 @@ import Meta from '../components/Meta.astro';
         </div>
       </div>
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
         <!-- Full Column 1 -->
        <!-- Recommendation Card is repeatable -->
         <div class="grid grid-cols-[100%] gap-2 bg-white rounded-xl shadow my-8 overflow-hidden">
@@ -149,7 +150,7 @@ import Meta from '../components/Meta.astro';
       </div>
 
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
 
         <!-- Full Column 1 -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
@@ -157,20 +158,20 @@ import Meta from '../components/Meta.astro';
         </div>
       </div>
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
         <!-- Full Column 1 -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <img src="/techradar.png" alt="Avisi Technology Radar" class="w-full h-full object-cover" />
         </div>
       </div>
 
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
         <!-- Full Column 1 -->
         <div class="overflow-hidden rounded-lg bg-white shadow">
           <img src="/techradar2.png" alt="Avisi Technology Radar - Fasering" class="w-full h-full object-cover" />
         </div>
       </div>
-      <div class="mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
+      <div class="fade-in mx-auto grid grid-cols-1 md:grid-cols-1 my-8 gap-6">
       <!-- Full Column 1 -->
        <!-- Recommendation Card is repeatable -->
         <div class="grid grid-cols-[100%] gap-2 bg-white rounded-xl shadow my-8 overflow-hidden">
@@ -186,5 +187,6 @@ import Meta from '../components/Meta.astro';
     </section>
       <Footer />
     <ScrollToTop />
+    <FadeIn />
   </body>
 </html>
