@@ -1,0 +1,56 @@
+---
+---
+
+<h2 class="text-2xl/10 text-[color:var(--color-text-heading)] min-h-[2rem] flex flex-wrap items-baseline">
+  <span class="hero-typing-prefix">Gebruiksvriendelijke ervaringen die echt&nbsp;</span>
+  <em><span id="hero-typing-text" class="font-semibold text-[color:var(--color-text-strong)]"></span></em>
+  <span id="hero-typing-cursor" class="hero-typing-cursor" aria-hidden="true">|</span>
+</h2>
+
+<script>
+  const phrases = [
+    'impact maken.',
+    'intuïtief functioneren.',
+    'visueel spreken.',
+    'merkbaar verbeteren.',
+    'waarde toevoegen.',
+    'effect hebben.',
+    'raken.',
+  ];
+  const el = document.getElementById('hero-typing-text');
+  const cursor = document.getElementById('hero-typing-cursor');
+  if (el && cursor) {
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typeMs = 55;
+    const deleteMs = 35;
+    const pauseAfterType = 2200;
+    const pauseAfterDelete = 400;
+
+    function tick() {
+      const phrase = phrases[phraseIndex];
+      if (isDeleting) {
+        el.textContent = phrase.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(tick, pauseAfterDelete);
+          return;
+        }
+        setTimeout(tick, deleteMs);
+        return;
+      }
+      el.textContent = phrase.slice(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === phrase.length) {
+        isDeleting = true;
+        setTimeout(tick, pauseAfterType);
+        return;
+      }
+      setTimeout(tick, typeMs);
+    }
+    setTimeout(tick, 400);
+  }
+</script>

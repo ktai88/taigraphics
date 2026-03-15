@@ -187,3 +187,27 @@
   filter: blur(0);
   transform: translateY(0) scale(1);
 }
+
+/* Hero typing animation: rotating phrases + blinking cursor */
+#hero-typing-text {
+  margin-left: 0.15em;
+}
+
+.hero-typing-cursor {
+  display: inline-block;
+  margin-left: 0.25em;
+  font-weight: 600;
+  color: var(--color-primary);
+  animation: hero-cursor-blink 0.9s step-end infinite;
+}
+
+@keyframes hero-cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
