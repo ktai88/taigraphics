@@ -30,6 +30,10 @@
     background-color: var(--color-page-bg);
   }
 
+  p {
+    line-height: 2rem; /* leading-8 */
+  }
+
   strong,
   b {
     font-weight: 600;

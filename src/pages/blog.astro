@@ -27,53 +27,55 @@ import FadeIn from '../components/FadeIn.astro';
       <div class="page-container-960">
 
       <!-- Latest: 1-column card (same style as MCP card)
-      <a href="/blog/2026-03-24-toolbox/" class="fade-in group flex flex-col card-base card-interactive overflow-hidden my-6">
+      <a href="/blog/2026-03-24-toolbox/" class="group flex flex-col card-base card-interactive overflow-hidden">
         <div class="overflow-hidden">
-          <img src="/featured-2026-03-24.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Toolbox Talk" />
+          <img src="/featured-2026-03-24.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02] origin-center" alt="Featured Blog - Toolbox Talk" />
         </div>
         <div class="p-6 flex flex-col flex-1">
           <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-tooling)]"><strong>Tooling</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">4 min - 24 maart 2026</p>
           <h3 class="text-3xl font-semibold pt-1 pb-2">ToolboxTalk - Mistral Le Chat, DaVinci, Affinity & PenPots</h3>
-          <p class="text-sm leading-6 py-3 flex-1">Figma is momenteel de meest gebruikte tool voor UX/UI-designers. Voor andere tools zijn er nog steeds waardevolle (open-source) alternatieven. In dit artikel deel ik graag mijn toolbox met enkele interessante opties.</p>
+          <p class="text-sm leading-8 py-3 flex-1">Figma is momenteel de meest gebruikte tool voor UX/UI-designers. Voor andere tools zijn er nog steeds waardevolle (open-source) alternatieven. In dit artikel deel ik graag mijn toolbox met enkele interessante opties.</p>
           <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees artikel</span>
         </div>
       </a>
       Latest: 1-column card (same style as MCP card) -->
 
       <!-- MCP: 1-column card (same style as 2-column cards) -->
-      <a href="/blog/2026-03-13-mijn-eerste-mcp-ervaring" class="fade-in group flex flex-col card-base card-interactive overflow-hidden my-6">
-        <div class="overflow-hidden">
-          <img src="/featured-2026-03-13.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - MCP" />
-        </div>
-        <div class="p-6 flex flex-col flex-1">
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-ai)]"><strong>Artificial Intelligence</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">7 min - 13 maart 2026</p>
-          <h3 class="text-3xl font-semibold pt-1 pb-2">Design Tool(s) x AI Chat tool!</h3>
-          <p class="text-sm leading-6 py-3 flex-1">Het kan je bijna niet ontgaan zijn dat er de afgelopen maanden veel over AI en haar MCP-mogelijkheden voorbij is gekomen. Afgelopen avond had ik eindelijk wat tijd en rust om er zelf eens mee te experimenteren.</p>
-          <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees artikel</span>
-        </div>
-      </a>
+      <div class="fade-in my-6">
+        <a href="/blog/2026-03-13-mijn-eerste-mcp-ervaring" class="group flex flex-col card-base card-interactive overflow-hidden">
+          <div class="overflow-hidden">
+            <img src="/featured-2026-03-13.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02] origin-center" alt="Featured Blog - MCP" />
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-ai)]"><strong>Artificial Intelligence</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">7 min - 13 maart 2026</p>
+            <h3 class="text-3xl font-semibold pt-1 pb-2">Design Tool(s) x AI Chat tool!</h3>
+            <p class="text-sm leading-8 py-3 flex-1">Het kan je bijna niet ontgaan zijn dat er de afgelopen maanden veel over AI en haar MCP-mogelijkheden voorbij is gekomen. Afgelopen avond had ik eindelijk wat tijd en rust om er zelf eens mee te experimenteren.</p>
+            <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees artikel</span>
+          </div>
+        </a>
+      </div>
 
       <!-- Astro + Persona: 2-column card view -->
       <div class="fade-in grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
         <a href="/blog/2026-03-04-astro/" class="group flex flex-col card-base card-interactive overflow-hidden">
           <div class="overflow-hidden">
-            <img src="/featured-2026-03-04.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Astro" />
+            <img src="/featured-2026-03-04.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02] origin-center" alt="Featured Blog - Astro" />
           </div>
           <div class="p-6 flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-tooling)]"><strong>Tooling</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">3 min - 4 maart 2026</p>
             <h3 class="text-2xl font-semibold pt-1 pb-2">Waarom ik zo te spreken ben over Astro.build!</h3>
-            <p class="text-sm leading-6 py-3 flex-1">Lichtgewicht, bliksem-snelle page-loads, duurzaam en binnen enkele uren live! Stop met Wordpress en ga vandaag nog aan de slag!</p>
+            <p class="text-sm leading-8 py-3 flex-1">Lichtgewicht, bliksem-snelle page-loads, duurzaam en binnen enkele uren live! Stop met Wordpress en ga vandaag nog aan de slag!</p>
             <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees artikel</span>
           </div>
         </a>
         <a href="/blog/2026-02-26-persona/" class="group flex flex-col card-base card-interactive overflow-hidden">
           <div class="overflow-hidden">
-            <img src="/featured-2026-02-26.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Persona" />
+            <img src="/featured-2026-02-26.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02] origin-center" alt="Featured Blog - Persona" />
           </div>
           <div class="p-6 flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-ai)]"><strong>Artificial Intelligence</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">5 min - 26 februari 2026</p>
             <h3 class="text-2xl font-semibold pt-1 pb-2">Een Persona Library opbouwen met generatieve A.I.</h3>
-            <p class="text-sm leading-6 py-3 flex-1">Raak ge&iumlnspireerd en combineer je data en creativiteit voor impactvolle personas. In dit artikel deel ik mijn aanpak, versterkt met generatieve A.I.</p>
+            <p class="text-sm leading-8 py-3 flex-1">Raak ge&iumlnspireerd en combineer je data en creativiteit voor impactvolle personas. In dit artikel deel ik mijn aanpak, versterkt met generatieve A.I.</p>
             <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees artikel</span>
           </div>
         </a>
@@ -88,7 +90,7 @@ import FadeIn from '../components/FadeIn.astro';
           <div class="p-5 flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="text-[color:var(--color-tag-training)]">Training &amp; Certification</span> - 3 min - 20 feb 2026</p>
             <h3 class="text-lg font-semibold pt-1 pb-2 line-clamp-2">Verdieping in IREB &amp; Requirements-analyse</h3>
-            <p class="text-sm leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
+            <p class="text-sm leading-8 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
             <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees meer</span>
           </div>
         </a>
@@ -99,7 +101,7 @@ import FadeIn from '../components/FadeIn.astro';
           <div class="p-5 flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="text-[#66AAAA]">Design System</span> - 4 min - 8 aug 2018</p>
             <h3 class="text-lg font-semibold pt-1 pb-2 line-clamp-2">Implementatie: Atomic Design voor Avisi (Deel 2)</h3>
-            <p class="text-sm leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
+            <p class="text-sm leading-8 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
             <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees meer op LinkedIn</span>
           </div>
         </a>
@@ -110,7 +112,7 @@ import FadeIn from '../components/FadeIn.astro';
           <div class="p-5 flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="text-[#66AAAA]">Design System</span> - 4 min - 26 jul 2018</p>
             <h3 class="text-lg font-semibold pt-1 pb-2 line-clamp-2">Implementatie: Brand System voor Avisi (Deel 1)</h3>
-            <p class="text-sm leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
+            <p class="text-sm leading-8 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
             <span class="inline-block text-sm text-[color:var(--color-primary)] underline mt-2">Lees meer op LinkedIn</span>
           </div>
         </a>
