@@ -220,12 +220,17 @@
 /* Hero typing animation: rotating phrases + blinking cursor */
 #hero-typing-text {
   margin-left: 0.15em;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-typing-cursor {
   display: inline-block;
   margin-left: 0.25em;
   font-weight: 600;
+  font-style: italic;
   color: var(--color-primary);
   animation: hero-cursor-blink 0.9s step-end infinite;
 }
