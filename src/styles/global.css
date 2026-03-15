@@ -101,8 +101,17 @@
     text-decoration-thickness: 1px;
   }
 
+  .link-inline::after {
+    content: "\00A0\00BB";
+  }
+
   .link-inline:hover {
     color: var(--color-primary);
+  }
+
+  /* Blue CTA links (e.g. "Case bekijken", "Lees artikel") */
+  .link-cta::after {
+    content: "\00A0\00BB";
   }
 
   .card-base {
@@ -132,8 +141,8 @@
   }
 
   .card-interactive:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
   }
 
   .card-interactive:hover h1,
