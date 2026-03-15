@@ -101,17 +101,8 @@
     text-decoration-thickness: 1px;
   }
 
-  .link-inline::after {
-    content: "\00A0\00BB";
-  }
-
   .link-inline:hover {
     color: var(--color-primary);
-  }
-
-  /* Blue CTA links (e.g. "Case bekijken", "Lees artikel") */
-  .link-cta::after {
-    content: "\00A0\00BB";
   }
 
   .card-base {
@@ -153,6 +144,35 @@
   .card-interactive:hover h6 {
     color: #00f;
     border-bottom-color: #00f;
+  }
+
+  /* Card image: dark overlay + "Lees meer" on hover */
+  .card-image-wrap {
+    position: relative;
+  }
+
+  .card-image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+
+  .card-image-overlay__btn {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+  }
+
+  .group:hover .card-image-overlay {
+    opacity: 1;
   }
 
   .nav-link {

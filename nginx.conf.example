@@ -1,0 +1,17 @@
+# Nginx charset for TaiGraphics (Ubuntu)
+# Copy the directives below into your server {} block, or add "charset utf-8;" to http {} for all vhosts.
+
+server {
+    listen 80;
+    server_name your-domain.nl www.your-domain.nl;
+
+    root /var/www/taigraphics;   # or wherever your Astro build output (dist/) is deployed
+    index index.html;
+
+    # Serve with UTF-8 so ISO-8859-1 and full Unicode display correctly
+    charset utf-8;
+
+    location / {
+        try_files $uri $uri/ $uri.html /index.html;
+    }
+}
