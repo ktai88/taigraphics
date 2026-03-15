@@ -38,78 +38,81 @@ import FadeIn from '../components/FadeIn.astro';
       </div>
       End Repeatable Card -->
 
-      <!-- Card is repeatable -->
-      <a href="/blog/2026-03-13-mijn-eerste-mcp-ervaring" class="fade-in group grid grid-cols-[100%] gap-2 my-6 card-base card-interactive">
-        <div class="p-10">
-          <img src="/featured-2026-03-13.png" class="w-960 rounded-lg shadow-lg mb-10 transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Astro" />
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-3"><span class="text-[color:var(--color-tag-ai)]">Artificial Intelligence</span></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">6 minuten leestijd - 13 maart 2026</p>
-          <h3 class="text-3xl pt-1 pb-2">Design Tool(s) x AI Chat tool!</h3>
-          <p class="text-md leading-7 py-4">Het kan je bijna niet ontgaan zijn dat er de afgelopen maanden veel over AI en haar MCP-mogelijkheden voorbij is gekomen en dat er al veel over is geschreven. Afgelopen avond had ik eindelijk wat tijd en rust om er zelf eens mee te experimenteren.</p>
-          <span class="mb-2 py-2 px-6 inline-block btn-primary">Lees artikel</span>
+      <!-- MCP: 1-column card (same style as 2-column cards) -->
+      <a href="/blog/2026-03-13-mijn-eerste-mcp-ervaring" class="fade-in group flex flex-col card-base card-interactive overflow-hidden my-6">
+        <div class="overflow-hidden">
+          <img src="/featured-2026-03-13.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - MCP" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-ai)]"><strong>Artificial Intelligence</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">6 min - 13 maart 2026</p>
+          <h3 class="text-3xl font-semibold pt-1 pb-2">Design Tool(s) x AI Chat tool!</h3>
+          <p class="text-sm leading-6 py-3 flex-1">Het kan je bijna niet ontgaan zijn dat er de afgelopen maanden veel over AI en haar MCP-mogelijkheden voorbij is gekomen. Afgelopen avond had ik eindelijk wat tijd en rust om er zelf eens mee te experimenteren.</p>
+          <span class="py-2 px-4 inline-block btn-primary text-sm w-fit">Lees artikel</span>
         </div>
       </a>
-      <!-- End Repeatable Card -->
 
-      <!-- Card is repeatable -->
-      <a href="/blog/2026-03-04-astro/" class="fade-in group grid grid-cols-[100%] gap-2 my-6 card-base card-interactive">
-        <div class="p-10">
-          <img src="/featured-2026-03-04.png" class="w-960 rounded-lg shadow-lg mb-10 transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Astro" />
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-3"><span class="text-[color:var(--color-tag-tooling)]"><strong>Tooling</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">3 minuten leestijd - 4 maart 2026</p>
-          <h3 class="text-3xl pt-1 pb-2">Waarom ik zo te spreken ben over Astro.build!</h3>
-          <p class="text-md leading-7 py-4">Lichtgewicht, bliksem-snelle page-loads, duurzaam en binnen enkele uren live! Stop met Wordpress en ga vandaag nog aan de slag! De stack waar we het over hebben bestaat uit Astro + TailwindCSS, een VPS, Visual Studio Code en een vleugje Mistral Le Chat. Meer heb je echt niet nodig!</p>
-          <span class="mb-2 py-2 px-6 inline-block btn-primary">Lees artikel</span>
-        </div>
-      </a>
-      <!-- End Repeatable Card -->
+      <!-- Astro + Persona: 2-column card view -->
+      <div class="fade-in grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+        <a href="/blog/2026-03-04-astro/" class="group flex flex-col card-base card-interactive overflow-hidden">
+          <div class="overflow-hidden">
+            <img src="/featured-2026-03-04.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Astro" />
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-tooling)]"><strong>Tooling</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">3 min - 4 maart 2026</p>
+            <h3 class="text-2xl font-semibold pt-1 pb-2">Waarom ik zo te spreken ben over Astro.build!</h3>
+            <p class="text-sm leading-6 py-3 flex-1">Lichtgewicht, bliksem-snelle page-loads, duurzaam en binnen enkele uren live! Stop met Wordpress en ga vandaag nog aan de slag!</p>
+            <span class="py-2 px-4 inline-block btn-primary text-sm w-fit">Lees artikel</span>
+          </div>
+        </a>
+        <a href="/blog/2026-02-26-persona/" class="group flex flex-col card-base card-interactive overflow-hidden">
+          <div class="overflow-hidden">
+            <img src="/featured-2026-02-26.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Persona" />
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="text-[color:var(--color-tag-ai)]"><strong>Artificial Intelligence</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">5 min - 26 februari 2026</p>
+            <h3 class="text-2xl font-semibold pt-1 pb-2">Een Persona Library opbouwen met generatieve A.I.</h3>
+            <p class="text-sm leading-6 py-3 flex-1">Raak geïnspireerd en combineer je data en creativiteit voor impactvolle personas. In dit artikel deel ik mijn aanpak, versterkt met generatieve A.I.</p>
+            <span class="py-2 px-4 inline-block btn-primary text-sm w-fit">Lees artikel</span>
+          </div>
+        </a>
+      </div>
 
-      <!-- Card is repeatable -->
-      <a href="/blog/2026-02-26-persona/" class="fade-in group grid grid-cols-[100%] gap-2 my-6 card-base card-interactive">
-        <div class="p-10">
-          <img src="/featured-2026-02-26.png" class="w-960 rounded-lg shadow-lg mb-10 transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Persona" />
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-3"><span class="text-[color:var(--color-tag-ai)]"><strong>Artificial Intelligence</strong></span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">5 minuten leestijd - 26 februari 2026</p>
-          <h3 class="text-3xl pt-1 pb-2">Een Persona Library opbouwen met generatieve A.I.</h3>
-          <p class="text-md leading-7 py-4">Raak ge&iuml;nspireerd en combineer je data en creativiteit voor impactvolle personas. In dit artikel deel ik mijn aanpak, versterkt met generatieve A.I., voor scherpe en gebruikersgerichte inzichten.</p>
-          <span class="mb-2 py-2 px-6 inline-block btn-primary">Lees artikel</span>
-        </div>
-      </a>
-      <!-- End Repeatable Card -->
-
-      <!-- Card is repeatable -->
-      <a href="/blog/2026-02-20-ireb/" class="fade-in group grid grid-cols-[100%] gap-2 my-6 card-base card-interactive">
-        <div class="p-10">
-          <img src="/featured-2026-02-20.png" class="w-960 rounded-lg shadow-lg mb-10 transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Persona" />
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-3"><span class="text-[color:var(--color-tag-training)]">Training &amp; Certification</span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">3 minuten leestijd - 20 februari 2026</p>
-          <h3 class="text-3xl pt-1 pb-2">Verdieping in IREB &amp; Requirements-analyse</h3>
-          <p class="text-md leading-7 py-4">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
-          <span class="mb-2 py-2 px-6 inline-block btn-primary">Lees meer</span>
-        </div>
-      </a>
-      <!-- End Repeatable Card -->
-
-
-      <!-- Card is repeatable -->
-      <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-2-using-kevin-tai/?trackingId=UVTJTIEzTL2OD%2FsyPnyXqw%3D%3D" target="_blank" class="fade-in group grid grid-cols-[100%] gap-2 my-6 card-base card-interactive">
-        <div class="p-10">
-          <img src="/featured-2018-08-08.png" class="w-960 rounded-lg shadow-lg mb-10 transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Persona" />
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-3"><span class="text-[#66AAAA]">Design System</span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">4 minuten leestijd - 8 augustus 2018</p>
-          <h3 class="text-3xl pt-1 pb-2">Implementatie: Atomic Design voor Avisi (Deel 2)</h3>
-          <p class="text-md leading-7 py-4">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
-          <span class="mb-2 py-2 px-6 inline-block btn-primary">Lees meer op LinkedIn Pulse</span>
-        </div>
-      </a>
-      <!-- End Repeatable Card -->
-
-      <!-- Card is repeatable -->
-      <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" class="fade-in group grid grid-cols-[100%] gap-2 my-6 card-base card-interactive">
-        <div class="p-10">
-          <img src="/featured-2018-07-26.png" class="w-960 rounded-lg shadow-lg mb-10 transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Persona" />
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-3"><span class="text-[#66AAAA]">Design System</span> - <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5" alt="Leestijd">4 minuten leestijd - 26 juli 2018</p>
-          <h3 class="text-3xl pt-1 pb-2">Implementatie: Brand System voor Avisi (Deel 1)</h3>
-          <p class="text-md leading-7 py-4">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
-          <span class="mb-2 py-2 px-6 inline-block btn-primary">Lees meer op LinkedIn Pulse</span>
-        </div>
-      </a>
-      <!-- End Repeatable Card -->
+      <!-- Oldest 3 posts: 3-column card view -->
+      <div class="fade-in grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+        <a href="/blog/2026-02-20-ireb/" class="group flex flex-col card-base card-interactive overflow-hidden">
+          <div class="overflow-hidden">
+            <img src="/featured-2026-02-20.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - IREB" />
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="text-[color:var(--color-tag-training)]">Training &amp; Certification</span> - 3 min - 20 feb 2026</p>
+            <h3 class="text-lg font-semibold pt-1 pb-2 line-clamp-2">Verdieping in IREB &amp; Requirements-analyse</h3>
+            <p class="text-sm leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
+            <span class="mt-4 py-2 px-4 inline-block btn-primary text-sm w-fit">Lees meer</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-2-using-kevin-tai/?trackingId=UVTJTIEzTL2OD%2FsyPnyXqw%3D%3D" target="_blank" class="group flex flex-col card-base card-interactive overflow-hidden">
+          <div class="overflow-hidden">
+            <img src="/featured-2018-08-08.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Atomic Design" />
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="text-[#66AAAA]">Design System</span> - 4 min - 8 aug 2018</p>
+            <h3 class="text-lg font-semibold pt-1 pb-2 line-clamp-2">Implementatie: Atomic Design voor Avisi (Deel 2)</h3>
+            <p class="text-sm leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
+            <span class="mt-4 py-2 px-4 inline-block btn-primary text-sm w-fit">Lees meer op LinkedIn</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" class="group flex flex-col card-base card-interactive overflow-hidden">
+          <div class="overflow-hidden">
+            <img src="/featured-2018-07-26.png" class="w-full h-auto transition-transform duration-200 ease-out group-hover:scale-[1.02]" alt="Featured Blog - Brand System" />
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="text-[#66AAAA]">Design System</span> - 4 min - 26 jul 2018</p>
+            <h3 class="text-lg font-semibold pt-1 pb-2 line-clamp-2">Implementatie: Brand System voor Avisi (Deel 1)</h3>
+            <p class="text-sm leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
+            <span class="mt-4 py-2 px-4 inline-block btn-primary text-sm w-fit">Lees meer op LinkedIn</span>
+          </div>
+        </a>
+      </div>
 
     </section>
 
