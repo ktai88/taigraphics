@@ -128,7 +128,9 @@
     width: fit-content;
     transition:
       color 200ms ease-out,
-      border-color 200ms ease-out;
+      border-color 200ms ease-out,
+      background 200ms ease-out,
+      background-size 200ms ease-out;
   }
 
   .card-interactive:hover {
@@ -143,7 +145,9 @@
   .card-interactive:hover h5,
   .card-interactive:hover h6 {
     color: #00f;
-    border-bottom-color: #00f;
+    border-bottom-color: transparent;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 100%) no-repeat bottom;
+    background-size: 100% 2px;
   }
 
   /* Card image: dark overlay + "Lees meer" on hover */
@@ -183,6 +187,34 @@
 
   .nav-link:hover {
     color: var(--color-primary);
+  }
+
+  /* Gradient border-bottom utility (same gradient as hero/buttons) */
+  .border-bottom-gradient {
+    border-bottom: none;
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 100%);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 2px;
+    padding-bottom: 2px;
+  }
+
+  .border-bottom-gradient-8 {
+    border-bottom: none;
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 100%);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 8px;
+  }
+
+  /* Gradient border-top (e.g. hero label) */
+  .border-top-gradient-3 {
+    border-top: none;
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 100%);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% 3px;
+    padding-top: 6px; /* pt-6 equivalent so spacing matches */
   }
 }
 
