@@ -114,9 +114,32 @@
       box-shadow 200ms ease-out;
   }
 
+  .card-interactive h1,
+  .card-interactive h2,
+  .card-interactive h3,
+  .card-interactive h4,
+  .card-interactive h5,
+  .card-interactive h6 {
+    border-bottom: 2px solid transparent;
+    width: fit-content;
+    transition:
+      color 200ms ease-out,
+      border-color 200ms ease-out;
+  }
+
   .card-interactive:hover {
     transform: translateY(-0.25rem);
     box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+  }
+
+  .card-interactive:hover h1,
+  .card-interactive:hover h2,
+  .card-interactive:hover h3,
+  .card-interactive:hover h4,
+  .card-interactive:hover h5,
+  .card-interactive:hover h6 {
+    color: #00f;
+    border-bottom-color: #00f;
   }
 
   .nav-link {
