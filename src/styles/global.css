@@ -252,8 +252,8 @@
 
 /* Hero typing animation: rotating phrases + blinking cursor */
 #hero-typing-text {
-  margin-left: 0.15em;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
+  margin-left: 0.05em;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -261,11 +261,11 @@
 
 .hero-typing-cursor {
   display: inline-block;
-  margin-left: 0.25em;
-  font-weight: 600;
+  margin-left: 0.1em;
+  font-weight: 700;
   font-style: italic;
   color: var(--color-secondary);
-  animation: hero-cursor-blink 0.9s step-end infinite;
+  animation: hero-cursor-blink 1s step-end infinite;
 }
 
 @keyframes hero-cursor-blink {
