@@ -8,6 +8,7 @@
   --color-page-bg: #f5f5f5;
   --color-section-alt: #cedbef;
   --color-primary: #0000ff;
+  --color-secondary: #6600cc;
   --color-text-muted: #555555;
   --color-text-heading: #333333;
   --color-text-strong: #000000;
@@ -80,7 +81,7 @@
     border-radius: 9999px;
     font-weight: 600;
     font-size: 0.875rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
     border: 1px solid var(--color-card-border);
     color: #ffffff;
     transition:
@@ -146,7 +147,7 @@
   .card-interactive:hover h6 {
     color: #00f;
     border-bottom-color: transparent;
-    background: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%) no-repeat bottom;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%) no-repeat bottom;
     background-size: 100% 2px;
   }
 
@@ -167,7 +168,7 @@
   }
 
   .card-image-overlay__btn {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
     color: #fff;
     font-weight: 600;
     font-size: 0.9375rem;
@@ -192,7 +193,7 @@
   /* Gradient border-bottom utility (same gradient as hero/buttons) */
   .border-bottom-gradient {
     border-bottom: none;
-    background-image: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%);
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 100% 2px;
@@ -201,7 +202,7 @@
 
   .border-bottom-gradient-8 {
     border-bottom: none;
-    background-image: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%);
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 100% 8px;
@@ -210,7 +211,7 @@
   /* Gradient border-top (e.g. hero label) */
   .border-top-gradient-3 {
     border-top: none;
-    background-image: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%);
+    background-image: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
     background-repeat: no-repeat;
     background-position: top;
     background-size: 100% 3px;
@@ -252,7 +253,7 @@
 /* Hero typing animation: rotating phrases + blinking cursor */
 #hero-typing-text {
   margin-left: 0.15em;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #6600cc 70%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -263,7 +264,7 @@
   margin-left: 0.25em;
   font-weight: 600;
   font-style: italic;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   animation: hero-cursor-blink 0.9s step-end infinite;
 }
 
