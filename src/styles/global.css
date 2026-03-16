@@ -128,6 +128,8 @@
   .card-interactive h6 {
     border-bottom: 2px solid transparent;
     width: fit-content;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%) no-repeat left bottom;
+    background-size: 0 2px;
     transition:
       color 200ms ease-out,
       border-color 200ms ease-out,
@@ -148,7 +150,6 @@
   .card-interactive:hover h6 {
     color: #00f;
     border-bottom-color: transparent;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%) no-repeat bottom;
     background-size: 100% 2px;
   }
 
