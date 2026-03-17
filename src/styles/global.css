@@ -185,11 +185,15 @@
   .nav-link {
     text-decoration: none;
     font-family: var(--font-aeonik);
-    transition: color 150ms ease-in-out;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
   }
 
   .nav-link:hover {
-    color: var(--color-primary);
+    color: var(--color-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-secondary);
+    transition: color 0.3s ease-in-out;
   }
 
   /* Gradient border-bottom utility (same gradient as hero/buttons) */
