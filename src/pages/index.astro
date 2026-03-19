@@ -18,9 +18,20 @@ import FadeIn from '../components/FadeIn.astro';
     <Nav />
     <header class="hero-section mt-12 mb-10" role="banner"> 
       <div class="page-container-960 py-12">
-        <h1 class="text-[14px] md:text-2xl/10 text-[color:var(--color-text-heading)]">Hoi! Ik ben <strong class="text-[color:var(--color-text-strong)]">Kevin Tai</strong>, designer in digitale oplossingen.</h1>
-        <HeroTyping />
-        <p class="text-[8px] md:text-xs mt-12 mb-2 font-semibold text-xs uppercase tracking-[0.15em] text-[color:var(--color-text-label)]"><span class="border-top-gradient-3 pt-6">UX/UI, Strategy, Branding &amp; Visual Design</span></p>
+        <div class="flex items-start justify-between gap-4 md:gap-6">
+          <div class="flex-1">
+            <h1 class="text-[14px] md:text-2xl/10 text-[color:var(--color-text-heading)]">Hoi! Ik ben <strong class="text-[color:var(--color-text-strong)]">Kevin Tai</strong>, designer in digitale oplossingen.</h1>
+            <HeroTyping />
+            <p class="text-[8px] md:text-xs mt-10 mb-2 font-semibold text-xs uppercase tracking-[0.15em] text-[color:var(--color-text-label)]"><span class="border-top-gradient-3 pt-6">UX/UI, Strategy, Branding &amp; Visual Design</span></p>
+          </div>
+          <div class="-mt-2 ml-auto shrink-0 hidden md:block">
+            <img
+              src="/avatar-kevin-new.png"
+              alt="Avatar van Kevin Tai"
+              class="h-28 w-28 md:h-40 md:w-40 rounded-full object-cover object-top shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
+            />
+          </div>
+        </div>
       </div>
     </header>
 
