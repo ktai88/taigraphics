@@ -138,7 +138,7 @@
   }
 
   .card-interactive:hover {
-    transform: translateY(-0.125rem);
+    transform: translateY(-0.125rem) scale(1.01);
     box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
   }
 
