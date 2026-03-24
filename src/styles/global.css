@@ -235,6 +235,45 @@
     opacity: 1;
     transform: translateY(-1px);
   }
+
+  /* Blog listing category badges (replaces colored inline text) */
+  .blog-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    line-height: 1.25;
+    border: 1px solid transparent;
+    vertical-align: middle;
+  }
+
+  .blog-tag--tooling {
+    color: var(--color-tag-tooling);
+    background: rgba(0, 173, 238, 0.12);
+    border-color: rgba(0, 173, 238, 0.35);
+  }
+
+  .blog-tag--ai {
+    color: var(--color-tag-ai);
+    background: rgba(170, 51, 187, 0.12);
+    border-color: rgba(170, 51, 187, 0.35);
+  }
+
+  .blog-tag--training {
+    color: var(--color-tag-training);
+    background: rgba(255, 153, 51, 0.12);
+    border-color: rgba(255, 153, 51, 0.35);
+  }
+
+  .blog-tag--design-system {
+    color: #339999;
+    background: rgba(102, 170, 170, 0.15);
+    border-color: rgba(102, 170, 170, 0.45);
+  }
 }
 
 #active {
