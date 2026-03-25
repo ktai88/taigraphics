@@ -322,16 +322,17 @@
   font-weight: 700;
   font-style: italic;
   color: var(--color-secondary);
-  animation: hero-cursor-blink 1s step-end infinite;
+  animation: hero-cursor-fade 0.8s ease-in-out infinite;
 }
 
-@keyframes hero-cursor-blink {
+@keyframes hero-cursor-fade {
   0%,
-  50% {
+  35%,
+  100% {
     opacity: 1;
   }
-  51%,
-  100% {
+  55%,
+  80% {
     opacity: 0;
   }
 }
