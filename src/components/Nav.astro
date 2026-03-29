@@ -16,8 +16,12 @@ const { active } = Astro.props as Props;
     </a>
     <!-- Navigation -->
     <ul class="flex ml-3 space-x-3 md:space-x-8 text-black text-xs md:text-base">
-    <li class="mt-3"><a href="/#ux" class="text-nowrap nav-link">UX</a></li>
-    <li class="mt-3"><a href="/#ui" class="text-nowrap nav-link">UI</a></li>
+    <li class="mt-3">
+      <a href="/#ux" data-nav-section="ux" class="text-nowrap nav-link">UX</a>
+    </li>
+    <li class="mt-3">
+      <a href="/#ui" data-nav-section="ui" class="text-nowrap nav-link">UI</a>
+    </li>
     <li class="mt-3">
       <a
         href="/showcase"
@@ -50,17 +54,127 @@ const { active } = Astro.props as Props;
     </ul>
 </nav>
 
-<script client:load>
+<script>
   const nav = document.getElementById('main-nav');
   if (nav) {
-    const handleScroll = () => {
+    const isHomePage = () => {
+      const p = window.location.pathname.replace(/\/$/, '') || '/';
+      return p === '/' || p === '/index.html';
+    };
+
+    const sectionIds = ['ux', 'ui'];
+
+    const getSections = () =>
+      sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    const sectionLinks = {};
+    for (const id of sectionIds) {
+      const link = nav.querySelector(`a[data-nav-section="${id}"]`);
+      if (link) sectionLinks[id] = link;
+    }
+
+    const getScrollOffset = () => Math.round(nav.getBoundingClientRect().height + 16);
+
+    const clearSectionCurrent = () => {
+      for (const id of sectionIds) {
+        const link = sectionLinks[id];
+        if (!link) continue;
+        link.classList.remove('nav-link--current-section');
+        link.removeAttribute('aria-current');
+      }
+    };
+
+    const updateSectionNav = () => {
+      const sections = getSections();
+      if (!isHomePage() || sections.length === 0) {
+        clearSectionCurrent();
+        return;
+      }
+      const offset = getScrollOffset();
+      let activeId = null;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = sections[i];
+        if (el.getBoundingClientRect().top <= offset) {
+          activeId = el.id;
+          break;
+        }
+      }
+      for (const id of sectionIds) {
+        const link = sectionLinks[id];
+        if (!link) continue;
+        if (id === activeId) {
+          link.classList.add('nav-link--current-section');
+          link.setAttribute('aria-current', 'page');
+        } else {
+          link.classList.remove('nav-link--current-section');
+          link.removeAttribute('aria-current');
+        }
+      }
+    };
+
+    let ticking = false;
+    const onScroll = () => {
       if (window.scrollY > 30) {
         nav.classList.add('nav-shrink');
       } else {
         nav.classList.remove('nav-shrink');
       }
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateSectionNav();
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    /** Re-query sections each time — Nav script can run before #ux/#ui exist in the DOM. */
+    let sectionObserver = null;
+    const bindSectionObserver = () => {
+      sectionObserver?.disconnect();
+      const sections = getSections();
+      if (!isHomePage() || sections.length === 0) return;
+      const top = Math.round(nav.getBoundingClientRect().height + 16);
+      sectionObserver = new IntersectionObserver(
+        () => {
+          updateSectionNav();
+        },
+        {
+          root: null,
+          rootMargin: `-${top}px 0px -45% 0px`,
+          threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+        },
+      );
+      for (const el of sections) {
+        sectionObserver.observe(el);
+      }
+    };
+
+    const onResize = () => {
+      updateSectionNav();
+      bindSectionObserver();
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    window.addEventListener('hashchange', updateSectionNav);
+    window.addEventListener('load', () => {
+      updateSectionNav();
+      bindSectionObserver();
+    });
+
+    const initSectionNav = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          updateSectionNav();
+          bindSectionObserver();
+        });
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSectionNav);
+    } else {
+      initSectionNav();
+    }
   }
 </script>

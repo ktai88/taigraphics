@@ -196,6 +196,16 @@
     transition: color 0.3s ease-in-out;
   }
 
+  /* Homepage scrollspy: matches Showcase / On my mind “current page” look */
+  #main-nav .nav-link.nav-link--current-section {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  #main-nav .nav-link.nav-link--current-section:hover {
+    color: var(--color-primary);
+  }
+
   /* Gradient border-bottom utility (same gradient as hero/buttons) */
   .border-bottom-gradient {
     border-bottom: none;
