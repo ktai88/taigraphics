@@ -57,6 +57,13 @@
   :focus {
     outline: 2px solid #ff9933;
   }
+
+  /* Keep hash-target headings visible below sticky navigation. */
+  #ux,
+  #ui,
+  #visuals {
+    scroll-margin-top: 7rem;
+  }
 }
 
 @layer components {
