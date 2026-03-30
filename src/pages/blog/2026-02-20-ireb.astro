@@ -1,22 +1,10 @@
 ---
-import "../../styles/global.css";
-import ScrollToTop from '../../components/ScrollToTop.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
-import Meta from '../../components/Meta.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-  <body>
+<BaseLayout active="blog" title="Verdieping IREB & Requirements-analyse | TaiGraphics">
 
-<Nav active="blog" />
-
-    <section role="main">
+    <section>
       <div class="page-container-800">
         <h1 class="text-4xl mt-10 mb-6">Verdieping IREB & Requirements-analyse</h1>
         <p class="leading-8 my-4 text-[color:var(--color-text-muted)]"><span class="blog-tag blog-tag--training">Training &amp; Certification</span> <span class="text-[color:var(--color-text-muted)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">3 minuten leestijd - 20 februari 2026</p>
@@ -25,7 +13,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Wat heb ik ervan geleerd?</h2>
         <p class="leading-8 mt-3">Zonder te diep in te gaan op de gehele cursus kan ik zeggen dat ik het interessant vond om te zien welke verschillende RE-approaches en perspectieven er zijn om tot een product of oplossing te komen. Zo is het belangrijk om te weten wanneer je prescriptive RE toepast of juist een andere aanpak kiest. Daarnaast komen de elicitation-werkwijzen sterk overeen met de aanpak van een UX'er. Bijvoorbeeld het KANO-model springt eruit; dit heb ik ooit toegepast in mijn project bij ASTRON en het was mooi om dat hierin terug te zien.</p>
@@ -35,7 +23,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800 pb-10">
         <h2 class="text-2xl">Hoe bereid je jezelf voor?</h2>
         <p class="leading-8 mt-3">Vanuit verschillende bronnen werd geadviseerd om het boek <em>Requirements Engineering Fundamentals</em> uit 2015 te lezen, een boek van ruim tien jaar oud. Het advies is goed bedoeld en het is zeker de moeite waard om het een keer te lezen, maar gebruik het alsjeblieft niet om je IREB CPRE-examen mee te oefenen; daarvoor is het simpelweg verouderd. Download en print in plaats daarvan het volledige <strong>IREB CPRE-handbook</strong> van de officieele website en maak oefenexamens, bijvoorbeeld via <strong>Udemy</strong>.</p>
@@ -54,8 +42,4 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <Footer />
-
-    <ScrollToTop />
-  </body>
-</html>
+</BaseLayout>

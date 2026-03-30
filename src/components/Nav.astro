@@ -76,12 +76,34 @@ const { active } = Astro.props as Props;
   const nav = document.getElementById('main-nav');
   const showcaseModal = document.getElementById('showcase-modal');
   const showcaseClose = showcaseModal?.querySelector('[data-close-showcase-modal]');
+  let lastFocusedElement = null;
+  const focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'textarea:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(',');
+
+  const getFocusableElements = () => {
+    if (!showcaseModal) return [];
+    return Array.from(showcaseModal.querySelectorAll(focusableSelector)).filter((element) => {
+      if (!(element instanceof HTMLElement)) return false;
+      return !element.hasAttribute('disabled') && element.tabIndex !== -1;
+    });
+  };
 
   const openShowcaseModal = () => {
     if (!showcaseModal) return;
+    lastFocusedElement = document.activeElement;
     showcaseModal.classList.add('is-open');
     showcaseModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+    const [firstFocusable] = getFocusableElements();
+    if (firstFocusable instanceof HTMLElement) {
+      firstFocusable.focus();
+    }
   };
 
   const closeShowcaseModal = () => {
@@ -89,6 +111,9 @@ const { active } = Astro.props as Props;
     showcaseModal.classList.remove('is-open');
     showcaseModal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    if (lastFocusedElement instanceof HTMLElement) {
+      lastFocusedElement.focus();
+    }
   };
 
   document.addEventListener('click', (event) => {
@@ -113,6 +138,22 @@ const { active } = Astro.props as Props;
   });
 
   document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab' && showcaseModal?.classList.contains('is-open')) {
+      const focusableElements = getFocusableElements();
+      if (focusableElements.length === 0) return;
+      const first = focusableElements[0];
+      const last = focusableElements[focusableElements.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
     if (event.key === 'Escape') {
       closeShowcaseModal();
     }

@@ -1,22 +1,10 @@
 ---
-import "../../styles/global.css";
-import ScrollToTop from '../../components/ScrollToTop.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
-import Meta from '../../components/Meta.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-<body>
+<BaseLayout active="blog" title="Waarom ik kies voor Astro.build | TaiGraphics">
 
-<Nav active="blog" />
-
-    <section role="main">
+    <section>
       <div class="page-container-800">
         <h1 class="text-4xl mt-10 mb-6">Waarom ik zo te spreken ben over Astro.build!</h1>
         <p class="leading-8 my-4 text-[color:var(--color-text-muted)]"><span class="blog-tag blog-tag--tooling">Tooling</span> <span class="text-[color:var(--color-text-muted)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">3 minuten leestijd - 4 maart 2026</p>
@@ -24,7 +12,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Cut the fluff; Astro.Build als framework</h2>
         <p class="leading-8 mt-3">Wist je dat een gemiddelde website met een standaard CMS (vb. Wordpress) 500MB tot 1GB diskspace nodig heeft, voor een basis website? Heb je die dan ook echt nodig voor je site? Ik wilde een framework dat van nature schoon en minimaal is. Geen CMS met eindeloze updates, plugins en performance-puzzels, maar een oplossing die vanaf dag 1 effici&euml;ntie vooropstelt.</p>
@@ -53,8 +41,4 @@ import Meta from '../../components/Meta.astro';
 
     
 
-    <Footer />
-
-    <ScrollToTop />
-  </body>
-</html>
+</BaseLayout>

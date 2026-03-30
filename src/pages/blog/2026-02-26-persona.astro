@@ -1,22 +1,10 @@
 ---
-import "../../styles/global.css";
-import ScrollToTop from '../../components/ScrollToTop.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
-import Meta from '../../components/Meta.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-<body>
+<BaseLayout active="blog" title="Persona Library met generatieve AI | TaiGraphics">
 
-<Nav active="blog" />
-
-    <section role="main">
+    <section>
       <div class="page-container-800">
         <h1 class="text-4xl mt-10 mb-6">Persona Library met generatieve A.I.</h1>
         <p class="leading-8 my-4 text-[color:var(--color-text-muted)]"><span class="blog-tag blog-tag--ai">Artificial Intelligence</span> <span class="text-[color:var(--color-text-muted)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">5 minuten leestijd - 26 februari 2026</p>
@@ -28,7 +16,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Laat een AI chattool je persona aanscherpen!</h2>
         <p class="leading-8 mt-3">Maak gebruik van A.I. in de persona-creatiefase, maar laat het je persona's niet vanaf nul opbouwen. Je hebt immers al data verzameld en grondig onderzoek gedaan naar je doelgroep.
@@ -51,7 +39,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Multi-user roept om een library!</h2>
         <p class="leading-8 mt-3">In mijn eerdere ervaringen binnen UX en het maken van bijvoorbeeld high-level journeys weet je vooraf al dat je te maken hebt met meerdere users met verschillende belangen (zowel interne als externe gebruikers). Bouw daarom een persona-library op waar stakeholders binnen het project <strong>toegang toe hebben</strong>. Gebruik bijvoorbeeld een gedeeld Figma-document, maar een Confluence-pagina kan ook al werken.</p>
@@ -61,7 +49,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Wat kun je nog meer doen?</h2>
         <p class="leading-8 mt-3">Je hebt een persona library, wat nu? Vanuit een persona kun je artefacts uitbouwen naar bijvoorbeeld customer journeys of service blueprints, dat ligt voor de hand.</p>
@@ -71,8 +59,4 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <Footer />
-
-    <ScrollToTop />
-  </body>
-</html>
+</BaseLayout>

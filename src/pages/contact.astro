@@ -1,20 +1,8 @@
 ---
-import "../styles/global.css";
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import ScrollToTop from '../components/ScrollToTop.astro';
-import Meta from '../components/Meta.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-  <body>
-
-<Nav active="contact" />
+<BaseLayout active="contact" title="Contact - Say hi | TaiGraphics">
 
     <header class="mt-12 mb-10" role="banner"> 
       <div class="page-container-960 py-6">
@@ -23,7 +11,7 @@ import Meta from '../components/Meta.astro';
       </div>
     </header>
 
-    <section id="ux" class="section-alt py-5" role="main">
+    <section id="ux" class="section-alt py-5">
       <div class="page-container-960">
       <!-- Calendly inline widget begin -->
       <div class="calendly-inline-widget" data-url="https://calendly.com/taigraphics-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=0000ff" style="min-width:320px;height:700px;"></div>
@@ -32,8 +20,4 @@ import Meta from '../components/Meta.astro';
       </div>
     </section>
 
-    <Footer />
-    <ScrollToTop />
-
-  </body>
-</html>
+</BaseLayout>

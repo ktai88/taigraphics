@@ -1,25 +1,8 @@
 ---
-import "../styles/global.css";
-import Nav from '../components/Nav.astro';
-import ScrollToTop from '../components/ScrollToTop.astro';
-import Footer from '../components/Footer.astro';
-import Meta from '../components/Meta.astro';
-import FadeIn from '../components/FadeIn.astro';
 import ShowcaseContent from '../components/ShowcaseContent.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-  <body>
-
-<Nav active="showcase" />
-    <ShowcaseContent />
-      <Footer />
-    <ScrollToTop />
-    <FadeIn />
-  </body>
-</html>
+<BaseLayout active="showcase" includeFadeIn={true} title="Visual showcase | TaiGraphics">
+  <ShowcaseContent />
+</BaseLayout>

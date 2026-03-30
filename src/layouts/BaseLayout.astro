@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
+import FadeIn from "../components/FadeIn.astro";
+import Meta from "../components/Meta.astro";
+
+interface Props {
+  title?: string;
+  active?: "showcase" | "blog" | "contact";
+  includeFadeIn?: boolean;
+}
+
+const {
+  title = "TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development",
+  active,
+  includeFadeIn = false,
+} = Astro.props as Props;
+---
+
+<html lang="nl">
+  <head>
+    <Meta />
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[999] focus:rounded-md focus:bg-white focus:px-3 focus:py-2">
+      Ga direct naar de inhoud
+    </a>
+    <Nav active={active} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <ScrollToTop />
+    {includeFadeIn && <FadeIn />}
+  </body>
+</html>

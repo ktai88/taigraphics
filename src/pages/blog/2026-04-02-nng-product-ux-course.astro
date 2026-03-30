@@ -1,22 +1,10 @@
 ---
-import "../../styles/global.css";
-import ScrollToTop from '../../components/ScrollToTop.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
-import Meta from '../../components/Meta.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-  <body>
+<BaseLayout active="blog" title="Reflectie op de Product & UX Course van NN/g | TaiGraphics">
 
-<Nav active="blog" />
-
-    <section role="main">
+    <section>
       <div class="page-container-800">
         <h1 class="text-4xl mt-10 mb-6">Reflectie op de Product &amp; UX Course van Nielsen Norman Group</h1>
         <p class="leading-8 my-4 text-[color:var(--color-text-muted)]"><span class="blog-tag blog-tag--training">Training &amp; Certification</span> <span class="text-[color:var(--color-text-muted)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">8 minuten leestijd - 2 april 2026</p>
@@ -24,14 +12,14 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Van projectdenken naar productdenken: een mindsetshift</h2>
         <p class="leading-8 mt-3">Een van de belangrijkste inzichten was de verschuiving van projectdenken naar productdenken: een concept dat ook Marty Cagan in zijn boek <em>Inspired</em> benadrukt. Projecten draaien om opleveren; productdenken om continu waarde leveren. Logisch, maar in de praktijk merk ik dat we vaak blijven hangen in die projectmodus. Terwijl de echte impact zit in de context die je schept.</p>
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Stakeholdermanagement: simpel, maar oh zo effectief</h2>
         <p class="leading-8 mt-3">Twee modellen die ik meteen in mijn gereedschapskist stopte:</p>
@@ -45,7 +33,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Silo&rsquo;s: het probleem dat iedereen herkent (en ervaart)</h2>
         <p class="leading-8 mt-3">Wat ook duidelijk werd in gesprekken met andere designers en managers: silo&rsquo;s zijn overal. Iedereen heeft er last van. Een interessante oplossing? Een knowledge tracker; niet als stoffig document, maar als gedeeld overzicht van aannames, inzichten en beslissingen. Je kunt het zien als een glossary, maar dan gericht op kennis en werkwijze binnen de organisatie.</p>
@@ -64,14 +52,14 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Strategie: waarom betrokkenheid zo vaak ontbreekt</h2>
         <p class="leading-8 mt-3">Een terugkerend thema tijdens deze live course met andere deelnemers? Frustratie over beperkte betrokkenheid bij strategie. Veel teams werken nog te weinig met frameworks zoals het Business Model Canvas, terwijl dat juist helpt om betere productkeuzes te maken en minder op aannames te leunen.</p>
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">AI-output: kritisch kijken is key</h2>
         <p class="leading-8 mt-3">AI wordt steeds meer onderdeel van ons werk. Maar daarmee wordt evaluatie ook belangrijker. Wat me opviel: output klinkt vaak &ldquo;goed&rdquo;, maar inhoudelijk rammelt het soms. Valkuilen die ik nu bewuster herken:</p>
@@ -95,14 +83,14 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">User-first: het fundament van elk goed product</h2>
         <p class="leading-8 mt-3">De course bevestigde iets wat eigenlijk vanzelfsprekend zou moeten zijn: een goed product begint bij de gebruiker. Niet als stap in het proces, maar als uitgangspunt voor strategie.</p>
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Mijn persoonlijke leerpunt</h2>
         <p class="leading-8 mt-3">Mijn grootste takeaway? Ik moet mezelf dwingen om actiever bij te dragen aan roadmap- en OKR-discussies. Niet wachten tot ik wordt aangehaakt, maar zelf de regie pakken. Omdat dat helpt om:</p>
@@ -126,7 +114,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800">
         <h2 class="text-2xl">Een uitdaging die blijft: omgaan met aannames</h2>
         <p class="leading-8 mt-3">Wat ik lastig vind (en waarschijnlijk blijft): omgaan met aannames die voor mij niet kloppen. En hoe mijn input soms kan overkomen als corrigeren, in plaats van samenwerken.</p>
@@ -144,7 +132,7 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <section role="complementary">
+    <section>
       <div class="page-container-800 pb-10">
         <h2 class="text-2xl">Meer samenwerken, minder overtuigen</h2>
         <p class="leading-8 mt-3">De echte waarde van deze course? Niet de theorie, maar het bewust toepassen ervan in de praktijk. En dat begint vandaag. Met deze inzichten voel ik me beter uitgerust om niet alleen betere producten te bouwen, maar ook om als designer meer impact te maken; op een manier die zowel gebruikers als teams echt verder helpt. Een mooie stap vooruit!</p>
@@ -152,8 +140,4 @@ import Meta from '../../components/Meta.astro';
       </div>
     </section>
 
-    <Footer />
-
-    <ScrollToTop />
-  </body>
-</html>
+</BaseLayout>

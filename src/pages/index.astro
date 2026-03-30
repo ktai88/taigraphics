@@ -1,21 +1,9 @@
 ---
-import "../styles/global.css";
-import ScrollToTop from '../components/ScrollToTop.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import Meta from '../components/Meta.astro';
 import HeroTyping from '../components/HeroTyping.astro';
-import FadeIn from '../components/FadeIn.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-  <body>
-    <Nav />
+<BaseLayout includeFadeIn={true} title="TaiGraphics - UX/UI Designer, Visual Design, Branding & Front-end">
     <header class="hero-section mt-12 mb-10" role="banner"> 
       <div class="page-container-960 py-12">
         <div class="flex items-center justify-between gap-4 md:gap-6">
@@ -35,7 +23,7 @@ import FadeIn from '../components/FadeIn.astro';
       </div>
     </header>
 
-    <section id="ux" class="section-alt py-5" role="main">
+    <section id="ux" class="section-alt py-5">
       <div class="page-container-960">
       <h2 class="fade-in text-2xl my-4"><span class="font-bold text-[color:var(--color-primary)]">User Experience</span> Cases</h2>
 
@@ -73,7 +61,7 @@ import FadeIn from '../components/FadeIn.astro';
 
     </section>
 
-    <section id="ui" class="py-5" role="complementary">
+    <section id="ui" class="py-5">
       <div class="page-container-960">
       <h2 class="fade-in text-2xl my-4"><span class="font-bold text-[color:var(--color-primary)]">User Interface</span> Cases</h2>
 
@@ -111,7 +99,7 @@ import FadeIn from '../components/FadeIn.astro';
 
     </section>
 
-    <section id="visuals" class="section-alt py-5" role="complementary">
+    <section id="visuals" class="section-alt py-5">
       <div class="page-container-960">
       <h2 class="fade-in text-2xl my-4"><span class="font-bold text-[color:var(--color-primary)]">Showcase</span> Designs</h2>
 
@@ -133,9 +121,4 @@ import FadeIn from '../components/FadeIn.astro';
 
     </section>
 
-    <Footer />
-
-    <ScrollToTop />
-    <FadeIn />
-  </body>
-</html>
+</BaseLayout>

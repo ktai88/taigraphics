@@ -1,20 +1,8 @@
 ---
-import "../styles/global.css";
-import ScrollToTop from '../components/ScrollToTop.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
-import Meta from '../components/Meta.astro';
-import FadeIn from '../components/FadeIn.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="nl">
-  <head>
-    <Meta />
-    <title>TaiGraphics - UX/UI Designer met passie voor Visual Design, Branding en Front-end Development</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  </head>
-  <body>
-    <Nav active="blog" />
+<BaseLayout active="blog" includeFadeIn={true} title="On my mind - UX/UI blog | TaiGraphics">
 
     <header class="mt-8 mb-6" role="banner"> 
       <div class="page-container-960 py-6">
@@ -23,7 +11,7 @@ import FadeIn from '../components/FadeIn.astro';
       </div>
     </header>
 
-    <section id="ux" class="section-alt py-5" role="main">
+    <section id="ux" class="section-alt py-5">
       <div class="page-container-960">
 
      <!-- <div class="fade-in my-6">
@@ -107,7 +95,7 @@ import FadeIn from '../components/FadeIn.astro';
             <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
           </div>
         </a>
-        <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-2-using-kevin-tai/?trackingId=UVTJTIEzTL2OD%2FsyPnyXqw%3D%3D" target="_blank" class="group flex flex-col card-base card-interactive overflow-hidden">
+        <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-2-using-kevin-tai/?trackingId=UVTJTIEzTL2OD%2FsyPnyXqw%3D%3D" target="_blank" rel="noopener noreferrer" class="group flex flex-col card-base card-interactive overflow-hidden">
           <div class="card-image-wrap overflow-hidden">
             <img src="/featured-2018-08-08.png" class="w-full h-auto " alt="Featured Blog - Atomic Design" />
             <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Open LinkedIn Pulse</span></span>
@@ -118,7 +106,7 @@ import FadeIn from '../components/FadeIn.astro';
             <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
           </div>
         </a>
-        <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" class="group flex flex-col card-base card-interactive overflow-hidden">
+        <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" rel="noopener noreferrer" class="group flex flex-col card-base card-interactive overflow-hidden">
           <div class="card-image-wrap overflow-hidden">
             <img src="/featured-2018-07-26.png" class="w-full h-auto " alt="Featured Blog - Brand System" />
             <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Open LinkedIn Pulse</span></span>
@@ -133,10 +121,4 @@ import FadeIn from '../components/FadeIn.astro';
 
     </section>
 
-
-    <Footer />
-
-    <ScrollToTop />
-    <FadeIn />
-  </body>
-</html>
+</BaseLayout>
