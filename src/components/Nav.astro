@@ -73,7 +73,17 @@ const { active } = Astro.props as Props;
       if (link) sectionLinks[id] = link;
     }
 
-    const getScrollOffset = () => Math.round(nav.getBoundingClientRect().height + 16);
+    const getScrollOffset = () => {
+      const firstSection = getSections()[0];
+      if (firstSection) {
+        const style = window.getComputedStyle(firstSection);
+        const scrollMarginTop = Number.parseFloat(style.scrollMarginTop || '0');
+        if (Number.isFinite(scrollMarginTop) && scrollMarginTop > 0) {
+          return Math.round(scrollMarginTop);
+        }
+      }
+      return Math.round(nav.getBoundingClientRect().height + 16);
+    };
 
     const clearSectionCurrent = () => {
       for (const id of sectionIds) {
@@ -134,7 +144,7 @@ const { active } = Astro.props as Props;
       sectionObserver?.disconnect();
       const sections = getSections();
       if (!isHomePage() || sections.length === 0) return;
-      const top = Math.round(nav.getBoundingClientRect().height + 16);
+      const top = getScrollOffset();
       sectionObserver = new IntersectionObserver(
         () => {
           updateSectionNav();
