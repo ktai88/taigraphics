@@ -299,7 +299,7 @@
 }
 
 #main-nav {
-  transform: scale(1);
+  transform: scale(0.95);
   transform-origin: center;
 }
 
