@@ -94,21 +94,7 @@ const { active } = Astro.props as Props;
       }
     };
 
-    const updateSectionNav = () => {
-      const sections = getSections();
-      if (!isHomePage() || sections.length === 0) {
-        clearSectionCurrent();
-        return;
-      }
-      const offset = getScrollOffset();
-      let activeId = null;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = sections[i];
-        if (el.getBoundingClientRect().top <= offset) {
-          activeId = el.id;
-          break;
-        }
-      }
+    const setSectionCurrent = (activeId) => {
       for (const id of sectionIds) {
         const link = sectionLinks[id];
         if (!link) continue;
@@ -120,6 +106,45 @@ const { active } = Astro.props as Props;
           link.removeAttribute('aria-current');
         }
       }
+    };
+
+    let pendingActiveId = null;
+    let pendingUntil = 0;
+
+    const updateSectionNav = () => {
+      const sections = getSections();
+      if (!isHomePage() || sections.length === 0) {
+        clearSectionCurrent();
+        return;
+      }
+      const offset = getScrollOffset();
+      const triggerY = window.scrollY + offset;
+      let activeId = null;
+      for (let i = 0; i < sections.length; i++) {
+        const el = sections[i];
+        const sectionTop = window.scrollY + el.getBoundingClientRect().top;
+        if (triggerY >= sectionTop) {
+          activeId = el.id;
+        }
+      }
+
+      if (pendingActiveId && Date.now() < pendingUntil) {
+        const pendingSection = document.getElementById(pendingActiveId);
+        if (pendingSection) {
+          const pendingTop = window.scrollY + pendingSection.getBoundingClientRect().top;
+          if (triggerY < pendingTop) {
+            activeId = pendingActiveId;
+          } else {
+            pendingActiveId = null;
+          }
+        } else {
+          pendingActiveId = null;
+        }
+      } else {
+        pendingActiveId = null;
+      }
+
+      setSectionCurrent(activeId);
     };
 
     let ticking = false;
@@ -167,7 +192,11 @@ const { active } = Astro.props as Props;
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onResize);
-    window.addEventListener('hashchange', updateSectionNav);
+    window.addEventListener('hashchange', () => {
+      updateSectionNav();
+      requestAnimationFrame(updateSectionNav);
+      setTimeout(updateSectionNav, 220);
+    });
     window.addEventListener('load', () => {
       updateSectionNav();
       bindSectionObserver();
@@ -185,6 +214,17 @@ const { active } = Astro.props as Props;
       document.addEventListener('DOMContentLoaded', initSectionNav);
     } else {
       initSectionNav();
+    }
+
+    for (const id of sectionIds) {
+      const link = sectionLinks[id];
+      if (!link) continue;
+      link.addEventListener('click', () => {
+        if (!isHomePage()) return;
+        pendingActiveId = id;
+        pendingUntil = Date.now() + 1200;
+        setSectionCurrent(id);
+      });
     }
   }
 </script>
