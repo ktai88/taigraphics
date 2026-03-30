@@ -26,6 +26,9 @@ const {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body>
+    <div class="page-loader" id="page-loader" aria-hidden="true">
+      <div class="page-loader__bar" id="page-loader-bar"></div>
+    </div>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[999] focus:rounded-md focus:bg-white focus:px-3 focus:py-2">
       Ga direct naar de inhoud
     </a>
@@ -36,5 +39,95 @@ const {
     <Footer />
     <ScrollToTop />
     {includeFadeIn && <FadeIn />}
+    <script is:inline>
+      const pageLoader = document.getElementById("page-loader");
+      const pageLoaderBar = document.getElementById("page-loader-bar");
+      const PAGE_LOADER_STORAGE_KEY = "tg_page_loader_started_at";
+      const PAGE_LOADER_MIN_VISIBLE_MS = 850;
+      let pageLoaderProgress = 0;
+      let pageLoaderTimer = null;
+      let pageLoaderStartAt = 0;
+
+      const setPageLoaderProgress = (value) => {
+        if (!(pageLoaderBar instanceof HTMLElement)) return;
+        pageLoaderBar.style.transform = `scaleX(${Math.max(0, Math.min(1, value))})`;
+      };
+
+      const beginLoader = (initial = 0.01) => {
+        if (!(pageLoader instanceof HTMLElement)) return;
+        pageLoader.classList.add("is-active");
+        pageLoaderStartAt = Date.now();
+        pageLoaderProgress = initial;
+        setPageLoaderProgress(pageLoaderProgress);
+        if (pageLoaderTimer) window.clearInterval(pageLoaderTimer);
+        pageLoaderTimer = window.setInterval(() => {
+          // Simulate realistic progress that slows near the end.
+          const remaining = 0.92 - pageLoaderProgress;
+          const step = Math.max(remaining * 0.18, 0.01);
+          pageLoaderProgress = Math.min(pageLoaderProgress + step, 0.92);
+          setPageLoaderProgress(pageLoaderProgress);
+        }, 150);
+      };
+
+      const endLoader = () => {
+        if (!(pageLoader instanceof HTMLElement)) return;
+        if (pageLoaderTimer) window.clearInterval(pageLoaderTimer);
+        const elapsed = Date.now() - pageLoaderStartAt;
+        const wait = Math.max(PAGE_LOADER_MIN_VISIBLE_MS - elapsed, 0);
+        window.setTimeout(() => {
+          setPageLoaderProgress(1);
+          window.setTimeout(() => {
+            pageLoader.classList.remove("is-active");
+            setPageLoaderProgress(0);
+          }, 220);
+        }, wait);
+      };
+
+      const markNextNavigation = () => {
+        try {
+          sessionStorage.setItem(PAGE_LOADER_STORAGE_KEY, String(Date.now()));
+        } catch {
+          // ignore
+        }
+      };
+
+      const consumePreviousNavigation = () => {
+        try {
+          const startedAt = Number(sessionStorage.getItem(PAGE_LOADER_STORAGE_KEY) || "0");
+          sessionStorage.removeItem(PAGE_LOADER_STORAGE_KEY);
+          return startedAt;
+        } catch {
+          return 0;
+        }
+      };
+
+      // Show loader on current page (simulated), and keep continuity across navigations.
+      const hasPreviousNavigation = Boolean(consumePreviousNavigation());
+      beginLoader(0.01);
+
+      window.addEventListener("load", endLoader);
+      window.addEventListener("pageshow", endLoader);
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const anchor = target.closest("a");
+        if (!(anchor instanceof HTMLAnchorElement)) return;
+        if (!anchor.href) return;
+        if (anchor.hasAttribute("data-open-showcase-modal")) return;
+        if (anchor.target === "_blank") return;
+        if (anchor.hasAttribute("download")) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        const url = new URL(anchor.href, window.location.origin);
+        if (url.origin !== window.location.origin) return;
+        if (url.pathname === window.location.pathname && url.hash) return;
+        markNextNavigation();
+        beginLoader(0.01);
+      });
+
+      window.addEventListener("beforeunload", () => {
+        markNextNavigation();
+      });
+    </script>
   </body>
 </html>
