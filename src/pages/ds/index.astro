@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Design System Overview | TaiGraphics">
+  <header class="mt-8 mb-6" role="banner">
+    <div class="page-container-960 py-6">
+      <h1 class="text-4xl text-[color:var(--color-text-heading)]">
+        Design System <strong class="text-[color:var(--color-text-strong)]">Overview</strong>
+      </h1>
+      <p class="mt-6 mb-2 font-semibold text-xs uppercase tracking-[0.1em] text-[color:var(--color-text-label)]">
+        <span class="border-t-[2px] border-[color:var(--color-primary)] pt-3">Tokens, componenten en codevoorbeelden</span>
+      </p>
+      <p class="leading-8 mt-5">
+        Deze pagina documenteert de visuele bouwstenen van de website: kleuren, spacing, containers,
+        componenten, utility classes en voorbeeldcode.
+      </p>
+    </div>
+  </header>
+
+  <section class="section-alt section-pad">
+    <div class="page-container-960">
+      <h2 class="text-2xl mb-6">1) Kleurensysteem</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+        <div class="card-base p-6">
+          <h3 class="text-xl mb-4">Core color tokens</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="rounded-md p-3 bg-[color:var(--color-primary)] text-white text-xs">--color-primary</div>
+            <div class="rounded-md p-3 bg-[color:var(--color-secondary)] text-white text-xs">--color-secondary</div>
+            <div class="rounded-md p-3 bg-[color:var(--color-text-heading)] text-white text-xs">--color-text-heading</div>
+            <div class="rounded-md p-3 bg-[color:var(--color-text-subtle)] text-white text-xs">--color-text-subtle</div>
+            <div class="rounded-md p-3 bg-[color:var(--color-text-muted)] text-white text-xs md:col-span-2">--color-text-muted</div>
+          </div>
+        </div>
+        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>.sample &#123;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+&#125;
+
+.sample-muted &#123;
+  background: var(--color-text-muted);
+&#125;</code></pre>
+        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
+          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
+          Kernkleuren voor merkidentiteit en teksthiërarchie. Gebruik tokens in plaats van hardcoded waarden.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="page-container-960">
+      <h2 class="text-2xl mb-6">2) Typografie</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+        <div class="card-base p-6">
+          <h3 class="text-xl mb-4">Font families</h3>
+          <h4 class="text-3xl text-[color:var(--color-text-heading)]">Heading op Aeonik</h4>
+          <p class="leading-8 mt-4">Body copy op DM Sans met leesbare regelafstand.</p>
+        </div>
+        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>h1, h2, h3, h4, h5, h6 &#123;
+  font-family: var(--font-aeonik);
+&#125;
+
+body &#123;
+  font-family: var(--font-dmsans);
+&#125;</code></pre>
+        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
+          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
+          Headings op Aeonik voor identiteit, body op DM Sans voor leesbaarheid.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt section-pad">
+    <div class="page-container-960">
+      <h2 class="text-2xl mb-6">3) Layout & spacing</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+        <div class="card-base p-6">
+          <h3 class="text-xl mb-4">Container system</h3>
+          <p class="text-sm text-[color:var(--color-text-subtle)]">
+            Gebruik <code>page-container-800</code> voor content, <code>page-container-960</code> voor brede secties en <code>media-measure</code> voor visuals.
+          </p>
+        </div>
+        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;div class="page-container-800"&gt;article&lt;/div&gt;
+&lt;div class="page-container-960"&gt;listing&lt;/div&gt;
+&lt;div class="media-measure"&gt;gallery&lt;/div&gt;</code></pre>
+        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
+          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
+          Vaste containerbreedtes houden marges, regelbreedte en uitlijning consistent.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="page-container-960">
+      <h2 class="text-2xl mb-6">4) Componenten</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+        <div class="card-base p-6">
+          <h3 class="text-xl mb-4">Buttons & links</h3>
+          <div class="flex flex-wrap items-center gap-3">
+            <a href="#" class="btn-primary">Primary button</a>
+            <a href="#" class="link-inline">Inline link</a>
+          </div>
+        </div>
+        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;a class="btn-primary"&gt;Primary button&lt;/a&gt;
+&lt;a class="link-inline"&gt;Inline link&lt;/a&gt;</code></pre>
+        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
+          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
+          Gebruik `btn-primary` voor hoofdacties; `link-inline` in doorlopende tekst.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+        <div class="card-base p-6">
+          <h3 class="text-xl mb-4">Card pattern</h3>
+          <div class="card-base">
+            <div class="card-grid">
+              <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
+                <img src="/thumb005.png" alt="Card preview" class="w-full h-full object-cover object-top object-left" />
+                <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Lees meer</span></span>
+              </div>
+              <div class="card-copy">
+                <p class="card-kicker">Visual Design / Branding / Web</p>
+                <h3 class="card-title">Card patroon</h3>
+                <p class="card-description">Standaard kaartstructuur voor homepage, cases en showcase.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;a class="group card-grid card-base card-interactive"&gt;
+  &lt;div class="card-image-wrap"&gt;...&lt;/div&gt;
+  &lt;div class="card-copy"&gt;...&lt;/div&gt;
+&lt;/a&gt;</code></pre>
+        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
+          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
+          Basispatroon voor overzichtskaarten met consistente titel-, kicker- en body-typografie.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt section-pad">
+    <div class="page-container-960">
+      <h2 class="text-2xl mb-6">5) Utility classes</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+        <div class="card-base p-6">
+          <h3 class="text-xl mb-4">Visual helpers</h3>
+          <div class="media-placeholder rounded-lg p-6 text-sm">media-placeholder</div>
+          <h4 class="border-bottom-gradient text-lg mt-4 inline-block">Gradient underline</h4>
+        </div>
+        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;div class="media-placeholder rounded-lg"&gt;...&lt;/div&gt;
+&lt;h4 class="border-bottom-gradient"&gt;Titel&lt;/h4&gt;</code></pre>
+        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
+          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
+          Utility classes voor visuele status, placeholders en decoratieve accenten.
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
