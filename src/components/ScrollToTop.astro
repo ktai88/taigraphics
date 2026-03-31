@@ -5,7 +5,7 @@
   id="scroll-top-btn"
   type="button"
   aria-label="Terug naar boven"
-  class="fixed w-10 h-10 bottom-6 right-33 bg-[#100B7E] border border-[#100B7E] hover:border-[#2B7FFF] text-white p-2 rounded-full shadow-lg hover:bg-[#2B7FFF] transition-opacity duration-300 opacity-0 pointer-events-none"
+  class="scroll-top-button fixed w-10 h-10 bottom-6 right-33 border p-2 rounded-full shadow-lg transition-opacity duration-300 opacity-0 pointer-events-none"
 >
   <span>&#8593;</span>
 </button>
@@ -29,5 +29,17 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
-<script src="https://fluister.dev/widget.js" data-project="fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a" data-style="minimal"  data-border-radius="50px"
- data-icon="none" data-color="#100B7E" data-hover-color="#2B7FFF"></script>
+<script>
+  const rootStyles = getComputedStyle(document.documentElement);
+  const widgetColor = rootStyles.getPropertyValue('--color-primary').trim() || 'blue';
+  const widgetHoverColor = rootStyles.getPropertyValue('--color-secondary').trim() || 'purple';
+  const fluisterScript = document.createElement('script');
+  fluisterScript.src = 'https://fluister.dev/widget.js';
+  fluisterScript.dataset.project = 'fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a';
+  fluisterScript.dataset.style = 'minimal';
+  fluisterScript.dataset.borderRadius = '50px';
+  fluisterScript.dataset.icon = 'none';
+  fluisterScript.dataset.color = widgetColor;
+  fluisterScript.dataset.hoverColor = widgetHoverColor;
+  document.body.appendChild(fluisterScript);
+</script>

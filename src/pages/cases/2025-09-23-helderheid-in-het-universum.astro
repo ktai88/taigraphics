@@ -14,10 +14,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </header>
 
     <section class="section-alt">
-      <div class="max-w-[960px] mx-auto p-4">
+      <div class="page-container-960 py-4">
 
       <!-- Usecase Card is repeatable -->
-      <div class="grid grid-cols-[100%] md:grid-cols-[45%_55%] gap-2 bg-white rounded-xl shadow my-8 overflow-hidden">
+      <div class="grid grid-cols-[100%] md:grid-cols-[45%_55%] gap-2 bg-white rounded-xl shadow card-stack overflow-hidden">
         <div class="overflow-hidden md:rounded-l-lg">
           <img src="/thumb000.png" class="w-full h-full object-cover object-top object-left"/>
         </div>
@@ -36,15 +36,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <section>
-      <div class="max-w-[960px] mx-auto p-4 mt-10 pb-10">
-        <p class="text-[#444] font-light text-sm my-3">Journey Mapping / User Research / WCAG</p>
+      <div class="page-container-960 py-10">
+        <p class="text-[color:var(--color-text-subtle)] font-light text-sm my-3">Journey Mapping / User Research / WCAG</p>
         <h2 class="text-2xl">Helderheid als uitgangspunt</h2>
         <p class="leading-8 mt-5">Bij ASTRON startte ik vanuit het uitgangspunt dat gebruiksvriendelijke en toegankelijke software de basis vormt voor effectieve onderzoeksapplicaties. Om dit te realiseren organiseerde ik visie sessies met stakeholders en gebruikers, waarbij we gezamenlijk de strategische doelen, prioriteiten en uitdagingen in kaart brachten. Daarnaast hield ik bij elk ontwerp rekening met de WCAG-richtlijnen, schermcontrast (zowel Dark als Light-mode), zodat de applicaties niet alleen intu&#239;tief en effici&#235;nt zijn, maar ook toegankelijk voor alle gebruikers. Deze combinatie van participatieve sessies en toegankelijkheidsstandaarden vormde het fundament voor een consistente en hoogwaardige gebruikerservaring.</p>
       </div>
     </section>
 
-    <section class="section-alt pt-2 pb-15">
-      <div class="max-w-[960px] mx-auto p-4 mt-10">
+    <section class="section-alt section-pad">
+      <div class="page-container-960 py-10">
         <p class="text-[color:var(--color-text-subtle)] font-light text-sm my-3">Visie / Mapping / Research</p>
         <h2 class="text-2xl">UX Visie vormgeven</h2>
         <p class="leading-8 mt-5">Bij ASTRON heb ik mijn UX-visie concreet gemaakt door het faciliteren en organiseren van focusgroepen met zowel gebruikers als stakeholders. Tijdens deze sessies combineerde ik kwalitatief gebruikersonderzoek met strategische inzichten om de echte pijnpunten en behoeften in kaart te brengen. Door actief te luisteren en usecases te bespreken, konden we gezamenlijke prioriteiten bepalen en richting geven aan het ontwerp. In deze sessies heb ik verschillende methodieken gebruikt om tot de journeys en prototypes te komen.</p>
@@ -59,7 +59,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </ul>
 
        <!-- Usecase Card is repeatable -->
-      <div class="grid grid-cols-[100%] md:grid-cols-[45%_55%] gap-2 bg-white rounded-xl shadow my-8 overflow-hidden">
+      <div class="grid grid-cols-[100%] md:grid-cols-[45%_55%] gap-2 bg-white rounded-xl shadow card-stack overflow-hidden">
         <div class="overflow-hidden md:rounded-l-lg">
           <img src="/thumb006.png" class="w-full h-full object-cover object-top object-left"/>
         </div>
@@ -73,59 +73,59 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </section>
 
     <section>
-      <div class="max-w-[960px] mx-auto p-4 mt-5 pb-10">
+      <div class="page-container-960 py-10">
         <p class="text-[color:var(--color-text-subtle)] font-light text-sm my-3">Prototyping / UX Artifacts</p>
         <h2 class="text-2xl">UX outputs</h2>
       </div>
 
-      <div class="max-w-[80%] mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="media-measure py-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- 50/50 Column 1 -->
-        <div class="overflow-hidden rounded-lg bg-gray-400">
+        <div class="overflow-hidden rounded-lg media-placeholder">
           <img src="/artifact000.png" alt="Dashboard Astronomer Latest Status of Proposal and Workspace" class="w-full h-full object-cover" />
         </div>
 
         <!-- 50/50 Column 2 -->
-        <div class="overflow-hidden rounded-lg bg-gray-400">
+        <div class="overflow-hidden rounded-lg media-placeholder">
           <img src="/artifact001.png" alt="Resource Manager" class="w-full h-full object-cover" />
         </div>
       </div>
 
-            <div class="max-w-[80%] mx-auto p-4 grid grid-cols-1 gap-4">
+            <div class="media-measure py-4 grid grid-cols-1 gap-4">
         <!-- Full Column -->
-        <div class="overflow-hidden rounded-lg bg-gray-400">
+        <div class="overflow-hidden rounded-lg media-placeholder">
           <img src="/artifact002.png" alt="Journey Blueprint: A day in the life of Dave" class="w-full h-full object-cover" />
         </div>
       </div>
 
-      <div class="max-w-[80%] mx-auto p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="media-measure py-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- 50/50 Column 1 -->
-        <div class="overflow-hidden rounded-lg bg-gray-400">
+        <div class="overflow-hidden rounded-lg media-placeholder">
           <img src="/artifact003.png" alt="Persona: Alex Anderson - Instrument Scientist" class="w-full h-full object-cover" />
         </div>
 
         <!-- 50/50 Column 2 -->
-        <div class="overflow-hidden rounded-lg bg-gray-400">
+        <div class="overflow-hidden rounded-lg media-placeholder">
           <img src="/artifact004.png" alt="Resource Manager" class="w-full h-full object-cover" />
         </div>
       </div>
 
     </section>
 
-    <section class="section-alt pt-2 pb-15">
-      <div class="max-w-[960px] mx-auto p-4 mt-10">
+    <section class="section-alt section-pad">
+      <div class="page-container-960 py-10">
         <p class="text-[color:var(--color-text-subtle)] font-light text-sm my-3">High-Level Visie / Mapping / Iteratief proces</p>
         <h2 class="text-2xl">Visie en waarde</h2>
         <p class="leading-8 mt-5">Astron's lange termijn visie voor de ASTRON Science Platform is het ontwikkelen van een intu&#239;tief en effici&#235;nt platform dat onderzoekers optimaal ondersteunt. Vanuit mijn UX-visie leid ik een iteratief ontwikkelproces waarin nieuwe functionaliteiten stap voor stap worden toegevoegd, getest met gebruikers en continu verbeterd. Tegelijkertijd ontwikkel ik het design system parallel, zodat consistentie, schaalbaarheid en een herkenbare gebruikerservaring in het hele platform gewaarborgd blijven. Zo realiseer ik een flexibel en duurzaam ecosysteem dat samenwerking, data-analyse en kennisdeling actief faciliteert.</p>
       
        <!-- Recommendation Card is repeatable -->
-      <div class="grid grid-cols-[100%] gap-2 bg-white rounded-xl shadow my-8 overflow-hidden">
+      <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
         <div class="p-12">
           <h2 class="font-mono text-xs">Recommendation</h2>
           <p class="text-md font-serif leading-8 py-2">&quot;Toen Kevin bij ASTRON kwam werken hadden we van UX weinig kaas gegeten. Kevin heeft in de tijd dat hij voor ons werkte duidelijk laten zien hoe UX denken leidt tot software die doet wat gebruikers verwachten. Hierdoor zien de tools die we hebben ontwikkeld er niet alleen eenduidig uit, de flows zijn ook doordacht na discussies met gebruikers en mockups (en later ook prototypes), dit zowel voor ASTRON als binnen het SRCNet project dat zich bezig houdt met de infrastrucutuur die de SKA telescoop zal gebruiken voor toegang tot waarneemdata.  
           </p><p class="text-md font-serif leading-8 py-2">Naast zijn inhoudelijke UX werk heeft Kevin ook zijn kennis intern en extern gedeeld. Een zeer succesvol voorbeeld hiervan is de workshop die hij heeft gegeven op de ADASS, een van de grootste conferenties over softwareontwikkeling in de sterrenkundige wereld. UX is in die gemeenschap niet zo standaad, maar de workshop die Kevin gegeven heeft zorgde er mede voor dat dit onderwerp binnen die gemeenschap weer wat meer is gaan leven.</p>
           <p class="text-md font-serif leading-8 py-2">Daarnaast is Kevin gewoon een sympathieke collega die ook naast zijn dagelijks werk buitengewoon prettig persoon is. &quot;</p>
 
-          <p class="text-xs text-[#0000FF] leading-8 py-2"><strong>Yan Grange (Oktober 8, 2025)</strong><br/><span class="text-[#444]">Astron - The Netherlands Institute for Radio Astronomy</span></p>
+          <p class="text-xs text-[color:var(--color-primary)] leading-8 py-2"><strong>Yan Grange (Oktober 8, 2025)</strong><br/><span class="text-[color:var(--color-text-subtle)]">Astron - The Netherlands Institute for Radio Astronomy</span></p>
         </div>
       </div>
       <!-- End Recommendation Usecase Card -->
