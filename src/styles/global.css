@@ -87,6 +87,11 @@
     padding-inline: 1rem;
   }
 
+  .media-measure {
+    width: 80%;
+    margin-inline: auto;
+  }
+
   .section-alt {
     background-color: var(--color-section-alt);
   }
