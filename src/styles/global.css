@@ -267,24 +267,25 @@
     text-decoration: none;
     font-family: var(--font-aeonik);
     font-weight: 500;
+    color: var(--color-text-heading);
     transition: color 0.3s ease-in-out;
   }
 
   .nav-link:hover {
-    color: var(--color-secondary);
+    color: var(--color-accent-dark);
     font-weight: 500;
-    border-bottom: 1px solid var(--color-secondary);
+    border-bottom: 1px solid var(--color-accent-dark);
     transition: color 0.3s ease-in-out;
   }
 
   /* Homepage scrollspy: matches Showcase / On my mind “current page” look */
   #main-nav .nav-link.nav-link--current-section {
-    color: var(--color-primary);
+    color: var(--color-accent-dark);
     font-weight: 600;
   }
 
   #main-nav .nav-link.nav-link--current-section:hover {
-    color: var(--color-primary);
+    color: var(--color-accent-dark);
   }
 
   /* Gradient border-bottom utility (same gradient as hero/buttons) */

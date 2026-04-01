@@ -9,7 +9,7 @@ interface Props {
 const { active } = Astro.props as Props;
 ---
 
-<nav id="main-nav" class="sticky top-3 z-50 bg-white opacity-95 shadow-md mx-auto pl-4 pr-9 min-h-[60px] max-w-[95%] sm:max-w-[800] lg:max-w-[1000px] rounded-full flex items-center md:justify-between transition-transform duration-300 ease-out" aria-label="Hoofd navigatie">
+<nav id="main-nav" class="sticky top-3 z-50 bg-white shadow-md mx-auto pl-4 pr-9 min-h-[60px] max-w-[95%] sm:max-w-[800] lg:max-w-[1000px] rounded-full flex items-center md:justify-between transition-transform duration-300 ease-out" aria-label="Hoofd navigatie">
     <!-- Logo -->
     <a href="/" aria-label="TaiGraphics">
     <p class="md:block text-md">
@@ -30,7 +30,7 @@ const { active } = Astro.props as Props;
         data-open-showcase-modal
         aria-controls="showcase-modal"
         aria-current={active === "showcase" ? "page" : undefined}
-        class={`text-nowrap nav-link ${active === "showcase" ? "text-[color:var(--color-primary)] font-semibold" : ""}`}
+        class={`text-nowrap nav-link ${active === "showcase" ? "text-[color:var(--color-accent-dark)] font-semibold" : ""}`}
       >
         Showcase
       </a>
@@ -39,7 +39,7 @@ const { active } = Astro.props as Props;
       <a
         href="/blog"
         aria-current={active === "blog" ? "page" : undefined}
-        class={`text-nowrap nav-link ${active === "blog" ? "text-[color:var(--color-primary)] font-semibold" : ""}`}
+        class={`text-nowrap nav-link ${active === "blog" ? "text-[color:var(--color-accent-dark)] font-semibold" : ""}`}
       >
         On my mind
       </a>
