@@ -393,12 +393,15 @@
 }
 
 #main-nav {
-  transform: scale(0.95);
-  transform-origin: center;
+  min-height: 60px;
+  transition:
+    min-height 220ms ease-out,
+    box-shadow 220ms ease-out;
 }
 
 #main-nav.nav-shrink {
-  transform: scale(0.93);
+  min-height: 54px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
 }
 
 body.modal-open {
