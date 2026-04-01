@@ -114,7 +114,6 @@ const {
         const anchor = target.closest("a");
         if (!(anchor instanceof HTMLAnchorElement)) return;
         if (!anchor.href) return;
-        if (anchor.hasAttribute("data-open-showcase-modal")) return;
         if (anchor.target === "_blank") return;
         if (anchor.hasAttribute("download")) return;
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;

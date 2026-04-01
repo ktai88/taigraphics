@@ -1,7 +1,5 @@
 ---
 // Nav.astro
-import ShowcaseContent from "./ShowcaseContent.astro";
-
 interface Props {
   active?: 'showcase' | 'blog' | 'contact';
 }
@@ -27,10 +25,8 @@ const { active } = Astro.props as Props;
     <li class="mt-3">
       <a
         href="/showcase"
-        data-open-showcase-modal
-        aria-controls="showcase-modal"
         aria-current={active === "showcase" ? "page" : undefined}
-        class={`text-nowrap nav-link ${active === "showcase" ? "text-[color:var(--color-accent-dark)] font-semibold" : ""}`}
+        class="text-nowrap nav-link"
       >
         Showcase
       </a>
@@ -39,7 +35,7 @@ const { active } = Astro.props as Props;
       <a
         href="/blog"
         aria-current={active === "blog" ? "page" : undefined}
-        class={`text-nowrap nav-link ${active === "blog" ? "text-[color:var(--color-accent-dark)] font-semibold" : ""}`}
+        class="text-nowrap nav-link"
       >
         On my mind
       </a>
@@ -58,108 +54,8 @@ const { active } = Astro.props as Props;
     </ul>
 </nav>
 
-<div id="showcase-modal" class="showcase-modal" aria-hidden="true">
-  <div class="showcase-modal__panel" role="dialog" aria-modal="true" aria-labelledby="showcase-modal-title">
-    <div class="showcase-modal__header">
-      <h2 id="showcase-modal-title" class="showcase-modal__title">Showcase</h2>
-      <button type="button" class="showcase-modal__close btn-primary" data-close-showcase-modal aria-label="Sluit showcase modal">
-        Sluiten
-      </button>
-    </div>
-    <div class="showcase-modal__content">
-      <ShowcaseContent inModal={true} />
-    </div>
-  </div>
-</div>
-
 <script>
   const nav = document.getElementById('main-nav');
-  const showcaseModal = document.getElementById('showcase-modal');
-  const showcaseClose = showcaseModal?.querySelector('[data-close-showcase-modal]');
-  let lastFocusedElement = null;
-  const focusableSelector = [
-    'a[href]',
-    'button:not([disabled])',
-    'textarea:not([disabled])',
-    'input:not([disabled])',
-    'select:not([disabled])',
-    '[tabindex]:not([tabindex="-1"])',
-  ].join(',');
-
-  const getFocusableElements = () => {
-    if (!showcaseModal) return [];
-    return Array.from(showcaseModal.querySelectorAll(focusableSelector)).filter((element) => {
-      if (!(element instanceof HTMLElement)) return false;
-      return !element.hasAttribute('disabled') && element.tabIndex !== -1;
-    });
-  };
-
-  const openShowcaseModal = () => {
-    if (!showcaseModal) return;
-    lastFocusedElement = document.activeElement;
-    showcaseModal.classList.add('is-open');
-    showcaseModal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
-    const [firstFocusable] = getFocusableElements();
-    if (firstFocusable instanceof HTMLElement) {
-      firstFocusable.focus();
-    }
-  };
-
-  const closeShowcaseModal = () => {
-    if (!showcaseModal) return;
-    showcaseModal.classList.remove('is-open');
-    showcaseModal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-    if (lastFocusedElement instanceof HTMLElement) {
-      lastFocusedElement.focus();
-    }
-  };
-
-  document.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof Element)) return;
-
-    const trigger = target.closest('[data-open-showcase-modal]');
-    if (trigger) {
-      event.preventDefault();
-      openShowcaseModal();
-      return;
-    }
-
-    if (target.closest('[data-close-showcase-modal]')) {
-      closeShowcaseModal();
-      return;
-    }
-
-    if (showcaseModal && target === showcaseModal) {
-      closeShowcaseModal();
-    }
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Tab' && showcaseModal?.classList.contains('is-open')) {
-      const focusableElements = getFocusableElements();
-      if (focusableElements.length === 0) return;
-      const first = focusableElements[0];
-      const last = focusableElements[focusableElements.length - 1];
-      const active = document.activeElement;
-
-      if (event.shiftKey && active === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && active === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    }
-
-    if (event.key === 'Escape') {
-      closeShowcaseModal();
-    }
-  });
-
-  showcaseClose?.addEventListener('click', closeShowcaseModal);
 
   if (nav) {
     const isHomePage = () => {

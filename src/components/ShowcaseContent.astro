@@ -1,12 +1,4 @@
----
-interface Props {
-  inModal?: boolean;
-}
-
-const { inModal = false } = Astro.props as Props;
----
-
-<div class={`showcase-content ${inModal ? "showcase-content--modal" : ""}`}>
+<div class="showcase-content">
   <header class="mt-8 mb-6" role="banner">
     <div class="page-container-960 py-6">
       <h1 class="text-4xl text-[color:var(--color-text-heading)]">Visual <strong class="text-[color:var(--color-text-strong)]">showcase</strong></h1>
