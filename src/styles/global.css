@@ -168,6 +168,10 @@
     padding: 1rem;
   }
 
+  .blog-overview-card-copy {
+    padding: 1.5rem;
+  }
+
   @media (min-width: 768px) {
     .card-copy {
       padding-right: 2.5rem;
