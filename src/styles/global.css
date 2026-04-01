@@ -175,8 +175,8 @@
   }
 
   .card-kicker {
-    color: var(--color-text-subtle);
-    font-weight: 300;
+    color: var(--color-text-heading);
+    font-weight: 500;
     font-size: 0.875rem;
     margin-block: 0.75rem;
   }
@@ -195,9 +195,10 @@
   }
 
   .card-interactive {
+    transform-origin: center;
     transition:
-      transform 200ms ease-out,
-      box-shadow 200ms ease-out;
+      transform 130ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 130ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .card-interactive h1,
@@ -218,8 +219,8 @@
   }
 
   .card-interactive:hover {
-    transform: translateY(-0.125rem) scale(1.01);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+    transform: translateY(-0.2rem) scaleX(1.03);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16);
   }
 
   .card-interactive:hover h1,
@@ -559,4 +560,131 @@ body.modal-open {
   80% {
     opacity: 0;
   }
+}
+
+.card-sort {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card-sort__header h1 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.card-sort__header p {
+  color: var(--color-text-muted);
+  max-width: 70ch;
+}
+
+.card-sort__controls {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card-sort__controls label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card-sort__controls input,
+.card-sort__controls textarea {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.card-sort__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.card-sort__btn-muted {
+  background: #fff;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.card-sort__btn-muted:hover {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 70%);
+  color: var(--color-text-inverse);
+}
+
+.card-sort__board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.card-sort__group {
+  padding: 0.85rem;
+  min-height: 240px;
+}
+
+.card-sort__group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.7rem;
+}
+
+.card-sort__group-title {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  padding: 0.35rem 0.5rem;
+  font-weight: 700;
+}
+
+.card-sort__group-title:hover {
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.card-sort__count {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.card-sort__drop-zone {
+  border-radius: 0.65rem;
+  border: 1px dashed rgba(15, 23, 42, 0.22);
+  background: rgba(255, 255, 255, 0.6);
+  min-height: 160px;
+  padding: 0.5rem;
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+}
+
+.card-sort__drop-zone.is-over {
+  border-color: var(--color-primary);
+  background: rgba(0, 0, 255, 0.06);
+}
+
+.card-sort__card {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 0.55rem;
+  background: #fff;
+  color: var(--color-text-heading);
+  padding: 0.55rem 0.7rem;
+  line-height: 1.35;
+  cursor: grab;
+}
+
+.card-sort__card:active {
+  cursor: grabbing;
 }

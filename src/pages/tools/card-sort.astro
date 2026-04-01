@@ -1,0 +1,248 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Card Sorting Tool - TaiGraphics">
+  <section class="section-pad">
+    <div class="page-container-960 card-sort">
+      <header class="card-sort__header">
+        <h1>Card Sorting Tool</h1>
+        <p>
+          Gebruik deze tool voor open card sorting tijdens user research. Voeg kaarten toe, maak categorieen en sleep kaarten
+          naar de groep die volgens deelnemers logisch voelt.
+        </p>
+      </header>
+
+      <div class="card-sort__controls card-base">
+        <div>
+          <label for="session-name">Sessienaam</label>
+          <input id="session-name" type="text" placeholder="Bijv. Navigatie onderzoek website" />
+        </div>
+        <div>
+          <label for="card-input">Kaarten (1 per regel)</label>
+          <textarea id="card-input" rows="6" placeholder="Home&#10;Producten&#10;Prijzen&#10;Support"></textarea>
+        </div>
+        <div class="card-sort__actions">
+          <button id="load-cards" class="btn-primary" type="button">Laad kaarten</button>
+          <button id="add-group" class="btn-primary card-sort__btn-muted" type="button">Nieuwe groep</button>
+          <button id="export-results" class="btn-primary card-sort__btn-muted" type="button">Exporteer JSON</button>
+        </div>
+      </div>
+
+      <div id="sort-board" class="card-sort__board" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <script>
+    const storageKey = "tg_card_sort_state_v1";
+
+    const sessionNameInput = document.getElementById("session-name");
+    const cardInput = document.getElementById("card-input");
+    const loadCardsButton = document.getElementById("load-cards");
+    const addGroupButton = document.getElementById("add-group");
+    const exportButton = document.getElementById("export-results");
+    const board = document.getElementById("sort-board");
+
+    let dragCardId = null;
+    let state = {
+      sessionName: "",
+      groups: [
+        { id: "group-uncategorized", name: "Nog niet ingedeeld", cardIds: [] },
+      ],
+      cards: [],
+    };
+
+    const uid = (prefix) => `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
+
+    const persist = () => {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(state));
+      } catch {
+        // ignore persistence errors
+      }
+    };
+
+    const restore = () => {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        if (!raw) return;
+        const parsed = JSON.parse(raw);
+        if (!parsed || !Array.isArray(parsed.groups) || !Array.isArray(parsed.cards)) return;
+        state = parsed;
+      } catch {
+        // ignore restore errors
+      }
+    };
+
+    const getGroupById = (groupId) => state.groups.find((group) => group.id === groupId);
+
+    const moveCard = (cardId, targetGroupId) => {
+      if (!cardId || !targetGroupId) return;
+      for (const group of state.groups) {
+        group.cardIds = group.cardIds.filter((id) => id !== cardId);
+      }
+      const targetGroup = getGroupById(targetGroupId);
+      if (!targetGroup) return;
+      targetGroup.cardIds.push(cardId);
+      persist();
+      render();
+    };
+
+    const addCardsFromInput = () => {
+      if (!(cardInput instanceof HTMLTextAreaElement)) return;
+      const lines = cardInput.value
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      if (lines.length === 0) return;
+      const uncategorized = state.groups[0];
+      for (const title of lines) {
+        const card = { id: uid("card"), title };
+        state.cards.push(card);
+        uncategorized.cardIds.push(card.id);
+      }
+      cardInput.value = "";
+      persist();
+      render();
+    };
+
+    const addGroup = () => {
+      const groupNumber = state.groups.length + 1;
+      state.groups.push({
+        id: uid("group"),
+        name: `Groep ${groupNumber}`,
+        cardIds: [],
+      });
+      persist();
+      render();
+    };
+
+    const exportResults = () => {
+      const groupedResults = state.groups.map((group) => ({
+        name: group.name,
+        cards: group.cardIds
+          .map((cardId) => state.cards.find((card) => card.id === cardId)?.title)
+          .filter(Boolean),
+      }));
+      const payload = {
+        sessionName: state.sessionName || "Card sorting session",
+        exportedAt: new Date().toISOString(),
+        groups: groupedResults,
+      };
+
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = `${(state.sessionName || "card-sorting").toLowerCase().replace(/\s+/g, "-")}.json`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+    };
+
+    const createCardElement = (card, groupId) => {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "card-sort__card";
+      item.draggable = true;
+      item.textContent = card.title;
+      item.setAttribute("data-card-id", card.id);
+      item.setAttribute("aria-label", `Kaart: ${card.title}`);
+
+      item.addEventListener("dragstart", () => {
+        dragCardId = card.id;
+      });
+
+      item.addEventListener("dragend", () => {
+        dragCardId = null;
+      });
+
+      item.addEventListener("dblclick", () => {
+        const groupIndex = state.groups.findIndex((group) => group.id === groupId);
+        const nextGroup = state.groups[groupIndex + 1] || state.groups[0];
+        moveCard(card.id, nextGroup.id);
+      });
+
+      return item;
+    };
+
+    const createGroupElement = (group) => {
+      const section = document.createElement("section");
+      section.className = "card-sort__group card-base";
+      section.setAttribute("data-group-id", group.id);
+
+      const headingRow = document.createElement("div");
+      headingRow.className = "card-sort__group-heading";
+
+      const titleInput = document.createElement("input");
+      titleInput.type = "text";
+      titleInput.value = group.name;
+      titleInput.className = "card-sort__group-title";
+      titleInput.setAttribute("aria-label", "Naam van groep");
+      titleInput.addEventListener("change", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement)) return;
+        group.name = target.value.trim() || "Naamloze groep";
+        persist();
+      });
+
+      const count = document.createElement("span");
+      count.className = "card-sort__count";
+      count.textContent = `${group.cardIds.length} kaarten`;
+
+      headingRow.append(titleInput, count);
+
+      const dropZone = document.createElement("div");
+      dropZone.className = "card-sort__drop-zone";
+      dropZone.addEventListener("dragover", (event) => {
+        event.preventDefault();
+        dropZone.classList.add("is-over");
+      });
+      dropZone.addEventListener("dragleave", () => {
+        dropZone.classList.remove("is-over");
+      });
+      dropZone.addEventListener("drop", (event) => {
+        event.preventDefault();
+        dropZone.classList.remove("is-over");
+        moveCard(dragCardId, group.id);
+      });
+
+      for (const cardId of group.cardIds) {
+        const card = state.cards.find((item) => item.id === cardId);
+        if (!card) continue;
+        dropZone.appendChild(createCardElement(card, group.id));
+      }
+
+      section.append(headingRow, dropZone);
+      return section;
+    };
+
+    const render = () => {
+      if (!(board instanceof HTMLDivElement)) return;
+      board.innerHTML = "";
+      for (const group of state.groups) {
+        board.appendChild(createGroupElement(group));
+      }
+    };
+
+    restore();
+
+    if (sessionNameInput instanceof HTMLInputElement) {
+      sessionNameInput.value = state.sessionName || "";
+      sessionNameInput.addEventListener("input", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement)) return;
+        state.sessionName = target.value;
+        persist();
+      });
+    }
+
+    loadCardsButton?.addEventListener("click", addCardsFromInput);
+    addGroupButton?.addEventListener("click", addGroup);
+    exportButton?.addEventListener("click", exportResults);
+
+    render();
+  </script>
+</BaseLayout>
