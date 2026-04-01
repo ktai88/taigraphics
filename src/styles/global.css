@@ -199,10 +199,9 @@
   }
 
   .card-interactive {
-    transform-origin: center;
     transition:
-      transform 130ms cubic-bezier(0.2, 0.8, 0.2, 1),
-      box-shadow 130ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform 200ms ease-out,
+      box-shadow 200ms ease-out;
   }
 
   .card-interactive h1,
@@ -223,8 +222,8 @@
   }
 
   .card-interactive:hover {
-    transform: translateY(-0.2rem) scaleX(1.03);
-    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
   }
 
   .card-interactive:hover h1,
