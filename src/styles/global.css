@@ -84,6 +84,13 @@
   .page-container-960 {
     max-width: 960px;
     margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-container-960 {
+      padding-inline: 0;
+    }
   }
 
   .media-measure {
