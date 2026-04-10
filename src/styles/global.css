@@ -161,6 +161,16 @@
     color: var(--color-text-subtle);
   }
 
+  .content-section a:not(.btn-primary) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .content-section a:not(.btn-primary):hover {
+    color: var(--color-primary);
+  }
+
   /* Avoid accidental extra whitespace at section boundaries. */
   .content-section > div > :first-child {
     margin-top: 0;
