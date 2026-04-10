@@ -1,43 +1,47 @@
-# Astro Starter Kit: Minimal
+# TaiGraphics
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Portfolio + blog built with Astro.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Content Collections
 
-## 🚀 Project Structure
+Blog and case detail pages are markdown-driven:
 
-Inside of your Astro project, you'll see the following folders and files:
+- Blog entries: `src/content/blog/*.md`
+- Case entries: `src/content/cases/*.md`
+- Collection schema: `src/content.config.ts`
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Routes are generated automatically:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- Blog detail: `/blog/[slug]` via `src/pages/blog/[slug].astro`
+- Case detail: `/cases/[slug]` via `src/pages/cases/[slug].astro`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Overview pages auto-update from collections:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- Blog overview: `src/pages/blog.astro`
+- Homepage case cards: `src/pages/index.astro`
 
-## 🧞 Commands
+## Publishing Workflow
 
-All commands are run from the root of the project, from a terminal:
+1. Copy a template:
+   - `docs/blog-post-template.md`
+   - `docs/case-template.md`
+2. Add your new file in:
+   - `src/content/blog/`
+   - `src/content/cases/`
+3. Keep `draft: true` while writing.
+4. Set `draft: false` (or remove `draft`) when ready to publish.
+5. Run `npm run build` to verify.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+`draft: true` hides entries from:
 
-## 👀 Want to learn more?
+- blog/case overview cards
+- generated detail routes
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Commands
+
+| Command | Action |
+| :-- | :-- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start local dev server |
+| `npm run build` | Build production site |
+| `npm run preview` | Preview built site |

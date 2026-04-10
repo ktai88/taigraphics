@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const caseEntries = await getCollection("cases", ({ data }) => data.draft !== true);
+  return caseEntries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const pageTitle = entry.data.seoTitle ?? `Case: ${entry.data.title} | TaiGraphics`;
+---
+
+<BaseLayout title={pageTitle}>
+  <Content />
+</BaseLayout>

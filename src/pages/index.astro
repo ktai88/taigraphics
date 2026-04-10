@@ -1,11 +1,18 @@
 ---
 import HeroTyping from '../components/HeroTyping.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+
+const caseEntries = (await getCollection("cases", ({ data }) => data.draft !== true))
+  .sort((a, b) => b.data.slug.localeCompare(a.data.slug));
+const uiCaseSlug = "2025-09-10-componenten-consistentie";
+const uiCaseEntry = caseEntries.find((entry) => entry.data.slug === uiCaseSlug);
+const uxCaseEntries = caseEntries.filter((entry) => entry.data.slug !== uiCaseSlug);
 ---
 
 <BaseLayout includeFadeIn={true} title="TaiGraphics - UX/UI Designer, Visual Design, Branding & Front-end">
     <header class="hero-section mt-12 mb-10"> 
-      <div class="page-container-960 py-12">
+      <div class="page-container-992 py-12">
         <div class="flex items-center justify-between gap-4 md:gap-6">
           <div class="fade-in flex-1">
             <h1 class="text-[14px] md:text-2xl/10 text-[color:var(--color-text-heading)]">Hoi! Ik ben <strong class="text-[color:var(--color-text-strong)]">Kevin Tai</strong>, designer in digitale oplossingen.</h1>
@@ -24,62 +31,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </header>
 
     <section id="ux" class="section-alt section-pad">
-      <div class="page-container-960">
+      <div class="page-container-992">
       <h2 class="fade-in text-2xl my-4"><span class="font-bold text-[color:var(--color-primary)]">User Experience</span> Cases</h2>
 
-      <!-- Card is repeatable -->
-      <div class="fade-in">
-        <a href="/cases/2025-09-23-helderheid-in-het-universum/" class="group card-grid card-stack card-base card-interactive">
-          <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
-            <img src="/thumb000.png" alt="Helderheid in het universum" class="w-full h-full object-cover object-top object-left"/>
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Bekijk case</span></span>
-          </div>
-          <div class="card-copy">
-            <p class="card-kicker">UX / High Level Journey Mapping / User Research</p>
-            <h3 class="card-title">Helderheid in het universum</h3>
-            <p class="card-description">Een UX-visie waarin complexe astronomische processen op een begrijpelijke en intu&#239;tieve manier worden vertaald naar mensgerichte ervaringen.</p>
-          </div>
-        </a>
-      </div>
-      <!-- End Repeatable Card -->
-
-      <!-- Card is repeatable -->
-      <div class="fade-in">
-        <a href="/cases/2025-09-20-idee-tot-een-voorstel/" class="group card-grid card-stack card-base card-interactive">
-          <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
-            <img src="/thumb001.png" alt="Van idee tot een ingediend waarneem-voorstel" class="w-full h-full object-cover object-top object-left"/>
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Bekijk case</span></span>
-          </div>
-          <div class="card-copy">
-            <p class="card-kicker">User Experience / Product Design / Interface</p>
-            <h3 class="card-title">Van idee tot een ingediend waarneem-voorstel</h3>
-            <p class="card-description">Astronomen ondersteunen bij een effici&#235;nt, inzichtelijk en foutloos aanvraagproces, en dit proces continu iteratief verbeteren in co-creatie met stakeholders.</p>
-          </div>
-        </a>
-      </div>
-      <!-- End Repeatable Card -->
+      {uxCaseEntries.map((entry) => (
+        <div class="fade-in">
+          <a href={`/cases/${entry.data.slug}/`} class="group card-grid card-stack card-base card-interactive">
+            <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
+              <img src={entry.data.heroImage} alt={entry.data.heroImageAlt} class="w-full h-full object-cover object-top object-left"/>
+              <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Bekijk case</span></span>
+            </div>
+            <div class="card-copy">
+              <p class="card-kicker">{entry.data.kicker}</p>
+              <h3 class="card-title">{entry.data.title}</h3>
+              <p class="card-description">{entry.data.summary}</p>
+            </div>
+          </a>
+        </div>
+      ))}
 
     </section>
 
     <section id="ui" class="section-pad">
-      <div class="page-container-960">
+      <div class="page-container-992">
       <h2 class="fade-in text-2xl my-4"><span class="font-bold text-[color:var(--color-primary)]">User Interface</span> Cases</h2>
 
-      <!-- Card is repeatable -->
-      <div class="fade-in">
-        <a href="/cases/2025-09-10-componenten-consistentie/" class="group card-grid card-stack card-base card-interactive">
-          <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
-            <img src="/thumb003.png" alt="Astron Design System" class="w-full h-full object-cover object-top object-left"/>
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Bekijk case</span></span>
-          </div>
-          <div class="card-copy">
-            <p class="card-kicker">User Interface / Design System / Front-end</p>
-            <h3 class="card-title">Van componenten naar coherentie en consistentie</h3>
-            <p class="card-description">Een gebruiksvriendelijke interface voor het beheren van complexe systemen. Een pragmatische library, opgezet als one-team UX-er en actief meegebouwd aan de front-end.</p>
-          </div>
-        </a>
-      </div>
-      <!-- End Repeatable Card -->
+      {uiCaseEntry && (
+        <div class="fade-in">
+          <a href={`/cases/${uiCaseEntry.data.slug}/`} class="group card-grid card-stack card-base card-interactive">
+            <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
+              <img src={uiCaseEntry.data.heroImage} alt={uiCaseEntry.data.heroImageAlt} class="w-full h-full object-cover object-top object-left"/>
+              <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Bekijk case</span></span>
+            </div>
+            <div class="card-copy">
+              <p class="card-kicker">{uiCaseEntry.data.kicker}</p>
+              <h3 class="card-title">{uiCaseEntry.data.title}</h3>
+              <p class="card-description">{uiCaseEntry.data.summary}</p>
+            </div>
+          </a>
+        </div>
+      )}
 
       <!-- Card is repeatable -->
       <div class="fade-in">
@@ -100,7 +91,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <section id="visuals" class="section-alt section-pad">
-      <div class="page-container-960">
+      <div class="page-container-992">
       <h2 class="fade-in text-2xl my-4"><span class="font-bold text-[color:var(--color-primary)]">Showcase</span> Designs</h2>
 
       <!-- Card is repeatable -->

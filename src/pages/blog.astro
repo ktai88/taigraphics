@@ -1,107 +1,126 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+
+const blogEntries = (await getCollection("blog", ({ data }) => data.draft !== true))
+  .sort((a, b) => b.data.slug.localeCompare(a.data.slug));
+const oldestOne = blogEntries.length > 0 ? blogEntries[blogEntries.length - 1] : undefined;
+const nextTwoOldest = blogEntries.slice(Math.max(blogEntries.length - 3, 0), Math.max(blogEntries.length - 1, 0));
+const newestRest = blogEntries.slice(0, Math.max(blogEntries.length - 3, 0));
+
+const formatDateToDDMMYYYY = (value: string) => {
+  const monthMap: Record<string, string> = {
+    januari: "01",
+    februari: "02",
+    maart: "03",
+    april: "04",
+    mei: "05",
+    juni: "06",
+    juli: "07",
+    augustus: "08",
+    september: "09",
+    oktober: "10",
+    november: "11",
+    december: "12",
+  };
+
+  const normalized = value.trim().toLowerCase();
+  const slashMatch = normalized.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (slashMatch) {
+    const [, dd, mm, yyyy] = slashMatch;
+    return `${dd.padStart(2, "0")}/${mm.padStart(2, "0")}/${yyyy}`;
+  }
+
+  const textMatch = normalized.match(/^(\d{1,2})\s+([a-z]+)\s+(\d{4})$/);
+  if (textMatch) {
+    const [, dd, monthName, yyyy] = textMatch;
+    const mm = monthMap[monthName];
+    if (mm) return `${dd.padStart(2, "0")}/${mm}/${yyyy}`;
+  }
+
+  return value;
+};
 ---
 
 <BaseLayout active="blog" includeFadeIn={true} title="On my mind - UX/UI blog | TaiGraphics">
 
     <header class="mt-8 mb-6" role="banner"> 
-      <div class="page-container-960 py-6">
+      <div class="page-container-992 py-6">
         <h1 class="text-4xl text-[color:var(--color-text-heading)]">On my <strong class="text-[color:var(--color-text-strong)]">mind</strong></h1>
         <p class="mt-6 mb-2 font-semibold text-xs uppercase tracking-[0.1em] text-[color:var(--color-text-label)]"><span class="border-t-[2px] border-[color:var(--color-primary)] pt-3">digital designer blog</span></p>
       </div>
     </header>
 
     <section id="ux" class="section-alt section-pad">
-      <div class="page-container-960">
+      <div class="page-container-992">
 
-     <div class="fade-in content-block">
-      <a href="/blog/2026-04-02-nng-product-ux-course/" class="group flex flex-col card-base card-interactive overflow-hidden">
-        <div class="card-image-wrap overflow-hidden">
-          <img src="/featured-2026-04-02.png" class="w-full h-auto " alt="Featured Blog - NN/g Product &amp; UX Course" />
-          <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Lees meer</span></span>
-        </div>
-        <div class="blog-overview-card-copy flex flex-col flex-1">
-          <p class="text-[color:var(--color-text-subtle)] text-sm my-2"><span class="blog-tag blog-tag--training">Training &amp; Certification</span> <span class="text-[color:var(--color-text-subtle)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">8 min - 1 april 2026</p>
-          <h3 class="text-3xl pt-1 pb-2">Reflectie op de Product &amp; UX Course van NN/g</h3>
-          <p class="text-base leading-8 py-3 flex-1">Praktische inzichten uit een acht uur durende sessie: van productdenken en stakeholdermanagement tot AI-valkuilen en mijn eigen leerpunt rond roadmap en OKR&rsquo;s.</p>
-        </div>
-      </a>
-    </div>
-
-      <div class="fade-in content-block">
-      <a href="/blog/2026-03-24-toolbox/" class="group flex flex-col card-base card-interactive overflow-hidden">
-        <div class="card-image-wrap overflow-hidden">
-          <img src="/featured-2026-03-24.png" class="w-full h-auto " alt="Featured Blog - Toolbox Talk" />
-          <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Lees meer</span></span>
-        </div>
-        <div class="blog-overview-card-copy flex flex-col flex-1">
-          <p class="card-kicker"><span class="blog-tag blog-tag--tooling">Tooling</span> <span class="text-[color:var(--color-text-subtle)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">4 min - 24 maart 2026</p>
-          <h3 class="card-title">ToolboxTalk - Mistral Le Chat, DaVinci, Affinity & PenPots</h3>
-          <p class="card-description flex-1">Figma is momenteel de meest gebruikte tool voor UX/UI-designers. Voor andere tools zijn er nog steeds waardevolle (open-source) alternatieven. In dit artikel deel ik graag mijn toolbox met enkele interessante opties.</p>
-        </div>
-      </a>
-    </div>
-
-      <div class="fade-in content-block">
-        <a href="/blog/2026-03-13-mijn-eerste-mcp-ervaring" class="group flex flex-col card-base card-interactive overflow-hidden">
-          <div class="card-image-wrap overflow-hidden">
-            <img src="/featured-2026-03-13.png" class="w-full h-auto " alt="Featured Blog - MCP" />
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Lees meer</span></span>
-          </div>
-          <div class="blog-overview-card-copy flex flex-col flex-1">
-            <p class="card-kicker"><span class="blog-tag blog-tag--ai">Artificial Intelligence</span> <span class="text-[color:var(--color-text-subtle)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">5 min - 13 maart 2026</p>
-            <h3 class="card-title">Design Tool(s) x AI Chat tool!</h3>
-            <p class="card-description flex-1">Het kan je bijna niet ontgaan zijn dat er de afgelopen maanden veel over AI en haar MCP-mogelijkheden voorbij is gekomen. Afgelopen avond had ik eindelijk wat tijd en rust om er zelf eens mee te experimenteren.</p>
-          </div>
-        </a>
+      <div class="fade-in grid grid-cols-1 gap-6 content-block">
+        {newestRest.map((entry) => (
+          <a href={`/blog/${entry.data.slug}/`} class="group flex flex-col card-base card-interactive overflow-hidden">
+            <div class="card-image-wrap overflow-hidden">
+              <img src={entry.data.heroImage} class="w-full h-auto " alt={entry.data.heroImageAlt} />
+              <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Lees meer</span></span>
+            </div>
+            <div class="blog-overview-card-copy flex flex-col flex-1">
+              <p class="card-kicker">
+                <span class={`blog-tag blog-tag--${entry.data.categoryVariant}`}>{entry.data.category}</span>
+                <span class="text-[color:var(--color-text-subtle)]">·</span>
+                <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd" />
+                {entry.data.readingTime} - {entry.data.date}
+              </p>
+              <h3 class="text-3xl pt-1 pb-2">{entry.data.title}</h3>
+              <p class="card-description leading-6 flex-1">{entry.data.summary}</p>
+            </div>
+          </a>
+        ))}
       </div>
 
-      <!-- Astro + Persona: 2-column card view -->
       <div class="fade-in grid grid-cols-1 md:grid-cols-2 gap-6 content-block">
-        <a href="/blog/2026-03-04-astro/" class="group flex flex-col card-base card-interactive overflow-hidden">
-          <div class="card-image-wrap overflow-hidden">
-            <img src="/featured-2026-03-04.png" class="w-full h-auto " alt="Featured Blog - Astro" />
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Lees meer</span></span>
-          </div>
-          <div class="blog-overview-card-copy flex flex-col flex-1">
-            <p class="card-kicker"><span class="blog-tag blog-tag--tooling">Tooling</span> <span class="text-[color:var(--color-text-subtle)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">3 min - 4 maart 2026</p>
-            <h3 class="card-title text-2xl">Waarom ik zo te spreken ben over Astro.build!</h3>
-            <p class="card-description leading-6 flex-1">Lichtgewicht, bliksem-snelle page-loads, duurzaam en binnen enkele uren live! Stop met Wordpress en ga vandaag nog aan de slag!</p>
-          </div>
-        </a>
-        <a href="/blog/2026-02-26-persona/" class="group flex flex-col card-base card-interactive overflow-hidden">
-          <div class="card-image-wrap overflow-hidden">
-            <img src="/featured-2026-02-26.png" class="w-full h-auto " alt="Featured Blog - Persona" />
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Lees meer</span></span>
-          </div>
-          <div class="blog-overview-card-copy flex flex-col flex-1">
-            <p class="card-kicker"><span class="blog-tag blog-tag--ai">Artificial Intelligence</span> <span class="text-[color:var(--color-text-subtle)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">5 min - 26 februari 2026</p>
-            <h3 class="card-title text-2xl">Een Persona Library opbouwen met generatieve A.I.</h3>
-            <p class="card-description leading-6 flex-1">Raak ge&iumlnspireerd en combineer je data en creativiteit voor impactvolle personas. In dit artikel deel ik mijn aanpak, versterkt met generatieve A.I.</p>
-          </div>
-        </a>
+        {nextTwoOldest.map((entry) => (
+          <a href={`/blog/${entry.data.slug}/`} class="group flex flex-col card-base card-interactive overflow-hidden">
+            <div class="card-image-wrap overflow-hidden">
+              <img src={entry.data.heroImage} class="w-full h-auto " alt={entry.data.heroImageAlt} />
+              <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Lees meer</span></span>
+            </div>
+            <div class="blog-overview-card-copy flex flex-col flex-1">
+              <p class="card-kicker">
+                <span class={`blog-tag blog-tag--${entry.data.categoryVariant}`}>{entry.data.category}</span>
+                <span class="text-[color:var(--color-text-subtle)]">·</span>
+                <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd" />
+                {entry.data.readingTime} - {entry.data.date}
+              </p>
+              <h3 class="text-3xl pt-1 pb-2">{entry.data.title}</h3>
+              <p class="card-description leading-6 flex-1">{entry.data.summary}</p>
+            </div>
+          </a>
+        ))}
       </div>
 
-      <!-- Oldest 3 posts: 3-column card view -->
       <div class="fade-in grid grid-cols-1 md:grid-cols-3 gap-6 content-block">
-        <a href="/blog/2026-02-20-ireb/" class="group flex flex-col card-base card-interactive overflow-hidden">
-          <div class="card-image-wrap overflow-hidden">
-            <img src="/featured-2026-02-20.png" class="w-full h-auto " alt="Featured Blog - IREB" />
-            <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Lees meer</span></span>
-          </div>
-          <div class="blog-overview-card-copy flex flex-col flex-1">
-            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--training">Certification</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 3 min - 20-02-2026</p>
-            <h3 class="text-lg pt-1 pb-2 line-clamp-2">Verdieping in IREB &amp; Requirements-analyse</h3>
-            <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Als UX Designer met een drive voor het begrijpen van gebruikersbehoeften en oplossingen, bracht de IREB Foundation certificering mij een nieuwe laag van diepgang en inspiratie.</p>
-          </div>
-        </a>
+        {oldestOne && (
+          <a href={`/blog/${oldestOne.data.slug}/`} class="group flex flex-col card-base card-interactive overflow-hidden">
+            <div class="card-image-wrap overflow-hidden">
+              <img src={oldestOne.data.heroImage} class="w-full h-auto " alt={oldestOne.data.heroImageAlt} />
+              <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Lees meer</span></span>
+            </div>
+            <div class="blog-overview-card-copy flex flex-col flex-1">
+              <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2">
+                <span class={`blog-tag blog-tag--${oldestOne.data.categoryVariant}`}>{oldestOne.data.category}</span>
+                <span class="text-[color:var(--color-text-subtle)]">·</span>
+                {oldestOne.data.readingTime} - {formatDateToDDMMYYYY(oldestOne.data.date)}
+              </p>
+              <h3 class="text-lg pt-1 pb-2 line-clamp-2">{oldestOne.data.title}</h3>
+              <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">{oldestOne.data.summary}</p>
+            </div>
+          </a>
+        )}
         <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-2-using-kevin-tai/?trackingId=UVTJTIEzTL2OD%2FsyPnyXqw%3D%3D" target="_blank" rel="noopener noreferrer" class="group flex flex-col card-base card-interactive overflow-hidden">
           <div class="card-image-wrap overflow-hidden">
             <img src="/featured-2018-08-08.png" class="w-full h-auto " alt="Featured Blog - Atomic Design" />
             <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Open LinkedIn Pulse</span></span>
           </div>
           <div class="blog-overview-card-copy flex flex-col flex-1">
-            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--design-system">Design System</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 4 min - 08-08-2018</p>
+            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--design-system">Design System</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 4 min - 08/08/2018</p>
             <h3 class="text-lg pt-1 pb-2 line-clamp-2">Implementatie: Atomic Design voor Avisi (Deel 2)</h3>
             <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
           </div>
@@ -112,13 +131,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn text-xs">Open LinkedIn Pulse</span></span>
           </div>
           <div class="blog-overview-card-copy flex flex-col flex-1">
-            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--design-system">Design System</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 4 min - 26-06-2018</p>
+            <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--design-system">Design System</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 4 min - 26/06/2018</p>
             <h3 class="text-lg pt-1 pb-2 line-clamp-2">Implementatie: Brand System voor Avisi (Deel 1)</h3>
             <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
           </div>
         </a>
       </div>
 
+      </div>
     </section>
 
 </BaseLayout>

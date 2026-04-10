@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog", ({ data }) => data.draft !== true);
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const pageTitle = entry.data.seoTitle ?? `${entry.data.title} | TaiGraphics`;
+---
+
+<BaseLayout active="blog" title={pageTitle}>
+  <Content />
+</BaseLayout>

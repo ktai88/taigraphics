@@ -1,0 +1,148 @@
+---
+title: "Reflectie op de Product & UX Course van NN/g"
+slug: 2026-04-02-nng-product-ux-course
+date: 1 april 2026
+readingTime: 8 min
+category: "Training & Certification"
+categoryVariant: training
+summary: "Praktische inzichten uit een acht uur durende sessie: van productdenken en stakeholdermanagement tot AI-valkuilen en mijn eigen leerpunt rond roadmap en OKR's."
+heroImage: /featured-2026-04-02.png
+heroImageAlt: Featured Blog - NN/g Product & UX Course
+seoTitle: "Reflectie op de Product & UX Course van NN/g | TaiGraphics"
+---
+
+<section>
+  <div class="page-container-800">
+    <h1 class="text-4xl mt-10 mb-6">Reflectie op de Product &amp; UX Course van NN/g</h1>
+    <p class="leading-8 my-4 text-[color:var(--color-text-muted)]"><span class="blog-tag blog-tag--training">Training &amp; Certification</span> <span class="text-[color:var(--color-text-muted)]">·</span> <img src="/heroicons/clock.svg" class="inline mr-1 mb-1 w-5 h-5 align-middle" alt="Leestijd">8 minuten leestijd - 1 april 2026</p>
+    <p class="leading-8 mt-2">Onlangs volgde ik de <a href="https://www.nngroup.com/" class="link-inline" target="_blank" rel="noopener noreferrer">Product &amp; UX Course</a> van Nielsen Norman Group. Wat me vooral bijbleef, was niet zozeer nieuwe theorie, maar concrete inzichten die ik meteen in mijn dagelijkse werk kon toepassen. En dat is precies waar het om draait: praktische waarde. Tijdens deze acht uur durende sessie kwamen talloze onderwerpen aan bod. Hieronder licht ik er een aantal uit die mij hebben geholpen vooruit te komen, inclusief mijn take-aways en tips.</p>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">Van projectdenken naar productdenken: een mindsetshift</h2>
+    <p class="leading-8 mt-3">Een van de belangrijkste inzichten was de verschuiving van projectdenken naar productdenken: een concept dat ook Marty Cagan in zijn boek <em>Inspired</em> benadrukt. Projecten draaien om opleveren; productdenken om continu waarde leveren. Logisch, maar in de praktijk merk ik dat we vaak blijven hangen in die projectmodus. Terwijl de echte impact zit in de context die je schept.</p>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">Stakeholdermanagement: simpel, maar oh zo effectief</h2>
+    <p class="leading-8 mt-3">Twee modellen die ik meteen in mijn gereedschapskist stopte:</p>
+    <ul class="list-disc pl-6 mt-3 text-[color:var(--color-text-muted)]">
+      <li class="pb-1">ODESC (Open, Describe, Express, Specify, Consequence)</li>
+      <li class="pb-1">RACI-matrix (Responsible, Accountable, Consulted, Informed)</li>
+    </ul>
+    <img src="/raci-matrix.svg" class="w-full content-block rounded-lg shadow" width="640" height="268" alt="Voorbeeld RACI-matrix: taken per rol met R (Responsible), A (Accountable), C (Consulted) of I (Informed)" />
+    <p class="mt-2 text-sm text-[color:var(--color-text-muted)]"><em>Elke rol heeft per activiteit precies een A (Accountable); R/C/I tonen wie uitvoert, wie meedenkt en wie op de hoogte blijft.</em></p>
+    <p class="leading-8 mt-3">Beiden helpen om gesprekken concreter te maken. Minder interpretatie, meer duidelijkheid. En dat is precies wat teams nodig hebben om effectief samen te werken.</p>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">Silo's: het probleem dat iedereen herkent (en ervaart)</h2>
+    <p class="leading-8 mt-3">Wat ook duidelijk werd in gesprekken met andere designers en managers: silo's zijn overal. Iedereen heeft er last van. Een interessante oplossing? Een knowledge tracker; niet als stoffig document, maar als gedeeld overzicht van aannames, inzichten en beslissingen. Je kunt het zien als een glossary, maar dan gericht op kennis en werkwijze binnen de organisatie.</p>
+    <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+      <div class="p-6">
+        <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai:</h3>
+        <p class="leading-8">Maak aannames expliciet en deel ze actief. Niet alleen wat je weet, maar juist:</p>
+        <ul class="list-disc pl-6 mt-2 text-[color:var(--color-text-muted)]">
+          <li class="pb-1">Wat je denkt dat waar is</li>
+          <li class="pb-1">Wat nog onzeker is</li>
+          <li class="pb-1">Wat gevalideerd moet worden</li>
+        </ul>
+        <p class="leading-8 mt-3">Zo voorkom je dat teams langs elkaar heen werken.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">Strategie: waarom betrokkenheid zo vaak ontbreekt</h2>
+    <p class="leading-8 mt-3">Een terugkerend thema tijdens deze live course met andere deelnemers? Frustratie over beperkte betrokkenheid bij strategie. Veel teams werken nog te weinig met frameworks zoals het Business Model Canvas, terwijl dat juist helpt om betere productkeuzes te maken en minder op aannames te leunen.</p>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">AI-output: kritisch kijken is key</h2>
+    <p class="leading-8 mt-3">AI wordt steeds meer onderdeel van ons werk. Maar daarmee wordt evaluatie ook belangrijker. Wat me opviel: output klinkt vaak "goed", maar inhoudelijk rammelt het soms. Valkuilen die ik nu bewuster herken:</p>
+    <ul class="list-disc pl-6 mt-3 text-[color:var(--color-text-muted)]">
+      <li class="pb-1"><strong>Circular reasoning:</strong> het antwoord herhaalt alleen de vraag.</li>
+      <li class="pb-1"><strong>Fake specificity:</strong> specifieke details die nergens op gebaseerd zijn.</li>
+      <li class="pb-1"><strong>False confidence:</strong> een zekere toon, terwijl de inhoud onzeker is.</li>
+      <li class="pb-1"><strong>Sycophancy:</strong> AI is geneigd het met je eens te zijn, in plaats van je uit te dagen.</li>
+    </ul>
+    <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+      <div class="p-6">
+        <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai:</h3>
+        <p class="leading-8">Gebruik AI niet voor antwoorden, maar als startpunt. Blijf altijd zelf checken:</p>
+        <ul class="list-disc pl-6 mt-2 text-[color:var(--color-text-muted)]">
+          <li class="pb-1">Klopt dit inhoudelijk?</li>
+          <li class="pb-1">Missen er perspectieven?</li>
+          <li class="pb-1">Zou ik dit durven presenteren aan mijn team?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">User-first: het fundament van elk goed product</h2>
+    <p class="leading-8 mt-3">De course bevestigde iets wat eigenlijk vanzelfsprekend zou moeten zijn: een goed product begint bij de gebruiker. Niet als stap in het proces, maar als uitgangspunt voor strategie.</p>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">Mijn persoonlijke leerpunt</h2>
+    <p class="leading-8 mt-3">Mijn grootste takeaway? Ik moet mezelf dwingen om actiever bij te dragen aan roadmap- en OKR-discussies. Niet wachten tot ik wordt aangehaakt, maar zelf de regie pakken. Omdat dat helpt om:</p>
+    <ul class="list-disc pl-6 mt-3 text-[color:var(--color-text-muted)]">
+      <li class="pb-1">Betere alignment te creeren</li>
+      <li class="pb-1">Duidelijkheid te krijgen over wat en wanneer we bouwen</li>
+      <li class="pb-1">De samenwerking met de PM te versterken</li>
+    </ul>
+    <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+      <div class="p-6">
+        <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai:</h3>
+        <p class="leading-8">Voordat je een roadmap of feature bespreekt, check eerst:</p>
+        <ul class="list-disc pl-6 mt-2 text-[color:var(--color-text-muted)]">
+          <li class="pb-1">Wat is onze visie?</li>
+          <li class="pb-1">Waar werken we naartoe?</li>
+          <li class="pb-1">Hoe vertalen we dat naar doelen en OKR's?</li>
+        </ul>
+        <p class="leading-8 mt-3">Zonder die context blijft alles een discussie over details.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800">
+    <h2 class="text-2xl">Een uitdaging die blijft: omgaan met aannames</h2>
+    <p class="leading-8 mt-3">Wat ik lastig vind (en waarschijnlijk blijft): omgaan met aannames die voor mij niet kloppen. En hoe mijn input soms kan overkomen als corrigeren, in plaats van samenwerken.</p>
+    <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+      <div class="p-6">
+        <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai:</h3>
+        <p class="leading-8 mt-1">Hoe ik dit wil aanpakken:</p>
+        <ul class="list-disc pl-6 mt-3 text-[color:var(--color-text-muted)]">
+          <li class="pb-1">Beter begrijpen waar aannames vandaan komen</li>
+          <li class="pb-1">Ruimte geven aan het perspectief van de PM</li>
+          <li class="pb-1">Gesprekken voeren vanuit nieuwsgierigheid</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="page-container-800 pb-10">
+    <h2 class="text-2xl">Meer samenwerken, minder overtuigen</h2>
+    <p class="leading-8 mt-3">De echte waarde van deze course? Niet de theorie, maar het bewust toepassen ervan in de praktijk. En dat begint vandaag. Met deze inzichten voel ik me beter uitgerust om niet alleen betere producten te bouwen, maar ook om als designer meer impact te maken; op een manier die zowel gebruikers als teams echt verder helpt. Een mooie stap vooruit!</p>
+    <p class="leading-8 content-block"><a href="/blog" class="mb-2 py-2 px-6 inline-block btn-primary">Terug naar overzicht</a></p>
+  </div>
+</section>
