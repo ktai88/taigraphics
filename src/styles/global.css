@@ -302,6 +302,22 @@
     pointer-events: none;
   }
 
+  .quote-card__line {
+    display: inline-block;
+    width: 2px;
+    min-width: 2px;
+    height: auto;
+    background: var(--color-card-border);
+    opacity: 1;
+    border-radius: 9999px;
+  }
+
+  .quote-card__text {
+    margin: 0 !important;
+    padding: 0;
+    padding-right: 0.25rem;
+  }
+
   .blog-meta-line {
     display: inline-flex;
     align-items: center;
