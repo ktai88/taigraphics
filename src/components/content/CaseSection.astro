@@ -10,7 +10,7 @@ const {
 } = Astro.props as Props;
 ---
 
-<section class={sectionClass}>
+<section class={`content-section ${sectionClass}`.trim()}>
   <div class={`page-container-992 ${containerClass}`.trim()}>
     <slot />
   </div>

@@ -1,0 +1,41 @@
+---
+interface DetailItem {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  imageSrc: string;
+  imageAlt: string;
+  meta: string;
+  summary: string;
+  details?: DetailItem[];
+}
+
+const {
+  imageSrc,
+  imageAlt,
+  meta,
+  summary,
+  details = [],
+} = Astro.props as Props;
+---
+
+<div class="grid grid-cols-[100%] md:grid-cols-[30%_70%] gap-2 bg-white rounded-xl shadow card-stack overflow-hidden">
+  <div class="overflow-hidden md:rounded-l-lg">
+    <img src={imageSrc} alt={imageAlt} class="w-full h-full object-cover object-top object-left" />
+  </div>
+  <div class="p-4 pr-10">
+    <p class="card-kicker">{meta}</p>
+    <p>{summary}</p>
+    {
+      details.length > 0 && (
+        <ul class="list-disc list-inside mt-2">
+          {details.map((item) => (
+            <li><strong>{item.label}:</strong> {item.value}</li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</div>

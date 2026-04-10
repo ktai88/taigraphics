@@ -12,10 +12,11 @@ seoTitle: "Toolbox Talk - Mistral, DaVinci, PenPot & meer | TaiGraphics"
 ---
 
 import ContentSection from "../../components/content/ContentSection.astro";
+import BackLink from "../../components/content/BackLink.astro";
 
 <ContentSection size="800">
   <h1 class="text-4xl mt-10 mb-6">Toolbox Talk - Mistral, DaVinci, PenPot & meer!</h1>
-  <p class="card-kicker blog-meta-line"><span class="blog-tag blog-tag--tooling">Tooling</span> <span class="text-[color:var(--color-text-muted)]">·</span> <img src="/heroicons/clock.svg" class="inline w-4 h-4 align-middle" alt="Leestijd" /> 4 minuten leestijd - 24 maart 2026</p>
+  <p class="card-kicker blog-meta-line"><span class="blog-tag blog-tag--tooling">Tooling</span> <span class="text-[color:var(--color-text-label)]">·</span> <img src="/heroicons/clock.svg" class="inline w-4 h-4 align-middle" alt="Leestijd" /> 4 minuten leestijd - 24 maart 2026</p>
   <p class="leading-7 mt-2">
     Figma is momenteel de meest gebruikte tool voor UX/UI-designers. Voor andere tools zijn er nog steeds waardevolle (open-source) alternatieven die het overwegen waard zijn, afhankelijk van je specifieke behoeften, workflow of organisatorische context. In dit artikel deel ik graag mijn toolbox met enkele interessante opties op Figma, maar ook bijvoorbeeld video-editing tools.
   </p>
@@ -62,5 +63,5 @@ import ContentSection from "../../components/content/ContentSection.astro";
 </ContentSection>
 
 <ContentSection size="800">
-  <p class="leading-7 content-block"><a href="/blog" class="mb-2 py-2 px-6 inline-block btn-primary">Terug naar overzicht</a></p>
+  <BackLink wrapperClass="leading-7 content-block" />
 </ContentSection>

@@ -51,7 +51,7 @@ const formatDateToDDMMYYYY = (value: string) => {
       </div>
     </header>
 
-    <section id="ux" class="section-alt section-pad">
+    <section id="ux" class="section-alt">
       <div class="page-container-992">
 
       <div class="fade-in grid grid-cols-1 gap-6 content-block">
@@ -69,7 +69,7 @@ const formatDateToDDMMYYYY = (value: string) => {
                 {entry.data.readingTime} - {entry.data.date}
               </p>
               <h3 class="text-3xl pt-1 pb-2">{entry.data.title}</h3>
-              <p class="card-description leading-6 flex-1">{entry.data.summary}</p>
+              <p class="card-description">{entry.data.summary}</p>
             </div>
           </a>
         ))}
@@ -90,7 +90,7 @@ const formatDateToDDMMYYYY = (value: string) => {
                 {entry.data.readingTime} - {entry.data.date}
               </p>
               <h3 class="text-3xl pt-1 pb-2">{entry.data.title}</h3>
-              <p class="card-description leading-6 flex-1">{entry.data.summary}</p>
+              <p class="card-description">{entry.data.summary}</p>
             </div>
           </a>
         ))}
@@ -110,7 +110,7 @@ const formatDateToDDMMYYYY = (value: string) => {
                 {oldestOne.data.readingTime} - {formatDateToDDMMYYYY(oldestOne.data.date)}
               </p>
               <h3 class="text-lg pt-1 pb-2 line-clamp-2">{oldestOne.data.title}</h3>
-              <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">{oldestOne.data.summary}</p>
+              <p class="card-description card-description-fade text-[color:var(--color-text-subtle)] flex-1 mt-2 mb-2">{oldestOne.data.summary}</p>
             </div>
           </a>
         )}
@@ -122,7 +122,7 @@ const formatDateToDDMMYYYY = (value: string) => {
           <div class="blog-overview-card-copy flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--design-system">Design System</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 4 min - 08/08/2018</p>
             <h3 class="text-lg pt-1 pb-2 line-clamp-2">Implementatie: Atomic Design voor Avisi (Deel 2)</h3>
-            <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
+            <p class="card-description card-description-fade text-[color:var(--color-text-subtle)] flex-1 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
           </div>
         </a>
         <a href="https://www.linkedin.com/pulse/make-your-brand-modulair-design-system-part-1-creating-kevin-tai/" target="_blank" rel="noopener noreferrer" class="group flex flex-col card-base card-interactive overflow-hidden">
@@ -133,7 +133,7 @@ const formatDateToDDMMYYYY = (value: string) => {
           <div class="blog-overview-card-copy flex flex-col flex-1">
             <p class="text-[color:var(--color-text-subtle)] text-xs mt-2 mb-2"><span class="blog-tag blog-tag--design-system">Design System</span> <span class="text-[color:var(--color-text-subtle)]">·</span> 4 min - 26/06/2018</p>
             <h3 class="text-lg pt-1 pb-2 line-clamp-2">Implementatie: Brand System voor Avisi (Deel 1)</h3>
-            <p class="text-xs leading-6 text-[color:var(--color-text-subtle)] flex-1 line-clamp-3 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
+            <p class="card-description card-description-fade text-[color:var(--color-text-subtle)] flex-1 mt-2 mb-2">Hoe losse onderdelen samen een krachtig geheel vormen. Dit is terug te lezen in mijn LinkedIn Pulse artikel dat ik in 2018 heb geschreven.</p>
           </div>
         </a>
       </div>
