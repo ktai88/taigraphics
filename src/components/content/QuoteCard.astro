@@ -4,6 +4,7 @@ interface Props {
   quote: string;
   author: string;
   subtitle?: string;
+  quoteHtml?: string;
 }
 
 const {
@@ -11,13 +12,18 @@ const {
   quote,
   author,
   subtitle = "",
+  quoteHtml = "",
 } = Astro.props as Props;
 ---
 
 <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
   <div class="p-6 md:p-8">
     <h2 class="text-2xl mb-2">{title}</h2>
-    <p class="text-md font-serif leading-8 whitespace-pre-line mb-4">{quote}</p>
+    {quoteHtml ? (
+      <p class="text-md font-serif leading-8 whitespace-pre-line mb-4" set:html={quoteHtml} />
+    ) : (
+      <p class="text-md font-serif leading-8 whitespace-pre-line mb-4">{quote}</p>
+    )}
     <p class="text-xs text-[color:var(--color-primary)] leading-7">
       <strong>{author}</strong>
       <br />
