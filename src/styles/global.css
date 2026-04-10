@@ -122,16 +122,18 @@
   }
 
   .content-section :where(ul, ol) {
-    padding-left: 1.5rem;
+    padding-left: 0;
+    margin-left: 0;
   }
 
   .content-section ul {
     list-style-type: disc;
-    list-style-position: outside !important;
+    list-style-position: inside !important;
     color: inherit !important;
     font-size: 1.0625rem !important;
     line-height: 2rem !important;
-    padding-left: 1.5rem !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
 
   .content-section :where(ol) {
@@ -228,8 +230,9 @@
     color: inherit !important;
     font-size: 1.0625rem !important;
     line-height: 2rem !important;
-    list-style-position: outside !important;
-    padding-left: 1.5rem !important;
+    list-style-position: inside !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
 
   .card-base ul li {
