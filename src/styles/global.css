@@ -334,7 +334,7 @@
   }
 
   .card-title {
-    font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+    font-size: 1.8em;
     line-height: 1.4;
     padding-top: 0.25rem;
     padding-bottom: 0.5rem;
