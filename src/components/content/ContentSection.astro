@@ -1,0 +1,19 @@
+---
+interface Props {
+  size?: "800" | "992" | "996";
+  sectionClass?: string;
+  containerClass?: string;
+}
+
+const {
+  size = "800",
+  sectionClass = "",
+  containerClass = "",
+} = Astro.props as Props;
+---
+
+<section class={`content-section ${sectionClass}`.trim()}>
+  <div class={`page-container-${size} ${containerClass}`.trim()}>
+    <slot />
+  </div>
+</section>

@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { createLogger } from "vite";
@@ -20,7 +21,10 @@ viteLogger.warn = (msg, options) => {
 export default defineConfig({
   site: "https://taigraphics.nl",
   base: '/',
-  integrations: [sitemap()],
+  devToolbar: {
+    enabled: false,
+  },
+  integrations: [mdx(), sitemap()],
   vite: {
     customLogger: viteLogger,
     plugins: [tailwindcss()],

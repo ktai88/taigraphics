@@ -112,6 +112,69 @@
     margin-bottom: var(--space-block-y);
   }
 
+  /* Semantic MD/MDX headings in article sections (matches old utility classes). */
+  .content-section h2 {
+    font-size: 1.5rem; /* text-2xl */
+    line-height: 2rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content-section h3 {
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Consistent vertical rhythm for semantic MD/MDX content. */
+  .content-section :where(p, ul, ol) {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content-section :where(ul, ol) {
+    padding-left: 1.5rem;
+  }
+
+  .content-section ul {
+    list-style-type: disc;
+    color: inherit !important;
+    font-size: 1.0625rem !important;
+    line-height: 2rem !important;
+  }
+
+  .content-section :where(ol) {
+    list-style-type: decimal;
+  }
+
+  .content-section li + li {
+    margin-top: 0.25rem;
+  }
+
+  .content-section :where(img) {
+    margin-top: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .content-section p.card-kicker img {
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .content-section :where(em) {
+    color: var(--color-text-subtle);
+  }
+
+  /* Avoid accidental extra whitespace at section boundaries. */
+  .content-section > div > :first-child {
+    margin-top: 0;
+  }
+
+  .content-section > div > :last-child {
+    margin-bottom: 0;
+  }
+
   .card-stack {
     margin-block: var(--space-block-y);
   }
@@ -154,6 +217,17 @@
     overflow: hidden;
   }
 
+  /* Keep Tip-card lists visually consistent with surrounding paragraph copy. */
+  .card-base ul {
+    color: inherit !important;
+    font-size: 1.0625rem !important;
+    line-height: 2rem !important;
+  }
+
+  .card-base ul li {
+    padding-bottom: 0;
+  }
+
   .card-grid {
     display: grid;
     grid-template-columns: 100%;
@@ -186,6 +260,21 @@
     font-size: 0.875rem;
     margin-top: 0;
     margin-bottom: 0.75rem;
+  }
+
+  .blog-meta-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .blog-meta-line > img {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-block;
+    vertical-align: middle;
+    flex: 0 0 auto;
   }
 
   .card-title {
