@@ -3,7 +3,8 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog", ({ data }) => data.draft !== true);
+  // Keep draft posts routable via direct URL; overview page handles visibility.
+  const blogEntries = await getCollection("blog");
   return blogEntries.map((entry) => ({
     params: { slug: entry.data.slug },
     props: { entry },
