@@ -1,0 +1,89 @@
+---
+title: "AI-native ontwerpen; sneller dan je kunt bijhouden."
+slug: 2026-04-23-ai-native
+date: 23 april 2026
+readingTime: 6 min
+category: "Artificial Intelligence"
+categoryVariant: ai
+summary: "Terwijl ik dit schreef, heeft Anthropic een nieuwe design feature uitgebracht (Claude Design) en zag men dat de Figma beurs waarde meteen met 4% is gezakt."
+heroImage: /featured-2026-04-23.png
+heroImageAlt: Featured Blog - AI Native
+seoTitle: "AI-native ontwerpen; sneller dan je kunt bijhouden"
+draft: false
+---
+
+import ContentSection from "../../components/content/ContentSection.astro";
+import BackLink from "../../components/content/BackLink.astro";
+
+<ContentSection size="800">
+  <h1 class="text-4xl mt-10 mb-6">AI-native ontwerpen; sneller dan je kunt bijhouden</h1>
+  <p class="card-kicker blog-meta-line"><span class="blog-tag blog-tag--ai">Artificial Intelligence</span> <span class="text-[color:var(--color-text-label)]">·</span> <img src="/heroicons/clock.svg" class="inline w-4 h-4 align-middle" alt="Leestijd" /> 6 minuten leestijd - 23 april 2026</p>
+  <p class="leading-8 mt-2">Er zit een ongemakkelijke waarheid in dit stuk. Tegen de tijd dat je dit leest, is een deel alweer achterhaald. Terwijl ik dit schreef, heeft Anthropic een nieuwe design feature uitgebracht (Claude Design) en zag men dat de Figma beurswaarde meteen met 4% is gezakt. Niet omdat één tool beter is, maar omdat het speelveld zelf verandert. Proberen alles bij te houden is daarmee onbegonnen werk met de tijd en energie dat het soms vergt.</p>
+</ContentSection>
+
+<ContentSection size="800">
+## Stop met alles bijhouden, begin met testen
+In plaats van elke tool uitgebreid in mijn workflow te verwerken, behandel ik tegenwoordig nieuwe AI-tools als experimenten. Niet iets dat meteen in mijn workflow moet, maar iets dat ik kort isoleer om te begrijpen. Een goed voorbeeld was mijn ervaring met de Model Context Protocol. Door het te benaderen met één duidelijke use case, een vaste testomgeving en een tijdslimiet, werd het snel toepasbaar. Niet omdat ik alles begreep, maar omdat ik precies genoeg begreep.
+</ContentSection>
+
+<ContentSection size="800">
+## Tip: Werk met een vaste "fictieve" usecase
+Wat voor mij werkt, is één terugkerende prompt en use-case die als benchmark dient en elke keer kunt verbeteren (Itereren). Jij weet immers wat de wensen en eisen zijn; en wat je uit FigmaMake, Bolt of Claude Design wilt halen. Neem bijvoorbeeld een auto-zoekplatform als use-case waarin gebruikers kunnen zoeken, vergelijken en beslissen. De structuur die ik vaak hanteer staat hieronder.
+
+ <div class="grid grid-cols-[100%] gap-2 card-base mb-6">
+    <div class="p-6">
+      <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai - Prompt Template</h3>
+        <p>
+        Ontwerp een moderne webapplicatie die gebruikers helpt om een auto te zoeken, vergelijken en kiezen om te kopen. Inclusief:
+        - Een homepage met aanbevelingen en categorieën (SUV, elektrisch, budget)
+        - Een zoekresultatenpagina met filters (prijs, brandstoftype, merk)
+        - Een detailpagina van een auto met afbeeldingen, specificaties en reviews
+        - Een vergelijkingstool om meerdere auto’s naast elkaar te vergelijken
+        - Een overzicht van de totale kosten (prijs, maandelijkse schatting, eigendomskosten)
+        - Een contact- of proefritboekingsflow
+        </p>
+        <p>
+        **Persona:**
+        - Dirk, 38 jaar, geen auto-expert, wil duidelijkheid en eenvoud bij het kiezen van een auto.
+        </p>
+        <p>
+        **Designprincipes:**
+        - Verminder complexiteit en keuzestress
+        - Maak vergelijken eenvoudig en visueel
+        - Communiceer de totale kosten helder
+        - Bouw vertrouwen op met reviews en transparantie
+        </p>
+        <p>
+        **Output:**
+        - Mobile-first responsive UI
+        - Clean, modern design met duidelijke hiërarchie
+        - Component-gebaseerde layout
+        - Als er ambiguïteit is; stel mij gerichte tussenvragen om de context te verduidelijken.
+        </p>
+    </div>
+</div>
+
+## Verdere toelichting prompt-template
+Ik dwing daarin meerdere lagen af: van functionaliteit en UX tot businesslogica. Denk aan een homepage met categorieën, filters op prijs en brandstof, detailpagina’s, een vergelijkingstool en inzicht in totale kosten. Aangevuld met een persona die vooral duidelijkheid en vertrouwen zoekt. Doordat die context altijd hetzelfde is, zie je direct wat een tool anders of beter doet. Een effectieve techniek is om in je prompt expliciet te vragen naar verduidelijking en tussentijdse vragen:
+- Bij onduidelijkheden eerst een verduidelijkende vraag stelt
+- Niet zelf aannames doet of ontbrekende informatie invult
+
+Dit vermindert het risico op hallucinaties aanzienlijk.
+</ContentSection>
+
+<ContentSection size="800">
+## Prompting is de echte skill
+De kwaliteit van je output zit minder in de tool en meer in hoe je ermee werkt. Het helpt om expliciet te maken wat je níet wilt, zodat je geen generieke output krijgt. En door de AI eerst vragen te laten stellen, voorkom je dat het gaat gokken. Ook werkt het beter om niet direct naar een eindresultaat te springen, maar eerst analyse en aannames te verkennen. Je kunt zelfs je chat-tool vragen om een prompt te **verfijnen** voordat je het uitvoert op een andere AI-tool!
+</ContentSection>
+
+<ContentSection size="800">
+## Grenzen stellen en timebox je AI sessie
+AI heeft geen natuurlijke rem. Zonder kaders blijf je genereren, soms kom je zelden echt verder (of je bent heel snel door je tokens heen). Door vooraf te bepalen wat je test en wanneer je stopt, houd je regie. Hetzelfde geldt voor tijd. Zonder limiet verandert een korte test moeiteloos in een uur doelloze exploratie. Daarom werk ik bewust met timeboxing in AI-sessies. Niet als discipline-trucje, maar als ontwerpkeuze. Want de vraag is niet alleen wat een tool kan, maar ook wat het je kost. Besteed je tien minuten aan het zelf bouwen van een simpele button in Figma met de skills die je zeker weten hebt, of vijftig minuten aan het “juist” prompten ervan in een AI-tool?
+</ContentSection>
+
+<ContentSection size="800">
+## Tot slot
+AI-native ontwerpen gaat niet over tools beheersen. Die veranderen toch wel. Het gaat over hoe je ermee werkt zonder dat het je overneemt. Over snelheid zonder chaos en experimenteren zonder te verdwalen. De tools zijn tijdelijk. Je manier van werken niet.
+
+<BackLink />
+</ContentSection>
