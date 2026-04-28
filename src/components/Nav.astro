@@ -17,10 +17,7 @@ const { active } = Astro.props as Props;
     <!-- Navigation -->
     <ul class="flex ml-3 space-x-3 md:space-x-8 text-black text-xs md:text-base">
     <li class="mt-3">
-      <a href="/#ux" data-nav-section="ux" class="text-nowrap nav-link">UX</a>
-    </li>
-    <li class="mt-3">
-      <a href="/#ui" data-nav-section="ui" class="text-nowrap nav-link">UI</a>
+      <a href="/" data-nav-section="ux-ui" class="text-nowrap nav-link">UX/UI</a>
     </li>
     <li class="mt-3">
       <a
@@ -63,102 +60,28 @@ const { active } = Astro.props as Props;
       return p === '/' || p === '/index.html';
     };
 
-    const sectionIds = ['ux', 'ui'];
-    const sectionLinks = {};
-    for (const id of sectionIds) {
-      const link = nav.querySelector(`a[data-nav-section="${id}"]`);
-      if (link) sectionLinks[id] = link;
-    }
+    const uxUiLink = nav.querySelector('a[data-nav-section="ux-ui"]');
 
-    const getSections = () =>
-      sectionIds
-        .map((id) => document.getElementById(id))
-        .filter(Boolean);
-
-    const getScrollOffset = () => {
-      const firstSection = getSections()[0];
-      if (firstSection) {
-        const style = window.getComputedStyle(firstSection);
-        const scrollMarginTop = Number.parseFloat(style.scrollMarginTop || '0');
-        if (Number.isFinite(scrollMarginTop) && scrollMarginTop > 0) {
-          return Math.round(scrollMarginTop);
-        }
+    const updateHomeActive = () => {
+      if (!uxUiLink) return;
+      if (isHomePage()) {
+        uxUiLink.classList.add('nav-link--current-section');
+        uxUiLink.setAttribute('aria-current', 'page');
+      } else {
+        uxUiLink.classList.remove('nav-link--current-section');
+        uxUiLink.removeAttribute('aria-current');
       }
-      return Math.round(nav.getBoundingClientRect().height + 16);
-    };
-
-    const setSectionCurrent = (activeId) => {
-      for (const id of sectionIds) {
-        const link = sectionLinks[id];
-        if (!link) continue;
-        if (id === activeId) {
-          link.classList.add('nav-link--current-section');
-          link.setAttribute('aria-current', 'page');
-        } else {
-          link.classList.remove('nav-link--current-section');
-          link.removeAttribute('aria-current');
-        }
-      }
-    };
-
-    const updateSectionNav = () => {
-      const sections = getSections();
-      if (!isHomePage() || sections.length === 0) {
-        setSectionCurrent(null);
-        return;
-      }
-
-      const triggerY = window.scrollY + getScrollOffset() + 1;
-      let activeId = null;
-      for (const section of sections) {
-        const sectionTop = window.scrollY + section.getBoundingClientRect().top;
-        if (triggerY >= sectionTop) {
-          activeId = section.id;
-        }
-      }
-      setSectionCurrent(activeId);
     };
 
     let ticking = false;
-    const onScroll = () => {
+    window.addEventListener('scroll', () => {
       if (window.scrollY > 30) {
         nav.classList.add('nav-shrink');
       } else {
         nav.classList.remove('nav-shrink');
       }
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        updateSectionNav();
-        ticking = false;
-      });
-    };
+    }, { passive: true });
 
-    const syncAfterHash = () => {
-      updateSectionNav();
-      requestAnimationFrame(updateSectionNav);
-      setTimeout(updateSectionNav, 260);
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateSectionNav);
-    window.addEventListener('hashchange', syncAfterHash);
-    window.addEventListener('load', syncAfterHash);
-
-    for (const id of sectionIds) {
-      const link = sectionLinks[id];
-      if (!link) continue;
-      link.addEventListener('click', () => {
-        if (!isHomePage()) return;
-        setSectionCurrent(id);
-        syncAfterHash();
-      });
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', syncAfterHash);
-    } else {
-      syncAfterHash();
-    }
+    updateHomeActive();
   }
 </script>
