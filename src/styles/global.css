@@ -60,7 +60,12 @@
   }
 
   :focus {
+    outline: none;
+  }
+
+  :focus-visible {
     outline: 2px solid var(--color-tag-training);
+    outline-offset: 2px;
   }
 
   /* Keep hash-target headings visible below sticky navigation. */
@@ -497,25 +502,25 @@
   }
 
   .blog-tag--tooling {
-    color: var(--color-tag-tooling);
+    color: #006b99;
     background: rgba(0, 173, 238, 0.12);
     border-color: rgba(0, 173, 238, 0.35);
   }
 
   .blog-tag--ai {
-    color: var(--color-tag-ai);
+    color: #7d1e91;
     background: rgba(170, 51, 187, 0.12);
     border-color: rgba(170, 51, 187, 0.35);
   }
 
   .blog-tag--training {
-    color: var(--color-tag-training);
+    color: #c25200;
     background: rgba(255, 153, 51, 0.12);
     border-color: rgba(255, 153, 51, 0.35);
   }
 
   .blog-tag--design-system {
-    color: var(--color-tag-design-system);
+    color: #3a7070;
     background: rgba(102, 170, 170, 0.15);
     border-color: rgba(102, 170, 170, 0.45);
   }
@@ -627,6 +632,25 @@
   55%,
   80% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .fade-in.is-visible {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .hero-typing-cursor {
+    animation: none;
   }
 }
 
