@@ -1,162 +1,571 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContentSection from "../../components/content/ContentSection.astro";
 ---
 
-<BaseLayout title="Design System Overview | TaiGraphics">
-  <header class="mt-8 mb-6" role="banner">
-    <div class="page-container-992 py-6">
-      <h1 class="text-4xl text-[color:var(--color-text-heading)]">
-        Design System <strong class="text-[color:var(--color-text-strong)]">Overview</strong>
-      </h1>
-      <p class="mt-6 mb-2 font-semibold text-xs uppercase tracking-[0.1em] text-[color:var(--color-text-label)]">
-        <span class="border-t-[2px] border-[color:var(--color-primary)] pt-3">Tokens, componenten en codevoorbeelden</span>
-      </p>
-      <p class="leading-8 mt-5">
-        Deze pagina documenteert de visuele bouwstenen van de website: kleuren, spacing, containers,
-        componenten, utility classes en voorbeeldcode.
-      </p>
-    </div>
-  </header>
+<BaseLayout title="Design System | TaiGraphics" active="showcase">
 
-  <section class="section-alt">
-    <div class="page-container-992">
-      <h2 class="text-2xl mb-6">1) Kleurensysteem</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
-        <div class="card-base p-6">
-          <h3 class="text-xl mb-4">Core color tokens</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div class="rounded-md p-3 bg-[color:var(--color-primary)] text-white text-xs">--color-primary</div>
-            <div class="rounded-md p-3 bg-[color:var(--color-secondary)] text-white text-xs">--color-secondary</div>
-            <div class="rounded-md p-3 bg-[color:var(--color-text-heading)] text-white text-xs">--color-text-heading</div>
-            <div class="rounded-md p-3 bg-[color:var(--color-text-subtle)] text-white text-xs">--color-text-subtle</div>
-            <div class="rounded-md p-3 bg-[color:var(--color-text-label)] text-white text-xs md:col-span-2">--color-text-label</div>
+  <ContentSection size="992" containerClass="py-10">
+    <p class="card-kicker border-top-gradient-3 inline-block mb-4">TaiGraphics · Versie 3.0 · 2026</p>
+    <h1 class="text-4xl mb-4">Design System</h1>
+    <p class="leading-8 max-w-[640px]">
+      De visuele bouwstenen van taigraphics.nl. Tokens, typografie, componenten en codevoorbeelden
+      op basis van de bestaande Astro + Tailwind codebase.
+    </p>
+    <nav class="flex flex-wrap gap-3 mt-8" aria-label="Secties">
+      {[
+        ["#kleuren",    "Kleuren"],
+        ["#typografie", "Typografie"],
+        ["#spacing",    "Spacing"],
+        ["#atoms",      "Atoms"],
+        ["#cards",      "Cards"],
+        ["#blog",       "Blog componenten"],
+        ["#animaties",  "Animaties"],
+      ].map(([href, label]) => (
+        <a href={href} class="btn-primary text-sm">{label}</a>
+      ))}
+    </nav>
+  </ContentSection>
+
+  <!-- ─── 1. KLEUREN ──────────────────────────────────────────────────────── -->
+  <ContentSection size="992" sectionClass="section-alt">
+    <h2 id="kleuren" class="mb-4">1. Kleuren</h2>
+    <p class="leading-8">
+      Altijd via CSS custom properties. Nooit hardcoded hex in componenten of Tailwind arbitrary colour values buiten deze tokens.
+    </p>
+
+    <p class="card-kicker mt-8 mb-4">Brand</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {[
+        ["--color-primary",      "#0000ff", "Primary"],
+        ["--color-secondary",    "#6600cc", "Secondary"],
+        ["--color-accent-dark",  "#100b7e", "Accent Dark"],
+        ["--color-accent-hover", "#2b7fff", "Accent Hover"],
+      ].map(([token, hex, name]) => (
+        <div class="card-base overflow-hidden">
+          <div class="h-14 w-full" style={`background:${hex}`}></div>
+          <div class="p-3">
+            <p class="font-semibold text-sm">{name}</p>
+            <p class="text-xs font-mono text-[color:var(--color-text-label)] mt-1">{token}</p>
+            <p class="text-xs font-mono text-[color:var(--color-text-label)]">{hex}</p>
           </div>
         </div>
-        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>.sample &#123;
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
-&#125;
+      ))}
+    </div>
 
-.sample-muted &#123;
-  background: var(--color-text-label);
-&#125;</code></pre>
-        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
-          Kernkleuren voor merkidentiteit en teksthiërarchie. Gebruik tokens in plaats van hardcoded waarden.
+    <p class="card-kicker mt-8 mb-4">Achtergronden</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {[
+        ["--color-page-bg",     "#f5f5f5", "Page BG"],
+        ["--color-section-alt", "#cedbef", "Section Alt"],
+        ["--color-card-bg",     "#ffffff", "Card BG"],
+        ["--color-card-border", "#f5f5f5", "Card Border"],
+      ].map(([token, hex, name]) => (
+        <div class="card-base overflow-hidden">
+          <div class="h-14 w-full border border-[#e0e0e0]" style={`background:${hex}`}></div>
+          <div class="p-3">
+            <p class="font-semibold text-sm">{name}</p>
+            <p class="text-xs font-mono text-[color:var(--color-text-label)] mt-1">{token}</p>
+            <p class="text-xs font-mono text-[color:var(--color-text-label)]">{hex}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="card-kicker mt-8 mb-4">Category tags</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {[
+        ["#00adee", "Tag Tooling",       "blog-tag blog-tag--tooling",       "Tooling",       "--color-tag-tooling"],
+        ["#aa33bb", "Tag AI",            "blog-tag blog-tag--ai",            "AI",            "--color-tag-ai"],
+        ["#ff9933", "Tag Training",      "blog-tag blog-tag--training",      "Training",      "--color-tag-training"],
+        ["#339999", "Tag Design System", "blog-tag blog-tag--design-system", "Design System", "--color-tag-design-system"],
+      ].map(([hex, name, cls, label, token]) => (
+        <div class="card-base overflow-hidden">
+          <div class="h-14 w-full flex items-center justify-center" style={`background:${hex}22`}>
+            <span class={cls}>{label}</span>
+          </div>
+          <div class="p-3">
+            <p class="font-semibold text-sm">{name}</p>
+            <p class="text-xs font-mono text-[color:var(--color-text-label)] mt-1">{token}</p>
+            <p class="text-xs font-mono text-[color:var(--color-text-label)]">{hex}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </ContentSection>
+
+  <!-- ─── 2. TYPOGRAFIE ───────────────────────────────────────────────────── -->
+  <ContentSection size="992" containerClass="py-10">
+    <h2 id="typografie" class="mb-4">2. Typografie</h2>
+    <p class="leading-8">
+      Twee fonts. <strong>Aeonik</strong> voor display en headings, <strong>DM Sans</strong> voor alles wat gelezen wordt.
+      Nooit font-weight 700 — maximaal 600.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+      <div class="card-base p-8 flex flex-col gap-6">
+        <div>
+          <p class="card-kicker mb-2">h1 · Aeonik · 36px</p>
+          <h1 class="text-4xl">Heading niveau 1</h1>
+        </div>
+        <div>
+          <p class="card-kicker mb-2">h2 · Aeonik · 24px</p>
+          <h2 class="text-2xl">Heading niveau 2</h2>
+        </div>
+        <div>
+          <p class="card-kicker mb-2">h3 · Aeonik · 20px</p>
+          <h3 class="text-xl">Heading niveau 3</h3>
+        </div>
+        <div>
+          <p class="card-kicker mb-2">body · DM Sans · 17px · leading-8</p>
+          <p class="leading-8">Body copy op 1.0625rem met ruime regelafstand voor leesbaarheid op alle schermen.</p>
+        </div>
+        <div>
+          <p class="card-kicker mb-2">strong · DM Sans · 600</p>
+          <p class="leading-8"><strong>Vetgedrukte nadruk</strong> voor sleuteltermen in een zin.</p>
+        </div>
+        <div>
+          <p class="card-kicker mb-2">kicker · DM Sans · 11px · uppercase · tracking-[0.15em]</p>
+          <p class="card-kicker">Kicker label voorbeeld</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="page-container-992">
-      <h2 class="text-2xl mb-6">2) Typografie</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
-        <div class="card-base p-6">
-          <h3 class="text-xl mb-4">Font families</h3>
-          <h4 class="text-3xl text-[color:var(--color-text-heading)]">Heading op Aeonik</h4>
-          <p class="leading-8 mt-4">Body copy op DM Sans met leesbare regelafstand.</p>
-        </div>
-        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>h1, h2, h3, h4, h5, h6 &#123;
+      <div class="card-base p-6">
+        <p class="card-kicker mb-4">CSS tokens</p>
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`--font-aeonik:  "Aeonik", system-ui, sans-serif;
+--font-dmsans:  "DM Sans", system-ui, sans-serif;
+
+h1, h2, h3 {
   font-family: var(--font-aeonik);
-&#125;
+  font-weight: 500;
+}
 
-body &#123;
+body {
   font-family: var(--font-dmsans);
-&#125;</code></pre>
-        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
-          Headings op Aeonik voor identiteit, body op DM Sans voor leesbaarheid.
-        </div>
+  font-size: 1.0625rem;
+}
+
+.card-kicker {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}`}</code></pre>
       </div>
     </div>
-  </section>
+  </ContentSection>
 
-  <section class="section-alt">
-    <div class="page-container-992">
-      <h2 class="text-2xl mb-6">3) Layout & spacing</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
-        <div class="card-base p-6">
-          <h3 class="text-xl mb-4">Container system</h3>
-          <p class="text-sm text-[color:var(--color-text-subtle)]">
-            Gebruik <code>page-container-800</code> voor content, <code>page-container-992</code> voor brede secties en <code>page-container-996</code> voor visuals.
-          </p>
-        </div>
-        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;div class="page-container-800"&gt;article&lt;/div&gt;
-&lt;div class="page-container-992"&gt;listing&lt;/div&gt;
-&lt;div class="page-container-996"&gt;gallery&lt;/div&gt;</code></pre>
-        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
-          Vaste containerbreedtes houden marges, regelbreedte en uitlijning consistent.
-        </div>
+  <!-- ─── 3. SPACING ──────────────────────────────────────────────────────── -->
+  <ContentSection size="992" sectionClass="section-alt">
+    <h2 id="spacing" class="mb-4">3. Spacing &amp; layout</h2>
+    <p class="leading-8">
+      Drie containerbreedtes houden marges en regelbreedte consistent. Eén spacing-token regelt het verticale ritme tussen blokken.
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+      <div class="card-base p-8 flex flex-col gap-6">
+        <p class="card-kicker">Containerbreedtes</p>
+        {[
+          ["page-container-800", "800px",  "Blogtekst, prose content"],
+          ["page-container-992", "992px",  "Listings, brede secties"],
+          ["page-container-996", "992px",  "Visuals, galerijen"],
+        ].map(([cls, width, use]) => (
+          <div>
+            <div class="h-7 rounded bg-[color:var(--color-primary)] opacity-20 mb-2" style={`max-width:${width}`}></div>
+            <p class="font-mono text-xs font-semibold">.{cls}</p>
+            <p class="text-xs text-[color:var(--color-text-label)]">{width} · {use}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="card-base p-6">
+        <p class="card-kicker mb-4">Code</p>
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`/* Containersysteem */
+.page-container-800 { max-width: 800px; }
+.page-container-992 { max-width: 992px; }
+
+/* Block spacing token */
+--space-block-y: 2rem;
+.card-stack {
+  margin-block: var(--space-block-y);
+}
+
+/* section-alt alleen in case studies */
+.section-alt {
+  background: var(--color-section-alt);
+}
+
+/* Blogart ikelen: altijd wit */
+<ContentSection size="800">
+  ...
+</ContentSection>`}</code></pre>
       </div>
     </div>
-  </section>
+  </ContentSection>
 
-  <section>
-    <div class="page-container-992">
-      <h2 class="text-2xl mb-6">4) Componenten</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
+  <!-- ─── 4. ATOMS ────────────────────────────────────────────────────────── -->
+  <ContentSection size="992" containerClass="py-10">
+    <h2 id="atoms" class="mb-4">4. Atoms</h2>
+    <p class="leading-8">
+      De kleinste herbruikbare elementen. Knoppen, tags, links en border accenten.
+    </p>
+
+    <h3 class="border-bottom-gradient inline-block mt-8 mb-6">btn-primary</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8 flex flex-col gap-5">
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#" class="btn-primary">Primaire knop</a>
+          <span class="text-xs text-[color:var(--color-text-label)]">default</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#" class="btn-primary" style="background:var(--color-card-bg);color:var(--color-primary);border:1px solid var(--color-primary);">Hover state</a>
+          <span class="text-xs text-[color:var(--color-text-label)]">hover</span>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`<a href="/blog" class="btn-primary">
+  Artikelen openen
+</a>
+
+/* Eigenschappen */
+border-radius: 9999px;
+padding: 0.5rem 1.5rem;
+font-weight: 600;
+font-size: 0.875rem;
+transition: background/color 150ms ease-in-out;`}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="border-bottom-gradient inline-block mt-10 mb-6">blog-tag</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8">
+        <div class="flex flex-wrap gap-3">
+          <span class="blog-tag blog-tag--tooling">Tooling</span>
+          <span class="blog-tag blog-tag--ai">Artificial Intelligence</span>
+          <span class="blog-tag blog-tag--training">Training &amp; Certification</span>
+          <span class="blog-tag blog-tag--design-system">Design System</span>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`<span class="blog-tag blog-tag--tooling">
+  Tooling
+</span>
+<span class="blog-tag blog-tag--ai">AI</span>
+<span class="blog-tag blog-tag--training">
+  Training
+</span>
+<span class="blog-tag blog-tag--design-system">
+  Design System
+</span>
+
+/* Variant = categoryVariant in frontmatter */`}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="border-bottom-gradient inline-block mt-10 mb-6">Border accenten</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8 flex flex-col gap-6">
+        <div>
+          <h3 class="text-xl inline-block border-bottom-gradient">border-bottom-gradient</h3>
+          <p class="text-xs text-[color:var(--color-text-label)] mt-1">2px · subheadings in content</p>
+        </div>
+        <div>
+          <h3 class="text-xl inline-block border-bottom-gradient-8">border-bottom-gradient-8</h3>
+          <p class="text-xs text-[color:var(--color-text-label)] mt-1">8px · visueel accent op hoofdtitels</p>
+        </div>
+        <div>
+          <p class="font-semibold text-xs uppercase tracking-[0.1em] border-top-gradient-3 inline-block">border-top-gradient-3</p>
+          <p class="text-xs text-[color:var(--color-text-label)] mt-1">3px top · kicker labels in case headers</p>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`<!-- 2px blauwe onderrand -->
+<h3 class="border-bottom-gradient">Titel</h3>
+
+<!-- 8px visueel accent -->
+<h2 class="border-bottom-gradient-8">Titel</h2>
+
+<!-- 3px bovenrand op kicker -->
+<p class="border-top-gradient-3 card-kicker">
+  UX / UI / Design System
+</p>
+
+/* Nooit de border logica inline herhalen */`}</code></pre>
+      </div>
+    </div>
+  </ContentSection>
+
+  <!-- ─── 5. CARDS ────────────────────────────────────────────────────────── -->
+  <ContentSection size="992" sectionClass="section-alt">
+    <h2 id="cards" class="mb-4">5. Cards</h2>
+    <p class="leading-8">
+      Alle kaartpatronen zijn gebouwd op <code class="font-mono text-sm">.card-base</code> als fundament.
+      Wit, 12px radius, subtiele schaduw.
+    </p>
+
+    <h3 class="border-bottom-gradient inline-block mt-8 mb-6">card-base</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8">
         <div class="card-base p-6">
-          <h3 class="text-xl mb-4">Buttons & links</h3>
-          <div class="flex flex-wrap items-center gap-3">
-            <a href="#" class="btn-primary">Primary button</a>
-            <a href="#" class="link-inline">Inline link</a>
+          <p class="card-kicker">Kicker label</p>
+          <h3 class="text-xl mt-1 mb-2">Kaart titel</h3>
+          <p class="text-sm leading-7">Omschrijving die op de listingpagina verschijnt als samenvatting van het artikel of project.</p>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`/* card-base */
+background:    var(--color-card-bg);
+border-radius: 0.75rem;
+box-shadow:    0 1px 3px rgba(15,23,42,0.08);
+
+/* card-interactive voegt toe: */
+.card-interactive:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 6px 16px rgba(15,23,42,0.1);
+  transition: transform/box-shadow 200ms ease-out;
+}`}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="border-bottom-gradient inline-block mt-10 mb-6">QuoteCard</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8">
+        <div class="card-base p-6">
+          <p class="text-4xl text-[color:var(--color-primary)] leading-none mb-3">"</p>
+          <p class="leading-8 text-sm">"Kevin is een hele fijne collega. Een echte teamplayer. Als UX/UI designer heeft hij een volledig design system opgetuigd."</p>
+          <div class="mt-4 pt-4 border-t border-[color:var(--color-card-border)]">
+            <p class="font-semibold text-sm">Rene Lourens</p>
+            <p class="text-xs text-[color:var(--color-text-label)] mt-1">Astron — The Netherlands Institute for Radio Astronomy</p>
           </div>
         </div>
-        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;a class="btn-primary"&gt;Primary button&lt;/a&gt;
-&lt;a class="link-inline"&gt;Inline link&lt;/a&gt;</code></pre>
-        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
-          Gebruik `btn-primary` voor hoofdacties; `link-inline` in doorlopende tekst.
-        </div>
       </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`import QuoteCard from
+  '../../components/content/QuoteCard.astro'
 
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
-        <div class="card-base p-6">
-          <h3 class="text-xl mb-4">Card pattern</h3>
-          <div class="card-base">
-            <div class="card-grid">
-              <div class="card-image-wrap overflow-hidden md:rounded-l-lg">
-                <img src="/thumb005.png" alt="Card preview" class="w-full h-full object-cover object-top object-left" />
-                <span class="card-image-overlay" aria-hidden="true"><span class="card-image-overlay__btn">Lees meer</span></span>
-              </div>
-              <div class="card-copy">
-                <p class="card-kicker">Visual Design / Branding / Web</p>
-                <h3 class="card-title">Card patroon</h3>
-                <p class="card-description">Standaard kaartstructuur voor homepage, cases en showcase.</p>
+<QuoteCard
+  quote='"Tekst van het citaat."'
+  author="Naam Achternaam"
+  subtitle="Functie, Organisatie"
+/>`}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="border-bottom-gradient inline-block mt-10 mb-6">CaseIntroCard</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8">
+        <div class="card-base overflow-hidden">
+          <div class="grid grid-cols-[100%] md:grid-cols-[30%_70%]">
+            <div class="bg-[color:var(--color-section-alt)] min-h-[120px] flex items-center justify-center">
+              <span class="text-xs text-[color:var(--color-text-label)]">Afbeelding</span>
+            </div>
+            <div class="p-5">
+              <p class="card-kicker">UX / Design System / Front-end</p>
+              <p class="leading-7 text-sm mt-2">Korte omschrijving van het project en de aanpak.</p>
+              <div class="mt-3 space-y-1">
+                {[["Opdrachtgever","Bedrijfsnaam"],["Rol","UX Designer"],["Tools","Figma / Storybook"]].map(([l,v]) => (
+                  <p class="text-xs"><span class="text-[color:var(--color-text-label)]">{l}:</span> {v}</p>
+                ))}
               </div>
             </div>
           </div>
         </div>
-        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;a class="group card-grid card-base card-interactive"&gt;
-  &lt;div class="card-image-wrap"&gt;...&lt;/div&gt;
-  &lt;div class="card-copy"&gt;...&lt;/div&gt;
-&lt;/a&gt;</code></pre>
-        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
-          Basispatroon voor overzichtskaarten met consistente titel-, kicker- en body-typografie.
-        </div>
       </div>
-    </div>
-  </section>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`import CaseIntroCard from
+  '../../components/content/CaseIntroCard.astro'
 
-  <section class="section-alt">
-    <div class="page-container-992">
-      <h2 class="text-2xl mb-6">5) Utility classes</h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 card-stack">
-        <div class="card-base p-6">
-          <h3 class="text-xl mb-4">Visual helpers</h3>
-          <div class="media-placeholder rounded-lg p-6 text-sm">media-placeholder</div>
-          <h4 class="border-bottom-gradient text-lg mt-4 inline-block">Gradient underline</h4>
-        </div>
-        <pre class="card-base p-4 overflow-x-auto text-xs leading-6"><code>&lt;div class="media-placeholder rounded-lg"&gt;...&lt;/div&gt;
-&lt;h4 class="border-bottom-gradient"&gt;Titel&lt;/h4&gt;</code></pre>
-        <div class="card-base p-6 text-sm leading-7 text-[color:var(--color-text-subtle)]">
-          <h4 class="text-base text-[color:var(--color-text-heading)] mb-2">Beschrijving</h4>
-          Utility classes voor visuele status, placeholders en decoratieve accenten.
-        </div>
+<CaseIntroCard
+  imageSrc="/thumb003.png"
+  imageAlt="Alt tekst"
+  meta="UX / Design System"
+  summary="Projectomschrijving..."
+  details={[
+    { label: "Opdrachtgever", value: "Naam" },
+    { label: "Rol", value: "UX Designer" },
+  ]}
+/>`}</code></pre>
       </div>
     </div>
-  </section>
+  </ContentSection>
+
+  <!-- ─── 6. BLOG COMPONENTEN ─────────────────────────────────────────────── -->
+  <ContentSection size="992" containerClass="py-10">
+    <h2 id="blog" class="mb-4">6. Blog componenten</h2>
+    <p class="leading-8">
+      Componenten die direct in MDX blogart ikelen worden geïmporteerd.
+      Blogsecties zijn altijd wit, zonder <code class="font-mono text-sm">sectionClass</code>.
+    </p>
+
+    <h3 class="border-bottom-gradient inline-block mt-8 mb-6">ContentSection</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8">
+        <div class="border-2 border-dashed border-[color:var(--color-primary)] rounded-xl p-5">
+          <p class="text-xs text-[color:var(--color-primary)] font-mono mb-3">ContentSection size="800"</p>
+          <h2 class="text-2xl mb-3">Section heading (h2)</h2>
+          <p class="leading-8 text-sm">Paragraaftekst. Elke ContentSection heeft één h2 en 2–5 alinea's. Altijd wit in blogart ikelen.</p>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`import ContentSection from
+  '../../components/content/ContentSection.astro'
+
+<ContentSection size="800">
+  ## Section heading
+  Paragraaftekst...
+</ContentSection>
+
+/* Props */
+size:           "800" | "992" | "996"
+sectionClass:   nooit gebruiken in blog
+containerClass: optioneel, bv. "pb-10"`}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="border-bottom-gradient inline-block mt-10 mb-6">Tip van Tai card</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8">
+        <div class="card-base p-6">
+          <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai:</h3>
+          <p class="leading-8 text-sm mt-2">Concrete actie, altijd gericht op wat de lezer direct kan toepassen.</p>
+          <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-[color:var(--color-text-label)]">
+            <li>Eerste actiepunt</li>
+            <li>Tweede actiepunt</li>
+            <li>Derde actiepunt</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`<div class="grid grid-cols-[100%]
+     gap-2 card-base card-stack">
+  <div class="p-6">
+    <h3 class="text-xl pt-1 pb-2
+         inline-block border-bottom-gradient">
+      Tip van Tai:
+    </h3>
+    <p class="leading-8">Tekst...</p>
+    <ul class="list-disc pl-6 mt-2
+         text-[color:var(--color-text-label)]">
+      <li class="pb-1">Punt</li>
+    </ul>
+  </div>
+</div>`}</code></pre>
+      </div>
+    </div>
+
+    <h3 class="border-bottom-gradient inline-block mt-10 mb-6">BackLink &amp; FigureGrid</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div class="card-base p-8 flex flex-col gap-8">
+        <div>
+          <p class="card-kicker mb-3">BackLink</p>
+          <a href="/blog" class="flex items-center gap-2 w-fit text-[color:var(--color-accent-dark)]">
+            <span>←</span>
+            <span class="underline underline-offset-2 text-sm">Terug naar blog</span>
+          </a>
+        </div>
+        <div>
+          <p class="card-kicker mb-3">FigureGrid columns=&#123;3&#125;</p>
+          <div class="grid grid-cols-3 gap-2">
+            {[1,2,3].map(() => (
+              <div class="overflow-hidden rounded-lg bg-[color:var(--color-section-alt)] aspect-video flex items-center justify-center">
+                <span class="text-xs text-[color:var(--color-text-label)]">img</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="card-base p-6">
+        <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`import BackLink from
+  '../../components/content/BackLink.astro'
+import FigureGrid from
+  '../../components/content/FigureGrid.astro'
+
+<!-- Altijd laatste element in artikel -->
+<BackLink />
+
+<!-- Responsive afbeeldingsgrid -->
+<FigureGrid columns={2}>
+  <div class="overflow-hidden rounded-lg">
+    <img src="/img.png" alt="Beschrijving" />
+  </div>
+</FigureGrid>
+
+/* columns: 1 | 2 | 3 */`}</code></pre>
+      </div>
+    </div>
+  </ContentSection>
+
+  <!-- ─── 7. ANIMATIES ────────────────────────────────────────────────────── -->
+  <ContentSection size="992" sectionClass="section-alt">
+    <h2 id="animaties" class="mb-4">7. Animaties &amp; motion</h2>
+    <p class="leading-8">
+      Alle transities zijn 150–200ms met <code class="font-mono text-sm">ease-out</code> of <code class="font-mono text-sm">ease-in-out</code>.
+      Nooit <code class="font-mono text-sm">transition: all</code> — altijd specifieke properties benoemen.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+      {[
+        {
+          name: ".fade-in",
+          desc: "Scroll-triggered entry",
+          props: ["blur(6px) → 0", "scale(0.98) → 1", "translateY(50px) → 0", "opacity 0 → 1", "600ms ease-out"],
+        },
+        {
+          name: ".card-interactive:hover",
+          desc: "Kaartlift bij hover",
+          props: ["translateY(-0.125rem)", "shadow increase", "heading underline groeit", "200ms ease-out"],
+        },
+        {
+          name: ".btn-primary:hover",
+          desc: "Knop inversie",
+          props: ["bg: white", "text: primary blue", "border: 1px solid blue", "150ms ease-in-out"],
+        },
+        {
+          name: ".nav-shrink",
+          desc: "Nav krimpt bij scrollen",
+          props: ["trigger: scrollY > 30px", "class op nav element", "padding reduceert"],
+        },
+        {
+          name: "page loader",
+          desc: "Progress bar navigatie",
+          props: ["fixed top · 3px hoogte", "easing animatie", "MIN_VISIBLE: 850ms"],
+        },
+        {
+          name: "hero typing",
+          desc: "Roterende zinnen",
+          props: ["type: 62ms/char", "delete: 40ms/char", "pause: 2600ms", "blinking cursor"],
+        },
+      ].map(item => (
+        <div class="card-base p-5">
+          <p class="font-mono text-xs font-semibold text-[color:var(--color-primary)] mb-1">{item.name}</p>
+          <p class="text-sm font-semibold mb-3">{item.desc}</p>
+          <ul class="space-y-1">
+            {item.props.map(p => (
+              <li class="text-xs font-mono text-[color:var(--color-text-label)]">{p}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="card-base p-6 mt-6">
+      <p class="card-kicker mb-4">Code</p>
+      <pre class="text-xs leading-6 overflow-x-auto font-mono"><code>{`<!-- Scroll fade-in -->
+<div class="fade-in">
+  <!-- JS voegt .is-visible toe via IntersectionObserver -->
+</div>
+
+<!-- Interactieve kaart -->
+<a class="card-base card-interactive group" href="...">
+  <h3 class="card-title">...</h3>
+</a>
+
+/* Altijd specifieke properties in transition */
+transition: transform 200ms ease-out,
+            box-shadow 200ms ease-out;
+
+/* Nooit: transition: all */`}</code></pre>
+    </div>
+  </ContentSection>
+
 </BaseLayout>
