@@ -1,0 +1,91 @@
+---
+title: "Van prompt- naar context-engineering"
+slug: 2026-05-18-context-engineering
+date: 18 mei 2026
+readingTime: 5 min
+category: "Artificial Intelligence"
+categoryVariant: ai
+summary: "Een goede prompt is niet genoeg meer. De context die je inricht bepaalt steeds meer de kwaliteit van wat een AI voor je kan doen"
+heroImage: /featured-2026-05-18.png
+heroImageAlt: "Featured Blog - Context Engineering"
+seoTitle: "Van prompt- naar context-engineering | TaiGraphics"
+draft: false
+---
+
+import ContentSection from "../../components/content/ContentSection.astro";
+import BackLink from "../../components/content/BackLink.astro";
+
+<ContentSection size="800">
+  <h1 class="text-4xl mt-10 mb-6">Van prompt- naar context-engineering</h1>
+  <p class="card-kicker blog-meta-line"><span class="blog-tag blog-tag--ai">Artificial Intelligence</span> <span class="text-[color:var(--color-text-label)]">·</span> <img src="/heroicons/clock.svg" class="inline w-4 h-4 align-middle" alt="Leestijd" /> 5 minuten leestijd - 18 mei 2026</p>
+  <p class="leading-8 mt-2">Toen ik ben begonnen met de eerste AI-tools dacht ik dat betere prompts de oplossing waren. Scherpere formuleringen, meer detail in de instructie, een duidelijkere rol voor de AI. Maar bij elk nieuw gesprek moest ik opnieuw beginnen: zelfde uitleg, zelfde regels, zelfde achtergrond. Voor losse taken werkt dat prima. Voor een echt project niet.</p>
+</ContentSection>
+
+<ContentSection size="800">
+## Prompt engineering: de valkuil van de perfecte zin
+**Prompt engineering** draait om het optimaliseren van wat je de AI stuurt. Betere vragen stellen, de juiste rol toekennen, **chain-of-thought** toepassen. Het is een echt tijdrovend en ik heb er de afgelopen maanden flink van geleerd. Maar het heeft een plafond.
+
+Het probleem is dat je elke keer opnieuw begint. Geen geheugen, geen projectcontext, geen kennis van je werkwijze of eerdere beslissingen. Je bouwt de brug bij elke sessie opnieuw op. Dat werkt prima voor losse taken. Zodra je met een AI samenwerkt aan een echt project, met regels, patronen en een eigen tone of voice, schiet zelfs de meest geslepen prompt tekort.
+</ContentSection>
+
+<ContentSection size="800">
+## Context engineering: de omgeving is het werk
+**Context engineering** gaat een laag dieper. Het gaat niet over de boodschap die je stuurt, maar over de omgeving die je bouwt rondom de AI. Wie is de gebruiker? Wat zijn de regels? Welke tools heeft de AI beschikbaar? Wat weet hij al over het project?
+
+In de praktijk betekent dat: **system prompts** met duidelijke afspraken, geheugenbestanden die projectkennis vasthouden, en tools die de AI in staat stellen écht iets te doen, niet alleen te antwoorden. Denk aan een `CLAUDE.md`: een contextbestand dat een AI-agent vertelt hoe jouw codebase in elkaar zit, welke naamgevingsconventies er gelden en welke tone of voice je hanteert. Dat is geen prompt. Dat is architectuur.
+
+De kwaliteit van je output verschuift daarmee van hoe je iets vraagt naar hoe goed je de context hebt ingericht.
+</ContentSection>
+
+<ContentSection size="800">
+## Hoe ik dit zelf ben gaan toepassen
+De omschakeling werd concreet toen ik begon te werken met **MCP** (Model Context Protocol). In plaats van elke sessie opnieuw uit te leggen wat mijn Figma-project bevat, geef ik de AI structurele toegang tot mijn designtool. De context is er al. Ik hoef hem niet opnieuw op te bouwen.
+
+Datzelfde principe heb ik toegepast op dit portfolio. Ik heb een `CLAUDE.md` aangemaakt: een contextbestand dat mijn technische stack, componentstructuur, visuele stijl én schrijfstijl beschrijft. Een AI-agent die dit leest, begrijpt direct hoe het project werkt, zonder dat ik het elke keer opnieuw hoef uit te leggen. Eén keer goed inrichten, elke keer voordeel.
+
+Het voelt minder direct dan een scherpe prompt. Maar het werkt structureel beter. En dat verschil merk je pas echt als je het naast elkaar legt.
+
+<div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+  <div class="p-6">
+    <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai: zo maak je een context markdown</h3>
+    <p class="leading-8">Mijn aanpak voor het opzetten van een `CLAUDE.md` voor dit portfolio:</p>
+    <ul class="list-disc pl-6 mt-2 text-[color:var(--color-text-label)]">
+      <li class="pb-1">Laat een AI-agent eerst je projectstructuur scannen: mappenstructuur, configuratiebestanden, bestaande componenten en content</li>
+      <li class="pb-1">Beschrijf de technische stack en conventies: naamgeving, componentpatronen, CSS-tokens en wat de AI absoluut niet mag aanpassen</li>
+      <li class="pb-1">Voeg een tone of voice sectie toe met concrete voorbeelden uit bestaande content, zodat gegenereerde tekst aansluit op jouw schrijfstijl</li>
+      <li class="pb-1">Sluit af met een checklist die de AI doorloopt voordat een taak als klaar wordt beschouwd</li>
+    </ul>
+    <p class="leading-8 mt-3">Begin niet met een lege pagina. Laat de AI het bestand opstellen op basis van wat er al is, en verfijn daarna. Dat scheelt een hoop werk en levert meteen een bruikbaar resultaat.</p>
+  </div>
+</div>
+</ContentSection>
+
+<ContentSection size="800">
+## Designers zijn hier eigenlijk goed in uitgerust
+Als designer ben je gewend om systemen te ontwerpen: design systems, gebruikersstromen, informatiestructuren. Context engineering is eigenlijk hetzelfde, maar dan voor AI. Je ontwerpt de omgeving waarin een AI effectief kan werken.
+
+Dat vraagt een andere mindset dan "hoe formuleer ik dit slim?". De vraag wordt: wat moet een AI weten om consistent goed werk te leveren? Welke regels gelden er? Wat is de toon? Wat zijn de grenzen? Designers zijn, misschien meer dan wie dan ook, al gewend om dat soort vragen te beantwoorden. We doen het alleen nog te weinig voor onze AI-tools.
+
+<div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+  <div class="p-6">
+    <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai:</h3>
+    <p class="leading-8">Begin klein. Maak één contextbestand voor een project waar je regelmatig mee werkt. Beschrijf daarin:</p>
+    <ul class="list-disc pl-6 mt-2 text-[color:var(--color-text-label)]">
+      <li class="pb-1">Wat het project is en voor wie</li>
+      <li class="pb-1">Welke tone of voice en schrijfstijl je hanteert</li>
+      <li class="pb-1">Welke tools, stack en conventies er gelden</li>
+      <li class="pb-1">Wat de AI absoluut niet mag doen of veronderstellen</li>
+    </ul>
+    <p class="leading-8 mt-3">Geen perfecte structuur nodig om te beginnen. Je merkt al na één sessie dat je minder hoeft te herhalen en dat de output dichter bij wat je bedoelt zit.</p>
+  </div>
+</div>
+</ContentSection>
+
+<ContentSection size="800" containerClass="pb-10">
+## De prompt is het startpunt, niet het fundament
+Prompt engineering blijft waardevol. Maar het is het vertrekpunt, niet het fundament. Wie alleen leert beter te prompten, bouwt een sterker startblok. Wie de context goed inricht, bouwt een betere baan.
+
+De verschuiving van prompt naar context is subtiel, maar de impact is groot. En het mooie is: designers denken al in systemen. We hoeven alleen te leren dat AI-tools ook systemen zijn die je kunt, en eigenlijk moet, inrichten.
+
+<BackLink />
+</ContentSection>
