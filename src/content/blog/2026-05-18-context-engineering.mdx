@@ -39,9 +39,11 @@ De kwaliteit van je output verschuift daarmee van hoe je iets vraagt naar hoe go
 
 <ContentSection size="800">
 ## Hoe ik dit zelf ben gaan toepassen
+Voor mij was dit portfolio de perfecte testomgeving. Ik ken het project door en door, de stack is overzichtelijk en ik weet precies wat ik wil. Een bekende context dus, waarmee ik goed kon beoordelen of de AI-output ook echt klopte. Als tool koos ik voor **Claude**, omdat ik daar toch al mee werkte en het een goede ondersteuning biedt voor dit soort projectgebaseerde samenwerking.
+
 De omschakeling werd concreet toen ik begon te werken met **MCP** (Model Context Protocol). In plaats van elke sessie opnieuw uit te leggen wat mijn Figma-project bevat, geef ik de AI structurele toegang tot mijn designtool. De context is er al. Ik hoef hem niet opnieuw op te bouwen.
 
-Datzelfde principe heb ik toegepast op dit portfolio. Ik heb een `CLAUDE.md` aangemaakt: een contextbestand dat mijn technische stack, componentstructuur, visuele stijl én schrijfstijl beschrijft. Een AI-agent die dit leest, begrijpt direct hoe het project werkt, zonder dat ik het elke keer opnieuw hoef uit te leggen. Eén keer goed inrichten, elke keer voordeel.
+Datzelfde principe heb ik toegepast op dit portfolio. Ik heb Claude gevraagd om op basis van de bestaande codebase een `CLAUDE.md` op te stellen: een contextbestand dat mijn technische stack, componentstructuur, visuele stijl én schrijfstijl beschrijft. Een AI-agent die dit leest, begrijpt direct hoe het project werkt, zonder dat ik het elke keer opnieuw hoef uit te leggen. Eén keer goed inrichten, elke keer voordeel.
 
 Het voelt minder direct dan een scherpe prompt. Maar het werkt structureel beter. En dat verschil merk je pas echt als je het naast elkaar legt.
 
@@ -55,6 +57,24 @@ Het voelt minder direct dan een scherpe prompt. Maar het werkt structureel beter
       <li class="pb-1">Voeg een tone of voice sectie toe met concrete voorbeelden uit bestaande content, zodat gegenereerde tekst aansluit op jouw schrijfstijl</li>
       <li class="pb-1">Sluit af met een checklist die de AI doorloopt voordat een taak als klaar wordt beschouwd</li>
     </ul>
+    <p class="leading-8 mt-3">Een fragment uit mijn eigen `CLAUDE.md` als voorbeeld:</p>
+    <pre class="mt-3 mb-1 p-4 rounded-lg text-xs leading-6 overflow-x-auto" style="background:#0d0f2d; color:#c4b8f0; font-family: monospace;">
+{`## Tone of Voice
+- Schrijf in het Nederlands, informeel ("je"/"jij"), nooit "u"
+- Geen em-dashes (—), gebruik een komma of dubbele punt
+- Geen passieve zinnen — altijd actief en persoonlijk
+- Sluit secties af met een korte, zelfstandige conclusiezin
+
+## Wat de AI niet mag doen
+- Geen React of andere UI-frameworks installeren
+- Geen content in het Engels — alle tekst is Nederlands
+- Nooit npm run build overslaan voor een taak als klaar wordt gemeld
+
+## Checklist voor elke taak
+- [ ] npm run build slaagt zonder fouten
+- [ ] Alle tekst is in het Nederlands
+- [ ] Afbeeldingen staan in /public`}
+    </pre>
     <p class="leading-8 mt-3">Begin niet met een lege pagina. Laat de AI het bestand opstellen op basis van wat er al is, en verfijn daarna. Dat scheelt een hoop werk en levert meteen een bruikbaar resultaat.</p>
   </div>
 </div>
