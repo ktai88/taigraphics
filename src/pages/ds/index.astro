@@ -167,8 +167,7 @@ body {
         <p class="card-kicker">Containerbreedtes</p>
         {[
           ["page-container-800", "800px",  "Blogtekst, prose content"],
-          ["page-container-992", "992px",  "Listings, brede secties"],
-          ["page-container-996", "992px",  "Visuals, galerijen"],
+          ["page-container-992", "992px",  "Listings, brede secties, galerijen"],
         ].map(([cls, width, use]) => (
           <div>
             <div class="h-7 rounded bg-[color:var(--color-primary)] opacity-20 mb-2" style={`max-width:${width}`}></div>
@@ -416,7 +415,7 @@ box-shadow:    0 1px 3px rgba(15,23,42,0.08);
 </ContentSection>
 
 /* Props */
-size:           "800" | "992" | "996"
+size:           "800" | "992"
 sectionClass:   nooit gebruiken in blog
 containerClass: optioneel, bv. "pb-10"`}</code></pre>
       </div>
