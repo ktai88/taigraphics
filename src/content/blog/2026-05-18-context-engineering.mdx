@@ -18,12 +18,18 @@ import BackLink from "../../components/content/BackLink.astro";
 <ContentSection size="800">
   <h1 class="text-4xl mt-10 mb-6">Van prompt- naar context-engineering</h1>
   <p class="card-kicker blog-meta-line"><span class="blog-tag blog-tag--ai">Artificial Intelligence</span> <span class="text-[color:var(--color-text-label)]">·</span> <img src="/heroicons/clock.svg" class="inline w-4 h-4 align-middle" alt="Leestijd" /> 5 minuten leestijd - 18 mei 2026</p>
-  <p class="leading-8 mt-2">Toen ik ben begonnen met de eerste AI-tools dacht ik dat betere prompts de oplossing waren. Scherpere formuleringen, meer detail in de instructie, een duidelijkere rol voor de AI. Maar bij elk nieuw gesprek moest ik opnieuw beginnen: zelfde uitleg, zelfde regels, zelfde achtergrond. Voor losse taken werkt dat prima. Voor een groter project niet/minder effectief.</p>
+  <p class="leading-8 mt-2">Toen ik begon met de eerste AI-tools dacht ik dat betere prompts de oplossing waren. Scherpere formuleringen, meer detail in de instructie, een duidelijkere rol voor de AI. Maar bij elk nieuw gesprek moest ik opnieuw beginnen: zelfde uitleg, zelfde regels, zelfde achtergrond. Voor losse taken werkt dat prima. Voor een groter project werkt dat minder goed.</p>
 </ContentSection>
 
 <ContentSection size="800">
-## Prompt engineering: de valkuil van de perfecte zin
-**Prompt engineering** draait om het optimaliseren van wat je de AI stuurt. Betere vragen stellen, de juiste rol toekennen, **chain-of-thought** toepassen. Het is een echt tijdrovend en ik heb er de afgelopen maanden flink van geleerd.
+<div class="grid grid-cols-[100%] gap-2 card-base card-stack">
+  <img src="/infographic-context-engineering.png" class="w-full" alt="IJsberg-infographic: prompt engineering (boven de waterlijn) versus context engineering (onder de waterlijn) met de vier lagen Focus, Scope, Flexibiliteit en Technieken" />
+</div>
+</ContentSection>
+
+<ContentSection size="800">
+## Prompt engineering: de valkuil van een perfecte zin
+**Prompt engineering** draait om het optimaliseren van wat je de AI stuurt. Betere vragen stellen, de juiste rol toekennen, **chain-of-thought** toepassen. Het is echt tijdrovend en ik heb er de afgelopen maanden flink van geleerd.
 
 Het probleem is dat je elke keer opnieuw begint. Geen geheugen, geen projectcontext, geen kennis van je werkwijze of eerdere beslissingen. Je bouwt de brug bij elke sessie opnieuw op. Dat werkt prima voor losse taken. Zodra je met een AI samenwerkt aan een echt project, met regels, patronen en een eigen tone of voice, schiet zelfs de meest geslepen prompt tekort.
 </ContentSection>
@@ -32,9 +38,53 @@ Het probleem is dat je elke keer opnieuw begint. Geen geheugen, geen projectcont
 ## Context engineering: de omgeving is het werk
 **Context engineering** gaat een laag dieper. Het gaat niet over de boodschap die je stuurt, maar over de omgeving die je bouwt rondom de AI. Wie is de gebruiker? Wat zijn de regels? Welke tools heeft de AI beschikbaar? Wat weet hij al over het project?
 
-In de praktijk betekent dat: **system prompts** met duidelijke afspraken, geheugenbestanden die projectkennis vasthouden, en tools die de AI in staat stellen écht iets te doen, niet alleen te antwoorden. Denk aan een `CLAUDE.md`: een contextbestand dat een AI-agent vertelt hoe jouw codebase in elkaar zit, welke naamgevingsconventies er gelden en welke tone of voice je hanteert. Dat is geen prompt. Dat is architectuur.
+In de praktijk betekent dat: **system prompts** met duidelijke afspraken, geheugenbestanden die projectkennis vasthouden, en tools die de AI in staat stellen écht iets te doen, niet alleen te antwoorden. Denk aan een `CLAUDE.md`: een contextbestand dat een AI-agent vertelt hoe jouw codebase in elkaar zit, welke naamgevingsconventies er gelden en welke tone of voice je hanteert.
 
 De kwaliteit van je output verschuift daarmee van hoe je iets vraagt naar hoe goed je de context hebt ingericht.
+
+<div class="card-base overflow-x-auto mt-6">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Kenmerk</th>
+        <th>Prompt engineering</th>
+        <th>Context engineering</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Focus</td>
+        <td>Input formulering</td>
+        <td>Systeemniveau design</td>
+      </tr>
+      <tr>
+        <td>Scope</td>
+        <td>Eenmalige interactie</td>
+        <td>Doorlopend, meerdere sessies</td>
+      </tr>
+      <tr>
+        <td>Flexibiliteit</td>
+        <td>Statisch</td>
+        <td>Dynamisch &amp; adaptief</td>
+      </tr>
+      <tr>
+        <td>Technieken</td>
+        <td>Tekst-prompts, few-shot voorbeelden</td>
+        <td>Tool-integratie, geheugen, orkestratie</td>
+      </tr>
+      <tr>
+        <td>Use cases</td>
+        <td>Tekstgeneratie, Q&amp;A</td>
+        <td>Projectgebaseerde samenwerking, agents</td>
+      </tr>
+      <tr>
+        <td>ROI</td>
+        <td>Hoge initiële inspanning</td>
+        <td>Hogere schaalbaarheid op termijn</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </ContentSection>
 
 <ContentSection size="800">
@@ -43,16 +93,14 @@ Voor mij was mijn portfolio de perfecte testomgeving. Ik ken het project door en
 
 De omschakeling werd concreet toen ik begon te werken met **MCP** (Model Context Protocol). In plaats van elke sessie opnieuw uit te leggen wat mijn Figma-project bevat, geef ik de AI structurele toegang tot mijn designtool. De context is er al. Ik hoef hem niet opnieuw op te bouwen.
 
-Datzelfde principe heb ik toegepast op dit portfolio. Ik heb Claude gevraagd om op basis van de bestaande codebase een `CLAUDE.md` op te stellen: een contextbestand dat mijn technische stack, componentstructuur, visuele stijl én schrijfstijl beschrijft. Een AI-agent die dit leest, begrijpt direct hoe het project werkt, zonder dat ik het elke keer opnieuw hoef uit te leggen. Eén keer goed inrichten, elke keer voordeel.
+Datzelfde principe heb ik toegepast op mijn portfolio. Ik heb Claude gevraagd om op basis van de bestaande codebase een `CLAUDE.md` op te stellen: een contextbestand dat mijn technische stack, componentstructuur, visuele stijl én schrijfstijl beschrijft. Een AI-agent die dit leest, begrijpt direct hoe het project werkt, zonder dat ik het elke keer opnieuw hoef uit te leggen. Eén keer goed inrichten, elke keer voordeel.
 
-Het voelt minder direct dan een scherpe prompt. Maar het werkt structureel beter. En dat verschil merk je pas echt als je het naast elkaar legt.
-
-Een concreet resultaat van die aanpak: de <a href="/ds/">Design System documentatie</a> van mijn portfolio, gegenereerd op basis van diezelfde context. Work in progress, maar al goed voor inspiratie.
+Het voelt minder direct dan een scherpe prompt. Maar het werkt structureel beter. En dat verschil merk je pas echt als je het naast elkaar legt. Een concreet resultaat van die aanpak: de <a href="/ds/">Design System documentatie</a> van mijn portfolio, gegenereerd op basis van diezelfde context ter inspiratie.
 
 <div class="grid grid-cols-[100%] gap-2 card-base card-stack">
   <div class="p-6">
     <h3 class="text-xl pt-1 pb-2 inline-block border-bottom-gradient">Tip van Tai: zo maak je een context markdown</h3>
-    <p class="leading-8">Mijn aanpak voor het opzetten van een `CLAUDE.md` voor dit portfolio:</p>
+    <p class="leading-8">Mijn aanpak voor het opzetten van een `CLAUDE.md` voor mijn portfolio:</p>
     <ul class="list-disc pl-6 mt-2 text-[color:var(--color-text-label)]">
       <li class="pb-1">Laat een AI-agent eerst je projectstructuur scannen: mappenstructuur, configuratiebestanden, bestaande componenten en content</li>
       <li class="pb-1">Beschrijf de technische stack en conventies: naamgeving, componentpatronen, CSS-tokens en wat de AI absoluut niet mag aanpassen</li>
@@ -64,7 +112,7 @@ Een concreet resultaat van die aanpak: de <a href="/ds/">Design System documenta
 {`## Tone of Voice
 - Schrijf in het Nederlands, informeel ("je"/"jij"), nooit "u"
 - Geen em-dashes (—), gebruik een komma of dubbele punt
-- Geen passieve zinnen — altijd actief en persoonlijk
+- Geen passieve zinnen, altijd actief en persoonlijk
 - Sluit secties af met een korte, zelfstandige conclusiezin
 
 ## Wat de AI niet mag doen
@@ -83,7 +131,7 @@ Een concreet resultaat van die aanpak: de <a href="/ds/">Design System documenta
 </ContentSection>
 
 <ContentSection size="800">
-## Designers zijn hier eigenlijk goed in uitgerust
+## Designers zijn hier eigenlijk al goed voor uitgerust
 Als designer ben je gewend om systemen te ontwerpen: design systems, gebruikersstromen, informatiestructuren. Context engineering is eigenlijk hetzelfde, maar dan voor AI. Je ontwerpt de omgeving waarin een AI effectief kan werken.
 
 Dat vraagt een andere mindset dan "hoe formuleer ik dit slim?". De vraag wordt: wat moet een AI weten om consistent goed werk te leveren? Welke regels gelden er? Wat is de toon? Wat zijn de grenzen? Designers zijn, misschien meer dan wie dan ook, al gewend om dat soort vragen te beantwoorden. We doen het alleen nog te weinig voor onze AI-tools.

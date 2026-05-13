@@ -532,6 +532,47 @@
     background: var(--color-media-placeholder);
   }
 
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .comparison-table thead tr {
+    border-bottom: 2px solid var(--color-primary);
+  }
+
+  .comparison-table th {
+    text-align: left;
+    font-family: var(--font-aeonik);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-label);
+    white-space: nowrap;
+  }
+
+  .comparison-table th:first-child,
+  .comparison-table td:first-child {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1.25rem;
+  }
+
+  .comparison-table td {
+    padding: 0.75rem 1rem;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-card-border);
+    font-size: 0.9375rem;
+  }
+
+
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
   .text-primary { color: var(--color-primary); }
   .text-subtle  { color: var(--color-text-subtle); }
   .text-label   { color: var(--color-text-label); }
