@@ -914,6 +914,12 @@ html.dark #main-nav a,
 html.dark #main-nav ul {
   color: #e8eaf0;
 }
+
+/* Active nav item: restore primary blue so it stands out against the light nav text */
+html.dark #main-nav .nav-link[aria-current="page"],
+html.dark #main-nav .nav-link.nav-link--current-section {
+  color: var(--color-primary);
+}
 html.dark #main-nav img[alt="Logo"] {
   filter: brightness(0) invert(1);
 }
