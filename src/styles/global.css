@@ -689,6 +689,16 @@
   transform: translateY(0) scale(1);
 }
 
+/* WCAG 1.4.3 / prefers-reduced-motion: skip opacity + blur animation entirely */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Hero typing animation: rotating phrases + blinking cursor */
 #hero-typing-text {
   margin-left: 0.05em;
@@ -918,6 +928,11 @@ html.dark .card-interactive:hover {
 }
 html.dark #main-nav.nav-shrink {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.36);
+}
+
+/* Showcase image wrappers: bg-white is a Tailwind utility and beats layered CSS */
+html.dark .showcase-content .bg-white {
+  background-color: var(--color-card-bg);
 }
 
 /* Blog tag dark mode — swap dark text tones for lighter versions */
