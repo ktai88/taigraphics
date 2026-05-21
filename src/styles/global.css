@@ -919,3 +919,34 @@ html.dark .card-interactive:hover {
 html.dark #main-nav.nav-shrink {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.36);
 }
+
+/* Blog tag dark mode — swap dark text tones for lighter versions */
+html.dark .blog-tag--tooling {
+  color: #5bc8f5;
+  background: rgba(0, 173, 238, 0.18);
+  border-color: rgba(0, 173, 238, 0.45);
+}
+
+html.dark .blog-tag--ai {
+  color: #d580e8;
+  background: rgba(170, 51, 187, 0.18);
+  border-color: rgba(170, 51, 187, 0.45);
+}
+
+html.dark .blog-tag--training {
+  color: #ffb060;
+  background: rgba(255, 153, 51, 0.18);
+  border-color: rgba(255, 153, 51, 0.45);
+}
+
+html.dark .blog-tag--design-system {
+  color: #66cccc;
+  background: rgba(102, 170, 170, 0.20);
+  border-color: rgba(102, 170, 170, 0.50);
+}
+
+html.dark .blog-tag--design {
+  color: #f080a8;
+  background: rgba(224, 69, 123, 0.18);
+  border-color: rgba(224, 69, 123, 0.45);
+}
