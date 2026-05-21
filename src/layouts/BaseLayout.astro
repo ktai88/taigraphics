@@ -23,6 +23,15 @@ const {
     <Meta />
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script is:inline>
+      // Apply dark class before first paint to prevent flash
+      try {
+        const stored = localStorage.getItem('tg_theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div class="page-loader" id="page-loader" aria-hidden="true">
