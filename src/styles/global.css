@@ -417,6 +417,8 @@
       box-shadow 200ms ease-out;
   }
 
+  /* Animated underline via ::after — keeps background-image off the heading
+     so WCAG contrast tools don't compute the blue gradient as the background. */
   .card-interactive h1,
   .card-interactive h2,
   .card-interactive h3,
@@ -424,13 +426,24 @@
   .card-interactive h5,
   .card-interactive h6 {
     width: fit-content;
-    background-image: linear-gradient(var(--color-primary), var(--color-primary));
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: 0 2px;
-    transition:
-      color 200ms ease-out,
-      background-size 200ms ease-out;
+    position: relative;
+    transition: color 200ms ease-out;
+  }
+
+  .card-interactive h1::after,
+  .card-interactive h2::after,
+  .card-interactive h3::after,
+  .card-interactive h4::after,
+  .card-interactive h5::after,
+  .card-interactive h6::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 200ms ease-out;
   }
 
   .card-interactive:hover {
@@ -445,7 +458,15 @@
   .card-interactive:hover h5,
   .card-interactive:hover h6 {
     color: var(--color-text-strong);
-    background-size: 100% 2px;
+  }
+
+  .card-interactive:hover h1::after,
+  .card-interactive:hover h2::after,
+  .card-interactive:hover h3::after,
+  .card-interactive:hover h4::after,
+  .card-interactive:hover h5::after,
+  .card-interactive:hover h6::after {
+    width: 100%;
   }
 
   /* Card image: dark overlay + "Lees meer" on hover */
