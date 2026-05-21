@@ -27,7 +27,7 @@ const {
       // Apply dark class before first paint to prevent flash
       try {
         const stored = localStorage.getItem('tg_theme');
-        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (stored === 'dark') {
           document.documentElement.classList.add('dark');
         }
       } catch (e) {}
