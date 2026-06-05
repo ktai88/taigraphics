@@ -1016,16 +1016,13 @@ html.dark .blog-tag--design {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  opacity: 0.6;
   transition:
-    opacity 150ms ease-in-out,
     transform 150ms ease-in-out,
     background 150ms ease-in-out,
     color 150ms ease-in-out;
 }
 
 .wcag-badge:hover {
-  opacity: 1;
   transform: translateY(-1px);
   background: var(--color-primary);
   color: #ffffff;
