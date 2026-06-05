@@ -4,6 +4,7 @@ import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 import FadeIn from "../components/FadeIn.astro";
 import Meta from "../components/Meta.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
 
 interface Props {
   title?: string;
@@ -46,7 +47,8 @@ const {
     </main>
     <Footer />
     {includeFadeIn && <FadeIn />}
-    {/* <script is:inline src="https://fluister.dev/widget.js" data-project="fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a" data-style="minimal" data-border-radius="50px" data-icon="none" data-color="#100B7E" data-hover-color="#2B7FFF"></script> */}
+    <ScrollToTop />
+    <script is:inline src="https://fluister.dev/widget.js" data-project="fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a" data-style="minimal" data-border-radius="50px" data-icon="none" data-color="#100B7E" data-hover-color="#2B7FFF"></script>
     <script is:inline>
       const pageLoader = document.getElementById("page-loader");
       const pageLoaderBar = document.getElementById("page-loader-bar");

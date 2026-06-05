@@ -1,0 +1,72 @@
+---
+// ScrollToTop.astro — Fixed button that appears after scrolling 300px.
+// Positions itself to the left of the Fluister feedback button when present.
+---
+
+<button
+  id="scroll-to-top"
+  class="scroll-to-top"
+  aria-label="Terug naar boven"
+  aria-hidden="true"
+  tabindex="-1"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <polyline points="18 15 12 9 6 15"/>
+  </svg>
+</button>
+
+<script>
+  const btn = document.getElementById('scroll-to-top') as HTMLElement | null;
+  if (btn) {
+    const THRESHOLD = 300;
+    const GAP = 8; // px between the two buttons
+
+    // Sit flush to the left of the Fluister trigger button.
+    // Fluister is fixed at right: 24px, so we offset by its width + gap.
+    const positionNextToFluister = (): boolean => {
+      const fluister = document.getElementById('fluister-trigger');
+      if (!fluister) return false;
+      const fluisterWidth = fluister.offsetWidth;
+      const fluisterHeight = fluister.offsetHeight;
+      if (fluisterWidth === 0 || fluisterHeight === 0) return false; // not painted yet
+      btn.style.right = `${24 + fluisterWidth + GAP}px`;
+      btn.style.bottom = '24px';
+      btn.style.width = `${fluisterHeight}px`;
+      btn.style.height = `${fluisterHeight}px`;
+      return true;
+    };
+
+    // Try immediately; if Fluister hasn't mounted yet, watch the DOM.
+    if (!positionNextToFluister()) {
+      const observer = new MutationObserver(() => {
+        if (positionNextToFluister()) observer.disconnect();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Also retry once after a short delay in case Fluister inserts after
+      // the observer is already attached but before the first callback fires.
+      window.setTimeout(() => positionNextToFluister(), 1500);
+    }
+
+    const syncVisibility = () => {
+      const visible = window.scrollY > THRESHOLD;
+      btn.classList.toggle('is-visible', visible);
+      btn.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      btn.tabIndex = visible ? 0 : -1;
+    };
+
+    window.addEventListener('scroll', syncVisibility, { passive: true });
+    syncVisibility();
+
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    btn.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+</script>

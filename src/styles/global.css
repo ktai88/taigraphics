@@ -1001,3 +1001,60 @@ html.dark .blog-tag--design {
   background: rgba(224, 69, 123, 0.18);
   border-color: rgba(224, 69, 123, 0.45);
 }
+
+/* ─── Scroll to top ───────────────────────────────────────────────────── */
+.scroll-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: var(--color-accent-dark);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(0.75rem) scale(0.85);
+  pointer-events: none;
+  transition:
+    opacity 220ms ease-out,
+    transform 220ms ease-out,
+    background 150ms ease-in-out;
+}
+
+.scroll-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.scroll-to-top:hover {
+  background: var(--color-primary);
+}
+
+.scroll-to-top:focus-visible {
+  outline: 2px solid #ff9933;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-to-top {
+    transition: opacity 120ms ease-out;
+    transform: none;
+  }
+  .scroll-to-top.is-visible {
+    transform: none;
+  }
+}
+
+html.dark .scroll-to-top {
+  background: var(--color-primary);
+}
+html.dark .scroll-to-top:hover {
+  background: var(--color-accent-hover);
+}
