@@ -117,10 +117,10 @@ const { active } = Astro.props as Props;
         isDark ? 'Schakel naar lichte modus' : 'Schakel naar donkere modus'
       );
     }
-    // aria-hidden only on the VISIBLE icon (decorative inside a labelled button).
-    // The CSS-hidden icon already disappears from the AT via display:none — no aria-hidden needed there.
-    iconMoon?.setAttribute('aria-hidden', isDark ? 'false' : 'true');
-    iconSun?.setAttribute('aria-hidden',  isDark ? 'true'  : 'false');
+    // Both icons are purely decorative inside a labelled button — always aria-hidden="true".
+    // The button's aria-label is the sole accessible name; neither SVG needs to be exposed to AT.
+    iconMoon?.setAttribute('aria-hidden', 'true');
+    iconSun?.setAttribute('aria-hidden',  'true');
   };
 
   if (themeBtn) {

@@ -1058,3 +1058,19 @@ html.dark .scroll-to-top {
 html.dark .scroll-to-top:hover {
   background: var(--color-accent-hover);
 }
+
+/* ─── Fluister feedback widget — contrast fix ─────────────────────────── */
+/* data-hover-color="#2B7FFF" gives only 3.7:1 with white text (fails AA).
+   Override hover to use primary blue (#0000ff = 8.6:1 with white, passes AAA). */
+#fluister-trigger {
+  background: var(--color-accent-dark) !important;
+  color: #ffffff !important;
+}
+#fluister-trigger:hover,
+#fluister-trigger:focus-visible {
+  background: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+#fluister-trigger span {
+  color: inherit !important;
+}
