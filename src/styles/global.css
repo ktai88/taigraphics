@@ -544,7 +544,7 @@
 
   .footer-social-icon {
     font-size: 2rem;
-    opacity: 0.6;
+    opacity: 0.75;
     transition:
       opacity 150ms ease-in-out,
       transform 150ms ease-in-out;
