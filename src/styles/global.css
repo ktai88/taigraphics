@@ -599,6 +599,12 @@
     border-color: rgba(224, 69, 123, 0.35);
   }
 
+    .blog-tag--workflow {
+    color: #3a7070;
+    background: rgba(102, 170, 170, 0.15);
+    border-color: rgba(102, 170, 170, 0.45);
+  }
+
   .icon-brand {
     color: var(--color-primary);
   }

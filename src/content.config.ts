@@ -9,7 +9,7 @@ const blog = defineCollection({
     date: z.string(),
     readingTime: z.string(),
     category: z.string(),
-    categoryVariant: z.enum(["tooling", "ai", "training", "design-system", "design"]),
+    categoryVariant: z.enum(["tooling", "ai", "training", "design-system", "design", "workflow"]),
     summary: z.string(),
     heroImage: z.string(),
     heroImageAlt: z.string(),
