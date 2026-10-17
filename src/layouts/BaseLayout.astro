@@ -24,6 +24,12 @@ const {
     <Meta />
     <title>{title}</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <!-- Font preconnects + non-blocking stylesheets (replaces CSS @import waterfall) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://assets.soracom.io" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://assets.soracom.io/fonts/aeonik/Aeonik.css" />
     <script is:inline>
       // Apply dark class before first paint to prevent flash
       try {
@@ -48,7 +54,7 @@ const {
     <Footer />
     {includeFadeIn && <FadeIn />}
     <ScrollToTop />
-    <script is:inline src="https://fluister.dev/widget.js" data-project="fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a" data-style="minimal" data-border-radius="50px" data-icon="none" data-color="#100B7E" data-hover-color="#2B7FFF"></script>
+    {/* <script is:inline defer src="https://fluister.dev/widget.js" data-project="fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a" data-style="minimal" data-border-radius="50px" data-icon="none" data-color="#100B7E" data-hover-color="#2B7FFF"></script> */}
     <script is:inline>
       const pageLoader = document.getElementById("page-loader");
       const pageLoaderBar = document.getElementById("page-loader-bar");

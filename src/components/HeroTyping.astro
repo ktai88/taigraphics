@@ -3,7 +3,7 @@
 
 <h2 class="text-sm md:text-2xl min-h-[2rem] flex flex-wrap items-baseline">
   <span class="hero-typing-prefix">Gebruiksvriendelijke ervaringen die echt&nbsp;</span>
-  <em><span id="hero-typing-text" class="font-semibold"></span></em>
+  <em><span id="hero-typing-text" class="font-semibold">impact maken.</span></em>
   <span id="hero-typing-cursor" class="hero-typing-cursor" aria-hidden="true">|</span>
 </h2>
 
@@ -20,12 +20,14 @@
   const el = document.getElementById('hero-typing-text');
   const cursor = document.getElementById('hero-typing-cursor');
   if (el && cursor) {
+    // Start at the end of the first phrase — it's already rendered in HTML,
+    // so skip straight to the pause before deleting.
     let phraseIndex = 0;
-    let charIndex = 0;
+    let charIndex = phrases[0].length;
     let isDeleting = false;
     const typeMs = 62;
     const deleteMs = 40;
-    const pauseAfterType = 2600;
+    const pauseAfterType = 1800;
     const pauseAfterDelete = 400;
 
     function tick() {
@@ -51,6 +53,7 @@
       }
       setTimeout(tick, typeMs);
     }
-    setTimeout(tick, 400);
+    // Skip the initial blank delay — pause briefly then start deleting
+    setTimeout(() => { isDeleting = true; tick(); }, pauseAfterType);
   }
 </script>
