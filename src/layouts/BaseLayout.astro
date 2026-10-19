@@ -54,7 +54,21 @@ const {
     <Footer />
     {includeFadeIn && <FadeIn />}
     <ScrollToTop />
-    {/* <script is:inline defer src="https://fluister.dev/widget.js" data-project="fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a" data-style="minimal" data-border-radius="50px" data-icon="none" data-color="#100B7E" data-hover-color="#2B7FFF"></script> */}
+    <script is:inline>
+      (function () {
+        var s = document.createElement('script');
+        s.src = 'https://fluister.dev/widget.js';
+        s.defer = true;
+        s.dataset.project = 'fac1deb62c3e50bbae40e632f87120c372b60d0f3bfd5d3a';
+        s.dataset.style = 'minimal';
+        s.dataset.borderRadius = '50px';
+        s.dataset.icon = 'none';
+        s.dataset.color = '#100B7E';
+        s.dataset.hoverColor = '#2B7FFF';
+        s.onerror = function () { /* script unavailable — skip silently */ };
+        document.body.appendChild(s);
+      })();
+    </script>
     <script is:inline>
       const pageLoader = document.getElementById("page-loader");
       const pageLoaderBar = document.getElementById("page-loader-bar");
