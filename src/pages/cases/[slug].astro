@@ -3,7 +3,8 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
-  const caseEntries = await getCollection("cases", ({ data }) => data.draft !== true);
+  // Keep draft cases routable via direct URL; homepage/showcase handles visibility.
+  const caseEntries = await getCollection("cases");
   return caseEntries.map((entry) => ({
     params: { slug: entry.data.slug },
     props: { entry },
