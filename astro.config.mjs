@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import keystatic from "@keystatic/astro";
 import tailwindcss from "@tailwindcss/vite";
 import { createLogger } from "vite";
 
@@ -24,7 +25,12 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    // Keystatic only active in dev mode — not included in the static build.
+    ...(process.env.NODE_ENV !== 'production' ? [keystatic()] : []),
+  ],
   vite: {
     customLogger: viteLogger,
     plugins: [tailwindcss()],
